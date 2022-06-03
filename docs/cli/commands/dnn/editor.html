@@ -1,0 +1,1276 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/cli/commands/dnn/editor.html">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>Model Editing - SoftNeuro&reg; v5.1.0 CLI Tool Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-editing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.1.0 CLI Tool Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Editing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="editor.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="editor.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link md-tabs__link--active">
+        CLI
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.1.0 CLI Tool Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CLI Command Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI Command Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-list.html" class="md-nav__link">
+        SoftNeuro command list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/general.html" class="md-nav__link">
+        General Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        DNN Operation Commands
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DNN Operation Commands" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          DNN Operation Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="referer.html" class="md-nav__link">
+        Model Information
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Model Editing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="editor.html" class="md-nav__link md-nav__link--active">
+        Model Editing
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    extract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archive" class="md-nav__link">
+    archive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refine" class="md-nav__link">
+    refine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compress" class="md-nav__link">
+    compress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cipher" class="md-nav__link">
+    cipher
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calibrate" class="md-nav__link">
+    calibrate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decompose" class="md-nav__link">
+    decompose
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="converter.html" class="md-nav__link">
+        Model Conversion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prof-tune/prof-tune.html" class="md-nav__link">
+        Run and Profiling Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer-routine/layer-routine.html" class="md-nav__link">
+        Layer/Routine Operation Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy.html" class="md-nav__link">
+        numpy Tensor Operation Commands
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routine-descriptor.html" class="md-nav__link">
+        Routine Descriptor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    extract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archive" class="md-nav__link">
+    archive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refine" class="md-nav__link">
+    refine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compress" class="md-nav__link">
+    compress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cipher" class="md-nav__link">
+    cipher
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calibrate" class="md-nav__link">
+    calibrate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decompose" class="md-nav__link">
+    decompose
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="model-editing">Model Editing<a class="headerlink" href="#model-editing" title="Permanent link">&para;</a></h1>
+<p>Commands for editing DNN file contents.</p>
+<h2 id="extract"><strong>extract</strong><a class="headerlink" href="#extract" title="Permanent link">&para;</a></h2>
+<p>Extract weights and model architecture information from a DNN file into JSON and numpy files.</p>
+<p><u><strong>Usage</strong></u>  </p>
+<pre><code>usage: softneuro extract [--help] DNN OUTDIR
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN</td>
+<td>DNN file to be extracted.</td>
+</tr>
+<tr>
+<td>OUTDIR</td>
+<td>Output directory where the data will be extracted to.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+Running this command will create, in the <code>vgg16_extract</code> folder, <code>model.json</code>, <code>weights.json</code> and a directory containing numpy format files with weights data
+in a <code>weights</code> directory.<br />
+<em>※There's no terminal output</em></p>
+<pre><code>$ softneuro extract vgg16.dnn vgg16_extract
+$ ls vgg16_extract
+model.json  weights  weights.json
+</code></pre>
+<h2 id="archive"><strong>archive</strong><a class="headerlink" href="#archive" title="Permanent link">&para;</a></h2>
+<p>Pack the files in the same format as what the <a href="editor.html#extract">extract</a> command outputs into a DNN model file.</p>
+<p><u><strong>Usage</strong></u>  </p>
+<pre><code>usage: softneuro archive [--help] SRCDIR DNN
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SRCDIR</td>
+<td>Directory with contents in the same format as the <a href="editor.html#extract">extract</a> command output.</td>
+</tr>
+<tr>
+<td>DNN</td>
+<td>DNN file to be outputed.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+This command will generate a vgg16_archive.dnn file.<br />
+<em>※There's no terminal output</em></p>
+<pre><code>$ softneuro archive vgg16_extract vgg16_archive.dnn
+$ ls
+vgg16_extract vgg16_archive.dnn
+</code></pre>
+<h2 id="refine"><strong>refine</strong><a class="headerlink" href="#refine" title="Permanent link">&para;</a></h2>
+<p>Refine a DNN file for faster inference times.
+Generally, the processing used for optimizations is the same as that for converting a model to DNN format. When optimization has not been applied during model conversion, it can be performed later using <code>refine</code>.</p>
+<p><u><strong>Usage</strong></u>  </p>
+<pre><code>usage: softneuro refine [--batch-norm-to-madd] [--fuse-dropout] [--fuse-transpose] [--fuse-madd]
+                          [--fuse-relu] [--fuse-padding] [--swap-act-pool]
+                          [--strip-constant] [--strip-immutable] [--strip-layer] [--strip-net]
+                          [--norm-weight] [--dedup-weight] [--strip-weight][--help]
+                          INPUT OUTPUT
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>DNN file to be refined.</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Refined DNN file output.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u><br />
+If a flag is set only that specific optimization will be done. For instance,
+if <code>--batch-norm-to-madd</code> is set, other optimizations like relu fuse won't be done.</p>
+<table>
+<thead>
+<tr>
+<th>Flags</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--batch-norm-to-madd</td>
+<td>Transforms <code>batch normalization</code> into <code>madd</code> layers.</td>
+</tr>
+<tr>
+<td>--fuse-dropout</td>
+<td>Fuses <code>dropout</code> into the previous layer.</td>
+</tr>
+<tr>
+<td>--fuse-transpose</td>
+<td>Fuses <code>transpose</code> into the previous layer.。</td>
+</tr>
+<tr>
+<td>--fuse-madd</td>
+<td>Fuses <code>multiply-add</code> into the previous layer.</td>
+</tr>
+<tr>
+<td>--fuse-relu</td>
+<td>Fuses <code>relu</code> into the previous layer.</td>
+</tr>
+<tr>
+<td>--fuse-padding</td>
+<td>Fuses <code>zero padding</code> into the previous layer.</td>
+</tr>
+<tr>
+<td>--swap-act-pool</td>
+<td>Transforms <code>activation-pooling</code> into <code>pooling activation</code>.</td>
+</tr>
+<tr>
+<td>--strip-constant</td>
+<td>Removes layers which are constant。</td>
+</tr>
+<tr>
+<td>--strip-immutable</td>
+<td>Removes layers which are immutable。</td>
+</tr>
+<tr>
+<td>--strip-layer</td>
+<td>Removes unnecessary layers.</td>
+</tr>
+<tr>
+<td>--strip-net</td>
+<td>Removes sub-nets without layers.</td>
+</tr>
+<tr>
+<td>--strip-weight</td>
+<td>Removes weights not referenced by any layer.</td>
+</tr>
+<tr>
+<td>--dedup-weight　　　　　</td>
+<td>Deduplicates weights.</td>
+</tr>
+<tr>
+<td>--norm-weight</td>
+<td>Normalizes <code>subnormal</code>, <code>nan</code>, <code>inf</code> weight values.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+Refine a dnn file by deduplicating  weights.</p>
+<pre><code>$ softneuro refine --dedup-weight Pose_small.dnn Pose_small_refined.dnn
+
+------------------------------------------------------------------
+Deduplicate Weights
+------------------------------------------------------------------
+'weight_7_0' is deduplicated to 'weight_4_0' (SNR: inf).
+'weight_10_0' is deduplicated to 'weight_3_0' (SNR: inf).
+'weight_13_0' is deduplicated to 'weight_2_0' (SNR: inf).
+'weight_14_0' is deduplicated to 'weight_2_0' (SNR: inf).
+'weight_15_0' is deduplicated to 'weight_2_0' (SNR: inf).
+
+5 weights are deduplicated.
+
+</code></pre>
+<h2 id="compress"><strong>compress</strong><a class="headerlink" href="#compress" title="Permanent link">&para;</a></h2>
+<p>Reduces the DNN file weights data size.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro compress [--dtype [[LTYPE][.WNAME]=]DTYPE[@LAYER_INDICES]]...
+                          [--pass PASSWORD] [--help]
+                          INPUT OUTPUT
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>DNN file to be compressed.</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Compressed DNN file output.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dtype [[LTYPE][.WNAME]=]DTYPE[@LAYER_INDICES]</td>
+<td>Select what data type will be used to save the weights. The available DTYPE options are float16 or qint8. If this flag isn't set, all main network layer weights will be saved as qint8. If LTYPE is set, only layers of that type will have their weights converted. If WNAME is set, only the weight with that name will be converted. If LAYER_INDICES is set, only the layers at the given indices will have their weights converted. For more information on layer indices, use the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+<tr>
+<td>--pass PASSWORD</td>
+<td>Set an encryption password.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><u><strong>Example</strong></u>  </u><br />
+This command creates a vgg16_qint8.dnn file with qint8 weights.<br />
+<em>※There's no terminal output</em></p>
+<pre><code>$ softneuro compress vgg16.dnn vgg16_qint8.dnn
+$ ls -lh
+-rw-rw-r-- 1 user user 528M  1月 1 10:00 vgg16.dnn
+-rw-rw-r-- 1 user user 133M  1月 1 10:00 vgg16_qint8.dnn
+</code></pre>
+<h2 id="cipher"><strong>cipher</strong><a class="headerlink" href="#cipher" title="Permanent link">&para;</a></h2>
+<p>Encrypts a DNN file.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro cipher [--pass PASSWORD] [--new-pass PASSWORD] [--secret] [--help] INPUT OUTPUT
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>DNN file to be encrypted.</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Output encrypted DNN file.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p PASSWORD, --pass PASSWORD</td>
+<td>Password for input dnn.</td>
+</tr>
+<tr>
+<td>--new-pass PASSWORD</td>
+<td>New password for OUTPUT. If not given, the password does not change from INPUT. If empty ('') is given,</td>
+</tr>
+<tr>
+<td>decrypt INPUT and write it to OUTPUT without password encryption.</td>
+<td></td>
+</tr>
+<tr>
+<td>--secret</td>
+<td>Encrypts to a secret dnn.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><u><strong>Example</strong></u>  </u><br />
+This command creates a vgg16_enc.dnn encrypted DNN file.<br />
+<em>※There's no terminal output</em></p>
+<pre><code>$ softneuro cipher --new-pass 4u9pnza vgg16.dnn vgg16_enc.dnn
+$ ls
+vgg16.dnn vgg16_enc.dnn
+$ softneuro run vgg16_enc.dnn
+mor_dnn.c:921:Error: Invalid password for dnn.
+softneuro:Error: Load error.
+$ softneuro run vgg16_enc.dnn -p 4u9pnza
+
+---------------------------------
+Statistics
+---------------------------------
+FUNCTION         AVE(us)    MIN(us)    MAX(us)  #RUN
+Dnn_load()        36,055     36,055     36,055     1
+Dnn_compile()    727,957    727,957    727,957     1
+Dnn_forward()  1,080,363  1,080,363  1,080,363     1
+
+Used memory: 1,140,400,128 Bytes
+</code></pre>
+<h2 id="calibrate"><strong>calibrate</strong><a class="headerlink" href="#calibrate" title="Permanent link">&para;</a></h2>
+<p>Calibrate a DNN file for static quantization.
+Calibrate operation fixes the quantization range by calculating max/min outputs of each layer, using prepared inputs.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro calibrate [--keep_img_ar PADDINGCOLOR]
+                           [--img_resize_mode RESIZEMODE][--pass PASSWORD]
+                           [--reset] [-trunc RATIO] [--help]
+                           IDNN ODNN [INPUT]...
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDNN</td>
+<td>DNN file to be calibrated.</td>
+</tr>
+<tr>
+<td>ODNN</td>
+<td>Calibrated DNN file output.</td>
+</tr>
+<tr>
+<td>INPUT</td>
+<td>Required input files for calibration. Image files, numpy files, or a directory containing those files, can be specified.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--keep_img_ar PADDINGCOLOR</td>
+<td>Keeps aspect ratio when resizing input image. The aspect ratio is not kept by default. Margin space is filled with the color specified by PADDINGCOLOR. PADDINGCOLOR can be specified by RGB value, for example, '0, 0, 0'.</td>
+</tr>
+<tr>
+<td>--img_resize_mode RESIZEMODE</td>
+<td>Specifies the resizing mode. 'bilinear' or 'nearest' can be specified. Default is 'bilinear'.</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>Encryption password.</td>
+</tr>
+<tr>
+<td>--reset</td>
+<td>Resets the calibration information (max/min).</td>
+</tr>
+<tr>
+<td>--trunc RATIO</td>
+<td>Removes the top and bottom data as outliers, specified by 'RATIO' ratio. When RATIO is 0.02, top/bottom 2% data are removed, the min/max values are calculated by the remaining 96% data. Default RATIO is 0.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><u><strong>Example</strong></u></u>
+This command creates a vgg16_calib.dnn calibrated DNN file.   <br />
+<em>※There's no terminal output</em></p>
+<pre><code>$ softneuro calibrate vgg16.dnn vgg16_calib.dnn input0.jpg input1.jpg input2.jpg
+$ softneuro tune vgg16_calib.dnn vgg16_calib_tuned.dnn
+</code></pre>
+<h2 id="decompose"><strong>decompose</strong><a class="headerlink" href="#decompose" title="Permanent link">&para;</a></h2>
+<p>Decompose a net of dnn file into two subnets.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro decompose [--pass PASSWORD] [--split SPLIT] [--compress COMPRESS] [--help] INPUT OUTPUT
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>Input dnn file.</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Output dnn file</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p PASSWORD, --pass PASSWORD</td>
+<td>Password for input file.</td>
+</tr>
+<tr>
+<td>-s SPLIT, --split SPLIT</td>
+<td>Set layer to be split from</td>
+</tr>
+<tr>
+<td>-c COMPRESS, --compress COMPRESS</td>
+<td>Set net to compress。</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Show the command help。</td>
+</tr>
+</tbody>
+</table>
+<p><u><u><strong>Example</strong></u>  </u><br />
+Split main net of ssd.dnn from conv_pw_1 layer.</p>
+<pre><code>$ softneuro decompose -s conv_pw_1 ssd.dnn ssd_dcp.dnn
+[0] from input_1 to conv_pw_1
+[1] from conv_dw_2 to sink_0
+
+</code></pre>
+<p>In the case of decomposing the main network of vgg16.dnn, and then tuning it for an external engine (Qualcomm HTA), the commands are as follows:</p>
+<pre><code>$ softneuro decompose -c main vgg16.dnn vgg16_decomposed.dnn
+$ softneuro tune vgg16_decomposed.dnn  vgg16_decomposed_tuned.dnn --routine cpu/faster/hta
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="referer.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Information" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Model Information
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="converter.html" class="md-footer__link md-footer__link--next" aria-label="Next: Model Conversion" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Model Conversion
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> All Rights Reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

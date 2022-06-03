@@ -1,0 +1,1034 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This is portal page to all documents for SoftNeuro&reg; v5.2.0.">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/subpages/getting_started.ja.html">
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>チュートリアル - SoftNeuro&reg; SDK v5.2.0 Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../index.html" title="SoftNeuro&amp;reg; SDK v5.2.0 Document" class="md-header__button md-logo" aria-label="SoftNeuro&reg; SDK v5.2.0 Document" data-md-component="logo">
+      
+  <img src="../img/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; SDK v5.2.0 Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              チュートリアル
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="getting_started.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="getting_started.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.ja.html" class="md-tabs__link md-tabs__link--active">
+        Overview
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../cli/index.ja.html" class="md-tabs__link">
+      CLI
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SoftNeuro&amp;reg; SDK v5.2.0 Document" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; SDK v5.2.0 Document" data-md-component="logo">
+      
+  <img src="../img/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; SDK v5.2.0 Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        Overview
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.ja.html" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          チュートリアル
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="getting_started.ja.html" class="md-nav__link md-nav__link--active">
+        チュートリアル
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    セットアップ
+  </a>
+  
+    <nav class="md-nav" aria-label="セットアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-linux" class="md-nav__link">
+    セットアップ(for Linux)
+  </a>
+  
+    <nav class="md-nav" aria-label="セットアップ(for Linux)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cli" class="md-nav__link">
+    1. ライブラリ・CLIツールのセットアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python" class="md-nav__link">
+    2. Pythonモジュールのインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-windows" class="md-nav__link">
+    セットアップ(for Windows)
+  </a>
+  
+    <nav class="md-nav" aria-label="セットアップ(for Windows)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cli_1" class="md-nav__link">
+    1. ライブラリ・CLIツールのセットアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python_1" class="md-nav__link">
+    2.  Pythonモジュールのインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    CLIツールを利用した推論処理の実行（画像分類）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Pythonからの推論処理の実行（画像分類）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Pythonからの推論処理の実行（物体検出）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_2" class="md-nav__link">
+    Pythonからの推論処理の実行（セグメンテーション）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    次はどこに進みますか？
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="overview.ja.html" class="md-nav__link">
+        SoftNeuro 概要
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      <label class="md-nav__link" for="__nav_1_4">
+        構成要素
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="構成要素" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          構成要素
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/index.ja.html" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.ja.html" class="md-nav__link">
+        用語集
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="troubles.ja.html" class="md-nav__link">
+        トラブルシューティング
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FAQ.ja.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/index.ja.html" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    セットアップ
+  </a>
+  
+    <nav class="md-nav" aria-label="セットアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-linux" class="md-nav__link">
+    セットアップ(for Linux)
+  </a>
+  
+    <nav class="md-nav" aria-label="セットアップ(for Linux)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cli" class="md-nav__link">
+    1. ライブラリ・CLIツールのセットアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python" class="md-nav__link">
+    2. Pythonモジュールのインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-windows" class="md-nav__link">
+    セットアップ(for Windows)
+  </a>
+  
+    <nav class="md-nav" aria-label="セットアップ(for Windows)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cli_1" class="md-nav__link">
+    1. ライブラリ・CLIツールのセットアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python_1" class="md-nav__link">
+    2.  Pythonモジュールのインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    CLIツールを利用した推論処理の実行（画像分類）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Pythonからの推論処理の実行（画像分類）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Pythonからの推論処理の実行（物体検出）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_2" class="md-nav__link">
+    Pythonからの推論処理の実行（セグメンテーション）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    次はどこに進みますか？
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">チュートリアル</h1>
+<p>本チュートリアルでは、SoftNeuro SDKのセットアップから実際に推論処理を実行するまでの流れを解説します。  </p>
+<h2 id="_2">セットアップ</h2>
+<h3 id="for-linux">セットアップ(for Linux)</h3>
+<h4 id="1-cli">1. ライブラリ・CLIツールのセットアップ</h4>
+<p><em>※本節における<code>linux_x64</code>は環境によっては<code>linux_armv8</code>となります</em></p>
+<ol>
+<li>
+<p>SDKのトップディレクトリに移動します。</p>
+</li>
+<li>
+<p><code>linux_x64</code>を任意の場所へコピーし、環境変数 <code>SOFTNEURO_DIR</code> にその親ディレクトリを追加してください。</p>
+</li>
+<li>
+<p>環境変数 <code>PATH</code>に <code>${SOFTNEURO_DIR}/linux_x64</code> を追加してください。
+    bashでは、下記のコマンドを実行します。
+    <div class="highlight"><pre><span></span><code>mkdir ~/.softneuro
+cp -r linux_x64 ~/.softneuro
+<span class="nb">export</span> <span class="nv">SOFTNEURO_DIR</span><span class="o">=</span>~/.softneuro
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">SOFTNEURO_DIR</span><span class="si">}</span>/linux_x64:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>(Ver5.1のみ)Ver5.1の場合は下記の手順でライセンスキーの登録を行います。</p>
+<ol>
+<li>
+<p>(optional)versionの確認をします。Ver5.1の場合は以降の手順を行います。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro version
+
+SoftNeuro 5.1.0.xxxxxxx
+</code></pre></div>
+</li>
+<li>
+<p>CLIツールで <code>softneuro license</code> を実行し、User IDを確認して下さい。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro license
+
+softneuro:Error: No license key.
+softneuro:Error: User ID: 12345678-ABCDEFGH.
+</code></pre></div>
+</li>
+<li>
+<p><a href="https://softneuro.morphoinc.com/license.html">ライセンス発行ページ</a>でUser IDを入力し、ライセンスキーを発行して下さい。</p>
+</li>
+<li>
+<p>CLIツールで <code>--key</code> にライセンスキーを渡し <code>softneuro license</code> を実行して、登録が完了します。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro license --key 12345678-90123456-ABCDEFGH-IJKLMNOP
+</code></pre></div>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="../cli/commands/layer-routine/layer-routine.ja.html#plugins">pluginsコマンド</a>を実行してプラグインをインストールします。</p>
+<p><div class="highlight"><pre><span></span><code>$ softneuro plugins --install auto
+</code></pre></div>
+プラグインの個別インストール手順については、CLIツールマニュアルを参照してください。</p>
+</li>
+</ol>
+<h4 id="2-python">2. Pythonモジュールのインストール</h4>
+<p>pipコマンドで実行環境にあったバージョンのPythonモジュールをインストールして下さい。<br />
+Python3.6の環境では以下のようなファイル名のwhlを利用します。
+<div class="highlight"><pre><span></span><code>$ pip install whl/softneuro-5.2.0-cp36-cp36m-*.whl
+</code></pre></div></p>
+<p>下記はサンプルコードの実行に必要です。
+<div class="highlight"><pre><span></span><code>$ pip install scipy opencv-python
+</code></pre></div></p>
+<h3 id="for-windows">セットアップ(for Windows)</h3>
+<h4 id="1-cli_1">1. ライブラリ・CLIツールのセットアップ</h4>
+<ol>
+<li>SDKのトップディレクトリに移動します。</li>
+<li><code>win_x64</code> を任意の場所へコピーし、環境変数 <code>SOFTNEURO_DIR</code> にその親ディレクトリを追加してください。</li>
+<li>
+<p>環境変数 <code>PATH</code> に <code>%SOFTNEURO_DIR%\win_x64</code> を追加してください。
+    Windowsでは、下記の手順です。</p>
+<ol>
+<li>クイック検索に "env" と入力し、"システム環境変数の編集" を選択する。</li>
+<li>"環境変数(N)..." をクリックする。</li>
+<li>必要な環境変数を設定する。</li>
+</ol>
+</li>
+<li>
+<p>(Ver5.1のみ)Ver5.1の場合は下記の手順でライセンスキーの登録を行います。</p>
+<ol>
+<li>
+<p>(optional)versionの確認をします。Ver5.1の場合は以降の手順を行います。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro version
+
+SoftNeuro 5.1.0.xxxxxxx
+</code></pre></div>
+</li>
+<li>
+<p>CLIツールで <code>softneuro license</code> を実行し、User IDを確認して下さい。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro license
+
+softneuro:Error: No license key.
+softneuro:Error: User ID: 12345678-ABCDEFGH.
+</code></pre></div>
+</li>
+<li>
+<p><a href="https://softneuro.morphoinc.com/license.html">ライセンス発行ページ</a>でUser IDを入力し、ライセンスキーを発行して下さい。</p>
+</li>
+<li>
+<p>CLIツールで <code>--key</code> にライセンスキーを渡し <code>softneuro license</code> を実行して、登録が完了します。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro license --key 12345678-90123456-ABCDEFGH-IJKLMNOP
+</code></pre></div>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="../cli/commands/layer-routine/layer-routine.ja.html#plugins">pluginsコマンド</a>を実行してプラグインをインストールします。</p>
+<div class="highlight"><pre><span></span><code>$ softneuro plugins --install auto
+</code></pre></div>
+<p>プラグインの個別インストール手順については、CLIツールマニュアルを参照してください。</p>
+</li>
+</ol>
+<h4 id="2-python_1">2.  Pythonモジュールのインストール</h4>
+<p>pipコマンドでPythonモジュールをインストールして下さい。
+<div class="highlight"><pre><span></span><code>$ pip install whl/softneuro-5.2.0-cp36-cp36m-*.whl
+</code></pre></div></p>
+<p>下記はサンプルコードの実行に必要です。
+<div class="highlight"><pre><span></span><code>$ pip install scipy opencv-python
+</code></pre></div></p>
+<h2 id="cli">CLIツールを利用した推論処理の実行（画像分類）</h2>
+<p>上記のセットアップ完了後、CLIツールを用いた推論処理の実行が可能となります。<br />
+例えばモデルファイル<code>examples/models/mobilenetv2-7.dnn</code>と画像ファイル<code>examples/data/classification_sample.jpg</code> を利用した推論処理は、<a href="../cli/commands/prof-tune/prof-tune.ja.html#run">runコマンド</a>を利用して以下のように実行することができます。
+<div class="highlight"><pre><span></span><code>$ softneuro run --top 5 examples/models/mobilenetv2-7.dnn examples/data/classification_sample.jpg
+
+---------------------------------
+Top 5 Labels
+---------------------------------
+#   SCORE  LABEL
+1  0.9996  goose
+2  0.0003  black_swan
+3  0.0000  drake
+4  0.0000  peacock
+5  0.0000  American_coot
+
+---------------------------------
+Statistics
+---------------------------------
+FUNCTION       AVE(us)  MIN(us)  MAX(us)  #RUN
+Dnn_load()       9,395    9,395    9,395     1
+Dnn_compile()   23,249   23,249   23,249     1
+Dnn_forward()    6,774    6,774    6,774     1
+
+Used memory: 40,955,904 Bytes
+</code></pre></div></p>
+<h2 id="python">Pythonからの推論処理の実行（画像分類）</h2>
+<p>SoftNeuroには、Pythonコードから各種機能を利用するためのAPIが用意されています。  <br />
+SoftNeuro SDKにはこのPython APIを利用して画像分類の推論処理を実行するためのPythonコードがサンプルとして同梱されています。<br />
+画像分類用の学習済みモデルファイルはSDKに同梱されている<code>examples/models/mobilenetv2-7.dnn</code>です。<br />
+<a href="https://softneuro.morphoinc.com/model_zoo.html">SoftNeuro Model Zoo</a>からも同じモデルファイルをダウンロードできます。
+サンプルコードを利用した画像分類処理は<code>examples/python/classification</code>ディレクトリで
+以下のようなコマンドを入力することで実行できます。</p>
+<div class="highlight"><pre><span></span><code>$ python classification.py ../../models/mobilenetv2-7.dnn ../../data/classification_sample.jpg
+[Label Name]                                : [Probability]
+ 0.goose                                        : 0.9995970129966736
+ 1.black_swan                                   : 0.000263840367551893
+ 2.peacock                                      : 3.83547849196475e-05
+ 3.drake                                        : 3.685235060402192e-05
+ 4.American_coot                                : 2.5823321266216226e-05
+</code></pre></div>
+<h2 id="python_1">Pythonからの推論処理の実行（物体検出）</h2>
+<p>SoftNeuro SDKには物体検出の推論処理を実行するためのPythonコードがサンプルとして同梱されています。<br />
+物体検出用の学習済みモデルファイルは、<a href="https://softneuro.morphoinc.com/model_zoo.html">SoftNeuro Model Zoo</a>からダウンロードしてください。<br />
+サンプルコードを利用した物体検出処理は<code>examples/python/detection</code>ディレクトリで以下のようなコマンドで実行できます。<br />
+<em>※検出結果の画像がresult.pngとして出力されます</em></p>
+<div class="highlight"><pre><span></span><code>$ python detection.py yolov4.dnn ../../data/detection_sample.jpg
+
+Inference is done.
+result.png is saved.
+</code></pre></div>
+<h2 id="python_2">Pythonからの推論処理の実行（セグメンテーション）</h2>
+<p>SoftNeuro SDKにはセグメンテーションの推論処理を実行するためのPythonコードがサンプルとして同梱されています。<br />
+セグメンテーション用の学習済みモデルファイルは、<a href="https://softneuro.morphoinc.com/model_zoo.html">SoftNeuro Model Zoo</a>からダウンロードしてください。<br />
+サンプルコードを利用したセグメンテーション処理は<code>examples/python/segmentation</code>ディレクトリで以下のようなコマンドで実行できます。<br />
+<em>※セグメンテーション結果の画像がresult.png, blended.pngとして出力されます</em></p>
+<div class="highlight"><pre><span></span><code>$ python segmentation.py duc.dnn ../../data/segmentation_sample.png
+
+Inference is done.
+result.png and blended.png are saved.
+</code></pre></div>
+<h2 id="_3">次はどこに進みますか？</h2>
+<ul>
+<li><a href="overview.ja.html">SoftNeuroの概要を知る</a></li>
+<li><a href="../python/index.html">Python applicationにSoftNeuroを組み込む</a></li>
+<li><a href="../c/index.html">C applicationにSoftNeuroを組み込む</a></li>
+<li><a href="../cli/tutorial.ja.html">CLIでプロファイリングし、推論速度を上げる</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../index.ja.html" class="md-footer__link md-footer__link--prev" aria-label="前: 概要" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              概要
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="overview.ja.html" class="md-footer__link md-footer__link--next" aria-label="次: SoftNeuro 概要" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              SoftNeuro 概要
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> all rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

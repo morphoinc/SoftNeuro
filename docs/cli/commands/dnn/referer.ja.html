@@ -1,0 +1,1062 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/cli/commands/dnn/referer.ja.html">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>情報参照系 - SoftNeuro&reg; v5.1.0 CLI Tool Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.1.0 CLI Tool Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              情報参照系
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="referer.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="referer.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.ja.html" class="md-tabs__link md-tabs__link--active">
+        CLI
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.1.0 CLI Tool Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.ja.html" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        softneuroコマンド
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="softneuroコマンド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          softneuroコマンド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-list.ja.html" class="md-nav__link">
+        softneuroコマンド一覧
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/general.ja.html" class="md-nav__link">
+        一般操作コマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        DNNファイル操作コマンド
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DNNファイル操作コマンド" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          DNNファイル操作コマンド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          情報参照系
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="referer.ja.html" class="md-nav__link md-nav__link--active">
+        情報参照系
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attr" class="md-nav__link">
+    attr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    view
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="editor.ja.html" class="md-nav__link">
+        DNNファイル編集系
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="converter.ja.html" class="md-nav__link">
+        コンバート系
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prof-tune/prof-tune.ja.html" class="md-nav__link">
+        推論実行・プロファイルコマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer-routine/layer-routine.ja.html" class="md-nav__link">
+        レイヤ・ルーチン操作コマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy.ja.html" class="md-nav__link">
+        numpyテンソル操作コマンド
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routine-descriptor.ja.html" class="md-nav__link">
+        ルーチンディスクリプタ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial.ja.html" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attr" class="md-nav__link">
+    attr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    view
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">情報参照系<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>DNNファイル各種情報を参照するためのコマンドです。</p>
+<h2 id="attr"><strong>attr</strong><a class="headerlink" href="#attr" title="Permanent link">&para;</a></h2>
+<p>暗号化の有無やファイル名など、DNNファイルの属性情報を表示します。
+属性情報とは以下のものを指します。</p>
+<ul>
+<li><em>NAME</em> : ファイル名</li>
+<li><em>NET</em> : ネット情報</li>
+<li><em>INPUT</em> : 入力次元数</li>
+<li><em>OUTPUT</em> : 出力次元数</li>
+<li><em>#OPS</em> : オペレーション数</li>
+<li><em>CIPHER</em> : 暗号化の有無</li>
+<li><em>COMPRESS</em> : コンプレスの有無</li>
+<li><em>TUNE</em> : チューニングの有無とチューニング時に設定されたスキーマ</li>
+<li><em>#THR</em> :  チューニング時に設定されたスレッド数</li>
+<li><em>AFFMASKS</em> : チューニング時に設定されたアフィニティマスク</li>
+</ul>
+<p><u><strong>使い方</strong></u>  <br />
+<code>softneuro attr [-pass PASSWORD] [-help] DNN...</code>    </p>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN</td>
+<td>属性情報を表示するDNNファイルです。複数指定して同時に情報を表示することもできます。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help        　　</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD　</td>
+<td>パスワードを設定して暗号化されたDNNファイルの属性情報を表示する場合に入力するパスワードです。</td>
+</tr>
+<tr>
+<td>--net</td>
+<td>ネットの情報を表示します。例：ネットの名前、入出力次元数、オペレーター数など。　　</td>
+</tr>
+<tr>
+<td>--cipher</td>
+<td>暗号化の有無を表示します。　　　</td>
+</tr>
+<tr>
+<td>--compress</td>
+<td>コンプレスの有無を表示します。　</td>
+</tr>
+<tr>
+<td>--tune</td>
+<td>チューニング情報を表示します。　</td>
+</tr>
+<tr>
+<td>-a, --all</td>
+<td>すべての情報を表示します。　　　　</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u>  </p>
+<pre><code>$ softneuro attr -a -p password ssd_tuned_ciphered_compressed.dnn
+NAME                               NET          INPUT        OUTPUT            #OPS  CIPHER    COMPRESS  TUNE       #THR  AFFMASKS
+ssd_tuned_ciphered_compressed.dnn  preprocess   1x300x300x3  1x300x6  2,286,418,064  password  qint8     cpu           4       0x2
+                                   main                                                                  cpu/naive             0x2
+                                   postprocess                                                                                 0x2
+                                                                                                                               0x2
+
+</code></pre>
+<h2 id="view"><strong>view</strong><a class="headerlink" href="#view" title="Permanent link">&para;</a></h2>
+<p>各レイヤーの入出力サイズなど、DNNファイルに保存された詳細な情報を表示します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro view [--help] [--password] [--param] [--routine] [--size] [--all]
+                      [-name NAME]... [-type TYPE]... 
+                      DNN
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN</td>
+<td>レイヤー情報を表示するDNNファイルです。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されたDNNファイルの属性情報を表示する場合に入力するパスワードです。</td>
+</tr>
+<tr>
+<td>-P, --param</td>
+<td>各レイヤーの入力・出力・重み・パラメータの情報を表示します。</td>
+</tr>
+<tr>
+<td>-r, --routine</td>
+<td>各レイヤーのルーチンとそのパラメータを表示します。</td>
+</tr>
+<tr>
+<td>-s, --size</td>
+<td>各レイヤーのデータサイズとオペレーション数を表示します</td>
+</tr>
+<tr>
+<td>-a, --all</td>
+<td><code>--param</code>, <code>--routine</code>, <code>--size</code> オプションを使用した際に表示される情報をすべて表示します。</td>
+</tr>
+<tr>
+<td>--name NAME</td>
+<td>表示する情報をレイヤー名でフィルタリングします。<br>入力した文字列を含むレイヤー名であれば情報を表示します。</td>
+</tr>
+<tr>
+<td>--type TYPE</td>
+<td>表示する情報をレイヤーの種類でフィルタリングします。<br>一致した種類のレイヤー情報のみを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u>  </p>
+<pre><code>$ softneuro view ssd.dnn
+[preprocess]
+#  NAME  TYPE
+0  ?     source
+1  ?     resize
+2  ?     madd
+3  ?     sink
+
+
+[main]
+ #  NAME                     TYPE
+ 0  input_1                  source
+ 1  conv1                    conv2
+ 2  conv_dw_1                depthwise_conv2
+ 3  conv_pw_1                conv2
+ 4  conv_dw_2                depthwise_conv2
+ 5  conv_pw_2                conv2
+ 6  conv_dw_3                depthwise_conv2
+ 7  conv_pw_3                conv2
+ 8  conv_dw_4                depthwise_conv2
+ 9  conv_pw_4                conv2
+10  conv_dw_5                depthwise_conv2
+11  conv_pw_5                conv2
+12  conv_dw_6                depthwise_conv2
+13  conv_pw_6                conv2
+14  conv_dw_7                depthwise_conv2
+15  conv_pw_7                conv2
+16  conv_dw_8                depthwise_conv2
+17  conv_pw_8                conv2
+18  conv_dw_9                depthwise_conv2
+19  conv_pw_9                conv2
+20  conv_dw_10               depthwise_conv2
+21  conv_pw_10               conv2
+22  conv_dw_11               depthwise_conv2
+23  conv_pw_11               conv2
+24  conv_dw_12               depthwise_conv2
+25  conv_pw_12               conv2
+26  conv_dw_13               depthwise_conv2
+27  conv_pw_13               conv2
+28  conv14_1                 conv2
+29  conv14_2                 conv2
+30  conv15_1                 conv2
+31  conv15_2                 conv2
+32  conv16_1                 conv2
+33  conv16_2                 conv2
+34  conv17_1                 conv2
+35  conv17_2                 conv2
+36  conv17_mbox_conf_2       conv2
+37  conv17_mbox_conf_2_flat  reshape
+38  conv5_mbox_conf_2        conv2
+39  conv5_mbox_conf_2_flat   reshape
+40  conv5_mbox_loc           conv2
+41  conv5_mbox_loc_flat      reshape
+42  conv5_mbox_priorbox      priorbox
+43  conv11_mbox_conf_2       conv2
+44  conv11_mbox_conf_2_flat  reshape
+45  conv11_mbox_loc          conv2
+46  conv11_mbox_loc_flat     reshape
+47  conv11_mbox_priorbox     priorbox
+48  conv13_mbox_conf_2       conv2
+49  conv13_mbox_conf_2_flat  reshape
+50  conv13_mbox_loc          conv2
+51  conv13_mbox_loc_flat     reshape
+52  conv13_mbox_priorbox     priorbox
+53  conv14_mbox_conf_2       conv2
+54  conv14_mbox_conf_2_flat  reshape
+55  conv14_mbox_loc          conv2
+56  conv14_mbox_loc_flat     reshape
+57  conv14_mbox_priorbox     priorbox
+58  conv15_mbox_conf_2       conv2
+59  conv15_mbox_conf_2_flat  reshape
+60  conv15_mbox_loc          conv2
+61  conv15_mbox_loc_flat     reshape
+62  conv15_mbox_priorbox     priorbox
+63  conv16_mbox_conf_2       conv2
+64  conv16_mbox_conf_2_flat  reshape
+65  conv16_mbox_loc          conv2
+66  conv16_mbox_loc_flat     reshape
+67  conv16_mbox_priorbox     priorbox
+68  conv17_mbox_loc          conv2
+69  conv17_mbox_loc_flat     reshape
+70  conv17_mbox_priorbox     priorbox
+71  mbox_priorbox            concat
+72  mbox_conf                concat
+73  mbox_conf_logits         reshape
+74  activation_36            softmax
+75  mbox_loc                 concat
+76  mbox_loc_final           reshape
+77  predictions              concat
+78  sink_0                   sink
+
+
+[postprocess]
+#  NAME      TYPE
+0  source_1  source
+1  decode    decode_ssd
+2  sink      sink
+
+</code></pre>
+<h2 id="plot"><strong>plot</strong><a class="headerlink" href="#plot" title="Permanent link">&para;</a></h2>
+<p>DNNファイルに保存されたモデル構造を画像として出力します。</p>
+<p><u><strong>使い方</strong></u>  </p>
+<pre><code>usage: softneuro plot [--help] [--net NET] [--bg-color BG_COLOR] [--fg-color FG_COLOR]
+                      [--font-color FONT_COLOR] [--font-size SIZE] [--format FORMAT]
+
+                      DNN OUTPUT
+
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN</td>
+<td>ネットワーク図を出力するDNNファイルです。</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>出力結果となるファイルのファイル名です。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+<tr>
+<td>--net NET</td>
+<td>画像出力するネットワークです。(preprocess, main など) <br>デフォルトではmainのネットワークを選びます。</td>
+</tr>
+<tr>
+<td>--bg-color BG_COLOR</td>
+<td>画像の背景色です。<br>デフォルトでは<code>white</code>です。</td>
+</tr>
+<tr>
+<td>--fg-color FG_COLOR</td>
+<td>画像内の図形の色です。<br>デフォルトでは<code>black</code>です。</td>
+</tr>
+<tr>
+<td>--font-color FONT_COLOR</td>
+<td>画像内の文字列の色です。<br>デフォルトでは<code>black</code>です。</td>
+</tr>
+<tr>
+<td>--font-size SIZE</td>
+<td>画像内の文字列のサイズです。<br>デフォルトでは14です。</td>
+</tr>
+<tr>
+<td>--format FORMAT</td>
+<td>出力するファイル形式です。auto, png, svg, gif, jpeg, pdf, dot形式が選べます。<br>デフォルトではauto(OUTPUTの拡張子)を利用します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+実行ディレクトリに下図のようなinception.pngが生成されます。<br />
+<em>※コマンドライン上への出力はありません</em></p>
+<pre><code>softneuro plot inception.dnn inceptinon.png
+</code></pre>
+<figure>
+  <img src=../../images/inception.png width=20% hight=20%>
+  <figcaption>inception.png</figcaption>
+</figure>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../general/general.ja.html" class="md-footer__link md-footer__link--prev" aria-label="前: 一般操作コマンド" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              一般操作コマンド
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="editor.ja.html" class="md-footer__link md-footer__link--next" aria-label="次: DNNファイル編集系" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              DNNファイル編集系
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> All Rights Reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

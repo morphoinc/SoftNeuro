@@ -1,0 +1,3071 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This document describes API usage of SoftNeuro&reg; v5.2.0.">
+      
+      
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>json - SoftNeuro&reg; v5.2.0 C API Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#json" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="SoftNeuro&amp;reg; v5.2.0 C API Document" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.2.0 C API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.2.0 C API Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              json
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../cli/index.html" class="md-tabs__link">
+      CLI
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SoftNeuro&amp;reg; v5.2.0 C API Document" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.2.0 C API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.2.0 C API Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        C API (English)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="C API (English)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C API (English)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Top
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Layer List
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Layer List" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Layer List
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="abs.html" class="md-nav__link">
+        abs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acos.html" class="md-nav__link">
+        acos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acosh.html" class="md-nav__link">
+        acosh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adapt.html" class="md-nav__link">
+        adapt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adaptive_unit_scale.html" class="md-nav__link">
+        adaptive_unit_scale
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="add.html" class="md-nav__link">
+        add
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="and.html" class="md-nav__link">
+        and
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arg_max.html" class="md-nav__link">
+        arg_max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="asin.html" class="md-nav__link">
+        asin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="asinh.html" class="md-nav__link">
+        asinh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atan.html" class="md-nav__link">
+        atan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atanh.html" class="md-nav__link">
+        atanh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ave_pool2.html" class="md-nav__link">
+        ave_pool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="batch_norm.html" class="md-nav__link">
+        batch_norm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="box_filter.html" class="md-nav__link">
+        box_filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="broadcast.html" class="md-nav__link">
+        broadcast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cast.html" class="md-nav__link">
+        cast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ccc.html" class="md-nav__link">
+        ccc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ceil.html" class="md-nav__link">
+        ceil
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clip.html" class="md-nav__link">
+        clip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="complex.html" class="md-nav__link">
+        complex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concat.html" class="md-nav__link">
+        concat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="const.html" class="md-nav__link">
+        const
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv1.html" class="md-nav__link">
+        conv1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv2.html" class="md-nav__link">
+        conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv2t.html" class="md-nav__link">
+        conv2t
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cos.html" class="md-nav__link">
+        cos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cosh.html" class="md-nav__link">
+        cosh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crop2.html" class="md-nav__link">
+        crop2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dcf.html" class="md-nav__link">
+        dcf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_centernet.html" class="md-nav__link">
+        decode_centernet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_pelee.html" class="md-nav__link">
+        decode_pelee
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_ssd.html" class="md-nav__link">
+        decode_ssd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_ulffd.html" class="md-nav__link">
+        decode_ulffd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_yolov3.html" class="md-nav__link">
+        decode_yolov3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_yolov4.html" class="md-nav__link">
+        decode_yolov4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dense.html" class="md-nav__link">
+        dense
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="depth_to_space.html" class="md-nav__link">
+        depth_to_space
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="depthwise_conv2.html" class="md-nav__link">
+        depthwise_conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="div.html" class="md-nav__link">
+        div
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dropout.html" class="md-nav__link">
+        dropout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="elu.html" class="md-nav__link">
+        elu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="equal.html" class="md-nav__link">
+        equal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="erf.html" class="md-nav__link">
+        erf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exp.html" class="md-nav__link">
+        exp
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fast_guided_filter.html" class="md-nav__link">
+        fast_guided_filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fft2.html" class="md-nav__link">
+        fft2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fill.html" class="md-nav__link">
+        fill
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="floor.html" class="md-nav__link">
+        floor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gather.html" class="md-nav__link">
+        gather
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_average_pool.html" class="md-nav__link">
+        global_average_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_max_pool.html" class="md-nav__link">
+        global_max_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="greater.html" class="md-nav__link">
+        greater
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="greater_or_equal.html" class="md-nav__link">
+        greater_or_equal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instance_norm.html" class="md-nav__link">
+        instance_norm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="leaky_relu.html" class="md-nav__link">
+        leaky_relu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linspace.html" class="md-nav__link">
+        linspace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lrn.html" class="md-nav__link">
+        lrn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstm.html" class="md-nav__link">
+        lstm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="madd.html" class="md-nav__link">
+        madd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="maximum.html" class="md-nav__link">
+        maximum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="max_pool2.html" class="md-nav__link">
+        max_pool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mean.html" class="md-nav__link">
+        mean
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="minimum.html" class="md-nav__link">
+        minimum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mul.html" class="md-nav__link">
+        mul
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="neg.html" class="md-nav__link">
+        neg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="normalize.html" class="md-nav__link">
+        normalize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="not.html" class="md-nav__link">
+        not
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="or.html" class="md-nav__link">
+        or
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="padding2.html" class="md-nav__link">
+        padding2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pass.html" class="md-nav__link">
+        pass
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="permute.html" class="md-nav__link">
+        permute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pow.html" class="md-nav__link">
+        pow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prelu.html" class="md-nav__link">
+        prelu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="priorbox.html" class="md-nav__link">
+        priorbox
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="proposal.html" class="md-nav__link">
+        proposal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reciprocal.html" class="md-nav__link">
+        reciprocal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="relu.html" class="md-nav__link">
+        relu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reshape.html" class="md-nav__link">
+        reshape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resize.html" class="md-nav__link">
+        resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roi_align.html" class="md-nav__link">
+        roi_align
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roi_pool.html" class="md-nav__link">
+        roi_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rotate.html" class="md-nav__link">
+        rotate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="round.html" class="md-nav__link">
+        round
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rsqrt.html" class="md-nav__link">
+        rsqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="separable_conv2.html" class="md-nav__link">
+        separable_conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shape.html" class="md-nav__link">
+        shape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sigmoid.html" class="md-nav__link">
+        sigmoid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sin.html" class="md-nav__link">
+        sin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sinh.html" class="md-nav__link">
+        sinh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sink.html" class="md-nav__link">
+        sink
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="size.html" class="md-nav__link">
+        size
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slice.html" class="md-nav__link">
+        slice
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softmax.html" class="md-nav__link">
+        softmax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softplus.html" class="md-nav__link">
+        softplus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softsign.html" class="md-nav__link">
+        softsign
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source.html" class="md-nav__link">
+        source
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="space_to_depth.html" class="md-nav__link">
+        space_to_depth
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sync.html" class="md-nav__link">
+        sync
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="split.html" class="md-nav__link">
+        split
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sqrt.html" class="md-nav__link">
+        sqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sub.html" class="md-nav__link">
+        sub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sum.html" class="md-nav__link">
+        sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tan.html" class="md-nav__link">
+        tan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tanh.html" class="md-nav__link">
+        tanh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tensor_to_scalar.html" class="md-nav__link">
+        tensor_to_scalar
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tile.html" class="md-nav__link">
+        tile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transpose.html" class="md-nav__link">
+        transpose
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unpool2.html" class="md-nav__link">
+        unpool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unsqueeze.html" class="md-nav__link">
+        unsqueeze
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="zero_padding2.html" class="md-nav__link">
+        zero_padding2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Modules
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__core.html" class="md-nav__link">
+        core
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__dll.html" class="md-nav__link">
+        core.dll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__env.html" class="md-nav__link">
+        core.env
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__dnn.html" class="md-nav__link">
+        dnn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__binary.html" class="md-nav__link">
+        dnn.binary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__decomposer.html" class="md-nav__link">
+        dnn.decomposer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__device.html" class="md-nav__link">
+        dnn.device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__param.html" class="md-nav__link">
+        dnn.param
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__prof.html" class="md-nav__link">
+        dnn.prof
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__tensor.html" class="md-nav__link">
+        dnn.tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__image.html" class="md-nav__link">
+        image
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__image__io.html" class="md-nav__link">
+        image_io
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Data Structures
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data Structures" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Data Structures
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Binary.html" class="md-nav__link">
+        morapi_Binary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__BinaryLib.html" class="md-nav__link">
+        morapi_BinaryLib
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Device.html" class="md-nav__link">
+        morapi_Device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceBuf.html" class="md-nav__link">
+        morapi_DeviceBuf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceBufCB.html" class="md-nav__link">
+        morapi_DeviceBufCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceCB.html" class="md-nav__link">
+        morapi_DeviceCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Dll.html" class="md-nav__link">
+        morapi_Dll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Dnn.html" class="md-nav__link">
+        morapi_Dnn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnForward.html" class="md-nav__link">
+        morapi_DnnForward
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnForwardArg.html" class="md-nav__link">
+        morapi_DnnForwardArg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayer.html" class="md-nav__link">
+        morapi_DnnLayer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayerCB.html" class="md-nav__link">
+        morapi_DnnLayerCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayerPlan.html" class="md-nav__link">
+        morapi_DnnLayerPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNet.html" class="md-nav__link">
+        morapi_DnnNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNetPartition.html" class="md-nav__link">
+        morapi_DnnNetPartition
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNetPlan.html" class="md-nav__link">
+        morapi_DnnNetPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnOptimizer.html" class="md-nav__link">
+        morapi_DnnOptimizer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnPlan.html" class="md-nav__link">
+        morapi_DnnPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnProf.html" class="md-nav__link">
+        morapi_DnnProf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRecipe.html" class="md-nav__link">
+        morapi_DnnRecipe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutine.html" class="md-nav__link">
+        morapi_DnnRoutine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutineCB.html" class="md-nav__link">
+        morapi_DnnRoutineCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutinePlan.html" class="md-nav__link">
+        morapi_DnnRoutinePlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnSchemaPlan.html" class="md-nav__link">
+        morapi_DnnSchemaPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Env.html" class="md-nav__link">
+        morapi_Env
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Image.html" class="md-nav__link">
+        morapi_Image
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__ImagePlane.html" class="md-nav__link">
+        morapi_ImagePlane
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Param.html" class="md-nav__link">
+        morapi_Param
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Params.html" class="md-nav__link">
+        morapi_Params
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Quant.html" class="md-nav__link">
+        morapi_Quant
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Tensor.html" class="md-nav__link">
+        morapi_Tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Tensors.html" class="md-nav__link">
+        morapi_Tensors
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_decompose_api_8c-example.html" class="md-nav__link">
+        test_decompose_api.c
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_dnn_api_8c-example.html" class="md-nav__link">
+        test_dnn_api.c
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_prof_api_8c-example.html" class="md-nav__link">
+        test_prof_api.c
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/index.html" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures" class="md-nav__link">
+    Data Structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typedefs" class="md-nav__link">
+    Typedefs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-definition-documentation" class="md-nav__link">
+    Macro Definition Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Definition Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_array" class="md-nav__link">
+    MORAPI_JSON_ARRAY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_object" class="md-nav__link">
+    MORAPI_JSON_OBJECT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_string" class="md-nav__link">
+    MORAPI_JSON_STRING
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_number" class="md-nav__link">
+    MORAPI_JSON_NUMBER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_boolean" class="md-nav__link">
+    MORAPI_JSON_BOOLEAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get1" class="md-nav__link">
+    MORAPI_JSON_GET1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get2" class="md-nav__link">
+    MORAPI_JSON_GET2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get3" class="md-nav__link">
+    MORAPI_JSON_GET3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get4" class="md-nav__link">
+    MORAPI_JSON_GET4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get5" class="md-nav__link">
+    MORAPI_JSON_GET5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get6" class="md-nav__link">
+    MORAPI_JSON_GET6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get7" class="md-nav__link">
+    MORAPI_JSON_GET7
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get8" class="md-nav__link">
+    MORAPI_JSON_GET8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get9" class="md-nav__link">
+    MORAPI_JSON_GET9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type1" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type2" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type3" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type4" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type5" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type6" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type7" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE7
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type8" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_json_get_type9" class="md-nav__link">
+    MORAPI_JSON_GET_TYPE9
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typedef-documentation" class="md-nav__link">
+    Typedef Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Typedef Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_jsontype" class="md-nav__link">
+    morapi_JsonType
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="json">json</h1>
+<p><a href="group__core.html">core</a></p>
+<p>Json.<br />
+<a href="#details">More...</a></p>
+<hr />
+<h2 id="data-structures">Data Structures</h2>
+<table>
+<tr>
+<td>union  </td>
+<td><a href="unionmorapi__JsonData.html">morapi_JsonData</a></td>
+</tr>
+<tr>
+<td>struct  </td>
+<td><a href="structmorapi__JsonArray.html">morapi_JsonArray</a></td>
+</tr>
+<tr>
+<td>struct  </td>
+<td><a href="structmorapi__JsonObject.html">morapi_JsonObject</a></td>
+</tr>
+<tr>
+<td>struct  </td>
+<td><a href="structmorapi__Json.html">morapi_Json</a></td>
+</tr>
+
+</table>
+
+<hr />
+<h2 id="macros">Macros</h2>
+<table>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga2f0bb50bf4df3198865bb14d37a9a09d">MORAPI_JSON_ARRAY</a>(JSON)   (<a href="structmorapi__Json.html#af248bfb481b4bebd4288b7468c2caee8">morapi_Json_getData</a>(JSON)-&gt;array)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga8748e9bdd984a776771279961f231bb5">MORAPI_JSON_OBJECT</a>(JSON)   (<a href="structmorapi__Json.html#af248bfb481b4bebd4288b7468c2caee8">morapi_Json_getData</a>(JSON)-&gt;object)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#gab853ab1c199d1ed55b9c706fff23a878">MORAPI_JSON_STRING</a>(JSON)   (<a href="structmorapi__Json.html#af248bfb481b4bebd4288b7468c2caee8">morapi_Json_getData</a>(JSON)-&gt;text)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga3904a7ba8cc870a63db0f44722b08803">MORAPI_JSON_NUMBER</a>(JSON)   (<a href="structmorapi__Json.html#af248bfb481b4bebd4288b7468c2caee8">morapi_Json_getData</a>(JSON)-&gt;number)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga9e141915baf111e5cc07fd65da73faa2">MORAPI_JSON_BOOLEAN</a>(JSON)   (<a href="structmorapi__Json.html#af248bfb481b4bebd4288b7468c2caee8">morapi_Json_getData</a>(JSON)-&gt;boolean)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga0b7f6ed483287c35cbab213447d3e92a">MORAPI_JSON_GET1</a>(JSON,  KEY1)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga19adbd5df7a64a0796e9be3e030b1820">MORAPI_JSON_GET2</a>(JSON,  KEY1,  KEY2)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga11c54ff0f70418cf888f79ea2d92ce0b">MORAPI_JSON_GET3</a>(JSON,  KEY1,  KEY2,  KEY3)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga5c9ea040f76fb3eb33cfae7bd4ccf328">MORAPI_JSON_GET4</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga665d35e9a6ef4cb1c4b35c0f8774561d">MORAPI_JSON_GET5</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga62cef0f167f1a1a8279a3bdc06422582">MORAPI_JSON_GET6</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#gac08bab7bc7c82a855c8bf656417e84c5">MORAPI_JSON_GET7</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  KEY7)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga5815360930feef4a56777e03c12d41f8">MORAPI_JSON_GET8</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  KEY7,  KEY8)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga8ff26edbf82513191af2d4d91e399094">MORAPI_JSON_GET9</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  KEY7,  KEY8,  KEY9)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, KEY9, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#gad6520585bd77352bafe04171ccd40009">MORAPI_JSON_GET_TYPE1</a>(JSON,  KEY1,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#gad9ea988b3f5a55e51bf237d761b4d1f7">MORAPI_JSON_GET_TYPE2</a>(JSON,  KEY1,  KEY2,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga9475239ec7e250372113e105381a260c">MORAPI_JSON_GET_TYPE3</a>(JSON,  KEY1,  KEY2,  KEY3,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga35610e15e40f9e3a21d36f1d2946f9f0">MORAPI_JSON_GET_TYPE4</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga0909f8192cd72a72883c16b93a64ccb1">MORAPI_JSON_GET_TYPE5</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#gabcbcc209b2668d9ae553bf13b4d063aa">MORAPI_JSON_GET_TYPE6</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga745dce0658b660e71488a0862d9150f9">MORAPI_JSON_GET_TYPE7</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  KEY7,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga1978dcc905acf79ac065b6436f6f9e82">MORAPI_JSON_GET_TYPE8</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  KEY7,  KEY8,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, NULL)</td>
+</tr>
+<tr>
+<td>#define </td>
+<td><a href="group__json.html#ga16278c11115993282fab5cdf66997c83">MORAPI_JSON_GET_TYPE9</a>(JSON,  KEY1,  KEY2,  KEY3,  KEY4,  KEY5,  KEY6,  KEY7,  KEY8,  KEY9,  JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, KEY9, NULL)</td>
+</tr>
+
+</table>
+
+<hr />
+<h2 id="typedefs">Typedefs</h2>
+<table>
+<tr>
+<td>typedef <a href="group__core.html#gaf66ae3d3645174f82ffe5f5fa7a41dbf">morapi_Uint32</a> </td>
+<td><a href="group__json.html#ga17d4aa8068f96c7ac238798a3794afed">morapi_JsonType</a></td>
+</tr>
+
+</table>
+<p><a id="details"></a></p>
+<hr />
+<h2 id="detailed-description">Detailed Description</h2>
+<p>Json. </p>
+<hr />
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<p><a id="ga2f0bb50bf4df3198865bb14d37a9a09d"></a></p>
+<hr />
+<h3 id="morapi_json_array">MORAPI_JSON_ARRAY</h3>
+<pre><code>#define MORAPI_JSON_ARRAY( JSON)   ((JSON)-&gt;array)
+</code></pre>
+
+<p>Casts <a href="structmorapi__Json.html">morapi_Json</a> to <a href="structmorapi__JsonArray.html">morapi_JsonArray</a>. </p>
+<p><a id="ga8748e9bdd984a776771279961f231bb5"></a></p>
+<hr />
+<h3 id="morapi_json_object">MORAPI_JSON_OBJECT</h3>
+<pre><code>#define MORAPI_JSON_OBJECT( JSON)   ((JSON)-&gt;object)
+</code></pre>
+
+<p>Casts <a href="structmorapi__Json.html">morapi_Json</a> to <a href="structmorapi__JsonObject.html">morapi_JsonObject</a>. </p>
+<p><a id="gab853ab1c199d1ed55b9c706fff23a878"></a></p>
+<hr />
+<h3 id="morapi_json_string">MORAPI_JSON_STRING</h3>
+<pre><code>#define MORAPI_JSON_STRING( JSON)   ((JSON)-&gt;text)
+</code></pre>
+
+<p>Casts <a href="structmorapi__Json.html">morapi_Json</a> to <a href="structmorapi__String.html">morapi_String</a>. </p>
+<p><a id="ga3904a7ba8cc870a63db0f44722b08803"></a></p>
+<hr />
+<h3 id="morapi_json_number">MORAPI_JSON_NUMBER</h3>
+<pre><code>#define MORAPI_JSON_NUMBER( JSON)   ((JSON)-&gt;number)
+</code></pre>
+
+<p>Casts <a href="structmorapi__Json.html">morapi_Json</a> to morapi_Real. </p>
+<p><a id="ga9e141915baf111e5cc07fd65da73faa2"></a></p>
+<hr />
+<h3 id="morapi_json_boolean">MORAPI_JSON_BOOLEAN</h3>
+<pre><code>#define MORAPI_JSON_BOOLEAN( JSON)   ((JSON)-&gt;boolean)
+</code></pre>
+
+<p>Casts to morapi_Bool. </p>
+<p><a id="ga0b7f6ed483287c35cbab213447d3e92a"></a></p>
+<hr />
+<h3 id="morapi_json_get1">MORAPI_JSON_GET1</h3>
+<pre><code>#define MORAPI_JSON_GET1( JSON,
+                          KEY1)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga19adbd5df7a64a0796e9be3e030b1820"></a></p>
+<hr />
+<h3 id="morapi_json_get2">MORAPI_JSON_GET2</h3>
+<pre><code>#define MORAPI_JSON_GET2( JSON,
+                          KEY1,
+                          KEY2)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga11c54ff0f70418cf888f79ea2d92ce0b"></a></p>
+<hr />
+<h3 id="morapi_json_get3">MORAPI_JSON_GET3</h3>
+<pre><code>#define MORAPI_JSON_GET3( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga5c9ea040f76fb3eb33cfae7bd4ccf328"></a></p>
+<hr />
+<h3 id="morapi_json_get4">MORAPI_JSON_GET4</h3>
+<pre><code>#define MORAPI_JSON_GET4( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3,
+                          KEY4)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga665d35e9a6ef4cb1c4b35c0f8774561d"></a></p>
+<hr />
+<h3 id="morapi_json_get5">MORAPI_JSON_GET5</h3>
+<pre><code>#define MORAPI_JSON_GET5( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3,
+                          KEY4,
+                          KEY5)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga62cef0f167f1a1a8279a3bdc06422582"></a></p>
+<hr />
+<h3 id="morapi_json_get6">MORAPI_JSON_GET6</h3>
+<pre><code>#define MORAPI_JSON_GET6( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3,
+                          KEY4,
+                          KEY5,
+                          KEY6)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="gac08bab7bc7c82a855c8bf656417e84c5"></a></p>
+<hr />
+<h3 id="morapi_json_get7">MORAPI_JSON_GET7</h3>
+<pre><code>#define MORAPI_JSON_GET7( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3,
+                          KEY4,
+                          KEY5,
+                          KEY6,
+                          KEY7)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']['KEY7']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga5815360930feef4a56777e03c12d41f8"></a></p>
+<hr />
+<h3 id="morapi_json_get8">MORAPI_JSON_GET8</h3>
+<pre><code>#define MORAPI_JSON_GET8( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3,
+                          KEY4,
+                          KEY5,
+                          KEY6,
+                          KEY7,
+                          KEY8)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']['KEY7']['KEY8']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga8ff26edbf82513191af2d4d91e399094"></a></p>
+<hr />
+<h3 id="morapi_json_get9">MORAPI_JSON_GET9</h3>
+<pre><code>#define MORAPI_JSON_GET9( JSON,
+                          KEY1,
+                          KEY2,
+                          KEY3,
+                          KEY4,
+                          KEY5,
+                          KEY6,
+                          KEY7,
+                          KEY8,
+                          KEY9)   morapi_Json_getn(JSON, MORAPI_FALSE, MORAPI_JSON_TYPE_NULL, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, KEY9, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']['KEY7']['KEY8']['KEY9']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="gad6520585bd77352bafe04171ccd40009"></a></p>
+<hr />
+<h3 id="morapi_json_get_type1">MORAPI_JSON_GET_TYPE1</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE1( JSON,
+                               KEY1,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="gad9ea988b3f5a55e51bf237d761b4d1f7"></a></p>
+<hr />
+<h3 id="morapi_json_get_type2">MORAPI_JSON_GET_TYPE2</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE2( JSON,
+                               KEY1,
+                               KEY2,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga9475239ec7e250372113e105381a260c"></a></p>
+<hr />
+<h3 id="morapi_json_get_type3">MORAPI_JSON_GET_TYPE3</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE3( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga35610e15e40f9e3a21d36f1d2946f9f0"></a></p>
+<hr />
+<h3 id="morapi_json_get_type4">MORAPI_JSON_GET_TYPE4</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE4( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               KEY4,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga0909f8192cd72a72883c16b93a64ccb1"></a></p>
+<hr />
+<h3 id="morapi_json_get_type5">MORAPI_JSON_GET_TYPE5</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE5( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               KEY4,
+                               KEY5,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="gabcbcc209b2668d9ae553bf13b4d063aa"></a></p>
+<hr />
+<h3 id="morapi_json_get_type6">MORAPI_JSON_GET_TYPE6</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE6( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               KEY4,
+                               KEY5,
+                               KEY6,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga745dce0658b660e71488a0862d9150f9"></a></p>
+<hr />
+<h3 id="morapi_json_get_type7">MORAPI_JSON_GET_TYPE7</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE7( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               KEY4,
+                               KEY5,
+                               KEY6,
+                               KEY7,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']['KEY7']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga1978dcc905acf79ac065b6436f6f9e82"></a></p>
+<hr />
+<h3 id="morapi_json_get_type8">MORAPI_JSON_GET_TYPE8</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE8( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               KEY4,
+                               KEY5,
+                               KEY6,
+                               KEY7,
+                               KEY8,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']['KEY7']['KEY8']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<p><a id="ga16278c11115993282fab5cdf66997c83"></a></p>
+<hr />
+<h3 id="morapi_json_get_type9">MORAPI_JSON_GET_TYPE9</h3>
+<pre><code>#define MORAPI_JSON_GET_TYPE9( JSON,
+                               KEY1,
+                               KEY2,
+                               KEY3,
+                               KEY4,
+                               KEY5,
+                               KEY6,
+                               KEY7,
+                               KEY8,
+                               KEY9,
+                               JTYPE)   morapi_Json_getn(JSON, MORAPI_TRUE, MORAPI_JSON_TYPE_##JTYPE, KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, KEY8, KEY9, NULL)
+</code></pre>
+
+<p>Gets JSON['KEY1']['KEY2']['KEY3']['KEY4']['KEY5']['KEY6']['KEY7']['KEY8']['KEY9']. </p>
+<p>If it doesn't not exsit or its type isn't JTYPE, returns NULL. </p>
+<hr />
+<h2 id="typedef-documentation">Typedef Documentation</h2>
+<p><a id="ga17d4aa8068f96c7ac238798a3794afed"></a></p>
+<hr />
+<h3 id="morapi_jsontype">morapi_JsonType</h3>
+<pre><code>typedef <a href="group__core.html#gaf66ae3d3645174f82ffe5f5fa7a41dbf">morapi_Uint32</a> <a href="group__json.html#ga17d4aa8068f96c7ac238798a3794afed">morapi_JsonType</a>
+</code></pre>
+
+<p>A type of a json element. </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> all rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This document describes API usage of SoftNeuro&reg; v5.2.0.">
+      
+      
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>morapi_DnnProf - SoftNeuro&reg; v5.2.0 C API Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#morapi_dnnprof-struct-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="SoftNeuro&amp;reg; v5.2.0 C API Document" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.2.0 C API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.2.0 C API Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              morapi_DnnProf
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        C API (English)
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../cli/index.html" class="md-tabs__link">
+      CLI
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SoftNeuro&amp;reg; v5.2.0 C API Document" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.2.0 C API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.2.0 C API Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        C API (English)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="C API (English)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C API (English)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Top
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Layer List
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Layer List" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Layer List
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="abs.html" class="md-nav__link">
+        abs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acos.html" class="md-nav__link">
+        acos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acosh.html" class="md-nav__link">
+        acosh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adapt.html" class="md-nav__link">
+        adapt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adaptive_unit_scale.html" class="md-nav__link">
+        adaptive_unit_scale
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="add.html" class="md-nav__link">
+        add
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="and.html" class="md-nav__link">
+        and
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arg_max.html" class="md-nav__link">
+        arg_max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="asin.html" class="md-nav__link">
+        asin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="asinh.html" class="md-nav__link">
+        asinh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atan.html" class="md-nav__link">
+        atan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atanh.html" class="md-nav__link">
+        atanh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ave_pool2.html" class="md-nav__link">
+        ave_pool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="batch_norm.html" class="md-nav__link">
+        batch_norm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="box_filter.html" class="md-nav__link">
+        box_filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="broadcast.html" class="md-nav__link">
+        broadcast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cast.html" class="md-nav__link">
+        cast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ccc.html" class="md-nav__link">
+        ccc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ceil.html" class="md-nav__link">
+        ceil
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clip.html" class="md-nav__link">
+        clip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="complex.html" class="md-nav__link">
+        complex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concat.html" class="md-nav__link">
+        concat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="const.html" class="md-nav__link">
+        const
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv1.html" class="md-nav__link">
+        conv1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv2.html" class="md-nav__link">
+        conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv2t.html" class="md-nav__link">
+        conv2t
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cos.html" class="md-nav__link">
+        cos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cosh.html" class="md-nav__link">
+        cosh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crop2.html" class="md-nav__link">
+        crop2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dcf.html" class="md-nav__link">
+        dcf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_centernet.html" class="md-nav__link">
+        decode_centernet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_pelee.html" class="md-nav__link">
+        decode_pelee
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_ssd.html" class="md-nav__link">
+        decode_ssd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_ulffd.html" class="md-nav__link">
+        decode_ulffd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_yolov3.html" class="md-nav__link">
+        decode_yolov3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_yolov4.html" class="md-nav__link">
+        decode_yolov4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dense.html" class="md-nav__link">
+        dense
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="depth_to_space.html" class="md-nav__link">
+        depth_to_space
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="depthwise_conv2.html" class="md-nav__link">
+        depthwise_conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="div.html" class="md-nav__link">
+        div
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dropout.html" class="md-nav__link">
+        dropout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="elu.html" class="md-nav__link">
+        elu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="equal.html" class="md-nav__link">
+        equal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="erf.html" class="md-nav__link">
+        erf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exp.html" class="md-nav__link">
+        exp
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fast_guided_filter.html" class="md-nav__link">
+        fast_guided_filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fft2.html" class="md-nav__link">
+        fft2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fill.html" class="md-nav__link">
+        fill
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="floor.html" class="md-nav__link">
+        floor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gather.html" class="md-nav__link">
+        gather
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_average_pool.html" class="md-nav__link">
+        global_average_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_max_pool.html" class="md-nav__link">
+        global_max_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="greater.html" class="md-nav__link">
+        greater
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="greater_or_equal.html" class="md-nav__link">
+        greater_or_equal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instance_norm.html" class="md-nav__link">
+        instance_norm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="leaky_relu.html" class="md-nav__link">
+        leaky_relu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linspace.html" class="md-nav__link">
+        linspace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lrn.html" class="md-nav__link">
+        lrn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstm.html" class="md-nav__link">
+        lstm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="madd.html" class="md-nav__link">
+        madd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="maximum.html" class="md-nav__link">
+        maximum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="max_pool2.html" class="md-nav__link">
+        max_pool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mean.html" class="md-nav__link">
+        mean
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="minimum.html" class="md-nav__link">
+        minimum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mul.html" class="md-nav__link">
+        mul
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="neg.html" class="md-nav__link">
+        neg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="normalize.html" class="md-nav__link">
+        normalize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="not.html" class="md-nav__link">
+        not
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="or.html" class="md-nav__link">
+        or
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="padding2.html" class="md-nav__link">
+        padding2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pass.html" class="md-nav__link">
+        pass
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="permute.html" class="md-nav__link">
+        permute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pow.html" class="md-nav__link">
+        pow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prelu.html" class="md-nav__link">
+        prelu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="priorbox.html" class="md-nav__link">
+        priorbox
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="proposal.html" class="md-nav__link">
+        proposal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reciprocal.html" class="md-nav__link">
+        reciprocal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="relu.html" class="md-nav__link">
+        relu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reshape.html" class="md-nav__link">
+        reshape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resize.html" class="md-nav__link">
+        resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roi_align.html" class="md-nav__link">
+        roi_align
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roi_pool.html" class="md-nav__link">
+        roi_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rotate.html" class="md-nav__link">
+        rotate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="round.html" class="md-nav__link">
+        round
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rsqrt.html" class="md-nav__link">
+        rsqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="separable_conv2.html" class="md-nav__link">
+        separable_conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shape.html" class="md-nav__link">
+        shape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sigmoid.html" class="md-nav__link">
+        sigmoid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sin.html" class="md-nav__link">
+        sin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sinh.html" class="md-nav__link">
+        sinh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sink.html" class="md-nav__link">
+        sink
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="size.html" class="md-nav__link">
+        size
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slice.html" class="md-nav__link">
+        slice
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softmax.html" class="md-nav__link">
+        softmax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softplus.html" class="md-nav__link">
+        softplus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softsign.html" class="md-nav__link">
+        softsign
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source.html" class="md-nav__link">
+        source
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="space_to_depth.html" class="md-nav__link">
+        space_to_depth
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sync.html" class="md-nav__link">
+        sync
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="split.html" class="md-nav__link">
+        split
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sqrt.html" class="md-nav__link">
+        sqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sub.html" class="md-nav__link">
+        sub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sum.html" class="md-nav__link">
+        sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tan.html" class="md-nav__link">
+        tan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tanh.html" class="md-nav__link">
+        tanh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tensor_to_scalar.html" class="md-nav__link">
+        tensor_to_scalar
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tile.html" class="md-nav__link">
+        tile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transpose.html" class="md-nav__link">
+        transpose
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unpool2.html" class="md-nav__link">
+        unpool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unsqueeze.html" class="md-nav__link">
+        unsqueeze
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="zero_padding2.html" class="md-nav__link">
+        zero_padding2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Modules
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__core.html" class="md-nav__link">
+        core
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__dll.html" class="md-nav__link">
+        core.dll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__env.html" class="md-nav__link">
+        core.env
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__dnn.html" class="md-nav__link">
+        dnn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__binary.html" class="md-nav__link">
+        dnn.binary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__decomposer.html" class="md-nav__link">
+        dnn.decomposer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__device.html" class="md-nav__link">
+        dnn.device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__param.html" class="md-nav__link">
+        dnn.param
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__prof.html" class="md-nav__link">
+        dnn.prof
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__tensor.html" class="md-nav__link">
+        dnn.tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__image.html" class="md-nav__link">
+        image
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__image__io.html" class="md-nav__link">
+        image_io
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Data Structures
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data Structures" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Data Structures
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Binary.html" class="md-nav__link">
+        morapi_Binary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__BinaryLib.html" class="md-nav__link">
+        morapi_BinaryLib
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Device.html" class="md-nav__link">
+        morapi_Device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceBuf.html" class="md-nav__link">
+        morapi_DeviceBuf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceBufCB.html" class="md-nav__link">
+        morapi_DeviceBufCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceCB.html" class="md-nav__link">
+        morapi_DeviceCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Dll.html" class="md-nav__link">
+        morapi_Dll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Dnn.html" class="md-nav__link">
+        morapi_Dnn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnForward.html" class="md-nav__link">
+        morapi_DnnForward
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnForwardArg.html" class="md-nav__link">
+        morapi_DnnForwardArg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayer.html" class="md-nav__link">
+        morapi_DnnLayer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayerCB.html" class="md-nav__link">
+        morapi_DnnLayerCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayerPlan.html" class="md-nav__link">
+        morapi_DnnLayerPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNet.html" class="md-nav__link">
+        morapi_DnnNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNetPartition.html" class="md-nav__link">
+        morapi_DnnNetPartition
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNetPlan.html" class="md-nav__link">
+        morapi_DnnNetPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnOptimizer.html" class="md-nav__link">
+        morapi_DnnOptimizer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnPlan.html" class="md-nav__link">
+        morapi_DnnPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          morapi_DnnProf
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="structmorapi__DnnProf.html" class="md-nav__link md-nav__link--active">
+        morapi_DnnProf
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-member-functions" class="md-nav__link">
+    Public Member Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Member Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-functions" class="md-nav__link">
+    Primary functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-settings" class="md-nav__link">
+    Optional settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#member-function-documentation" class="md-nav__link">
+    Member Function Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Member Function Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_create_dnnprof" class="md-nav__link">
+    morapi_create_DnnProf()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_destroy_dnnprof" class="md-nav__link">
+    morapi_destroy_DnnProf()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_init" class="md-nav__link">
+    morapi_DnnProf_init()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getdnn" class="md-nav__link">
+    morapi_DnnProf_getDnn()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_canadd" class="md-nav__link">
+    morapi_DnnProf_canAdd()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_add" class="md-nav__link">
+    morapi_DnnProf_add()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_remove" class="md-nav__link">
+    morapi_DnnProf_remove()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_reset" class="md-nav__link">
+    morapi_DnnProf_reset()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_profile" class="md-nav__link">
+    morapi_DnnProf_profile()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_save" class="md-nav__link">
+    morapi_DnnProf_save()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_load" class="md-nav__link">
+    morapi_DnnProf_load()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_isascii" class="md-nav__link">
+    morapi_DnnProf_isAscii()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setthreadnum" class="md-nav__link">
+    morapi_DnnProf_setThreadNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getthreadnum" class="md-nav__link">
+    morapi_DnnProf_getThreadNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setaffinitymask" class="md-nav__link">
+    morapi_DnnProf_setAffinityMask()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getaffinitymasknum" class="md-nav__link">
+    morapi_DnnProf_getAffinityMaskNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getaffinitymask" class="md-nav__link">
+    morapi_DnnProf_getAffinityMask()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getschemanum" class="md-nav__link">
+    morapi_DnnProf_getSchemaNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getschema" class="md-nav__link">
+    morapi_DnnProf_getSchema()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setestimatemode" class="md-nav__link">
+    morapi_DnnProf_setEstimateMode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getestimatemode" class="md-nav__link">
+    morapi_DnnProf_getEstimateMode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setrunnum" class="md-nav__link">
+    morapi_DnnProf_setRunNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getrunnum" class="md-nav__link">
+    morapi_DnnProf_getRunNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_cancel" class="md-nav__link">
+    morapi_DnnProf_cancel()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_iscanceled" class="md-nav__link">
+    morapi_DnnProf_isCanceled()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_ispreparing" class="md-nav__link">
+    morapi_DnnProf_isPreparing()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getprogress" class="md-nav__link">
+    morapi_DnnProf_getProgress()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getelapsedsec" class="md-nav__link">
+    morapi_DnnProf_getElapsedSec()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRecipe.html" class="md-nav__link">
+        morapi_DnnRecipe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutine.html" class="md-nav__link">
+        morapi_DnnRoutine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutineCB.html" class="md-nav__link">
+        morapi_DnnRoutineCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutinePlan.html" class="md-nav__link">
+        morapi_DnnRoutinePlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnSchemaPlan.html" class="md-nav__link">
+        morapi_DnnSchemaPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Env.html" class="md-nav__link">
+        morapi_Env
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Image.html" class="md-nav__link">
+        morapi_Image
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__ImagePlane.html" class="md-nav__link">
+        morapi_ImagePlane
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Param.html" class="md-nav__link">
+        morapi_Param
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Params.html" class="md-nav__link">
+        morapi_Params
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Quant.html" class="md-nav__link">
+        morapi_Quant
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Tensor.html" class="md-nav__link">
+        morapi_Tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Tensors.html" class="md-nav__link">
+        morapi_Tensors
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_decompose_api_8c-example.html" class="md-nav__link">
+        test_decompose_api.c
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_dnn_api_8c-example.html" class="md-nav__link">
+        test_dnn_api.c
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_prof_api_8c-example.html" class="md-nav__link">
+        test_prof_api.c
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/index.html" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-member-functions" class="md-nav__link">
+    Public Member Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Member Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-functions" class="md-nav__link">
+    Primary functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-settings" class="md-nav__link">
+    Optional settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#member-function-documentation" class="md-nav__link">
+    Member Function Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Member Function Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_create_dnnprof" class="md-nav__link">
+    morapi_create_DnnProf()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_destroy_dnnprof" class="md-nav__link">
+    morapi_destroy_DnnProf()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_init" class="md-nav__link">
+    morapi_DnnProf_init()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getdnn" class="md-nav__link">
+    morapi_DnnProf_getDnn()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_canadd" class="md-nav__link">
+    morapi_DnnProf_canAdd()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_add" class="md-nav__link">
+    morapi_DnnProf_add()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_remove" class="md-nav__link">
+    morapi_DnnProf_remove()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_reset" class="md-nav__link">
+    morapi_DnnProf_reset()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_profile" class="md-nav__link">
+    morapi_DnnProf_profile()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_save" class="md-nav__link">
+    morapi_DnnProf_save()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_load" class="md-nav__link">
+    morapi_DnnProf_load()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_isascii" class="md-nav__link">
+    morapi_DnnProf_isAscii()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setthreadnum" class="md-nav__link">
+    morapi_DnnProf_setThreadNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getthreadnum" class="md-nav__link">
+    morapi_DnnProf_getThreadNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setaffinitymask" class="md-nav__link">
+    morapi_DnnProf_setAffinityMask()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getaffinitymasknum" class="md-nav__link">
+    morapi_DnnProf_getAffinityMaskNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getaffinitymask" class="md-nav__link">
+    morapi_DnnProf_getAffinityMask()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getschemanum" class="md-nav__link">
+    morapi_DnnProf_getSchemaNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getschema" class="md-nav__link">
+    morapi_DnnProf_getSchema()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setestimatemode" class="md-nav__link">
+    morapi_DnnProf_setEstimateMode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getestimatemode" class="md-nav__link">
+    morapi_DnnProf_getEstimateMode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_setrunnum" class="md-nav__link">
+    morapi_DnnProf_setRunNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getrunnum" class="md-nav__link">
+    morapi_DnnProf_getRunNum()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_cancel" class="md-nav__link">
+    morapi_DnnProf_cancel()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_iscanceled" class="md-nav__link">
+    morapi_DnnProf_isCanceled()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_ispreparing" class="md-nav__link">
+    morapi_DnnProf_isPreparing()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getprogress" class="md-nav__link">
+    morapi_DnnProf_getProgress()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morapi_dnnprof_getelapsedsec" class="md-nav__link">
+    morapi_DnnProf_getElapsedSec()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="morapi_dnnprof-struct-reference">morapi_DnnProf Struct Reference</h1>
+<p><a href="group__dnn.html">dnn</a> » <a href="group__prof.html">prof</a></p>
+<p>Dnn profiler and profiling data.<br />
+<a href="structmorapi__DnnProf.html#details">More...</a></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;morapi_softneuro.h&gt;</span><span class="cp"></span>
+</code></pre></div>
+<hr />
+<h2 id="public-member-functions">Public Member Functions</h2>
+<hr />
+<h3 id="primary-functions">Primary functions</h3>
+<table>
+<tr>
+<td><a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * </td>
+<td><a href="structmorapi__DnnProf.html#ac3d810177029aff936cf80314fd81458">morapi_create_DnnProf</a> (<a href="structmorapi__Env.html">morapi_Env</a> *io_env)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a951b122b9268027a9f64c45d84d444ae">morapi_destroy_DnnProf</a> (<a href="structmorapi__Env.html">morapi_Env</a> *io_env, <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#aff0f05d352ef72ecf98a14833f338d74">morapi_DnnProf_init</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="structmorapi__Dnn.html">morapi_Dnn</a> *i_dnn)</td>
+</tr>
+<tr>
+<td>const <a href="structmorapi__Dnn.html">morapi_Dnn</a> * </td>
+<td><a href="structmorapi__DnnProf.html#ac773dc7cb635070b2d7cc176093c0918">morapi_DnnProf_getDnn</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> </td>
+<td><a href="structmorapi__DnnProf.html#aeda826bcab8f508e23b382bbcb17f441">morapi_DnnProf_canAdd</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_routine, const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> *i_layer, <a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> i_is_for_another_device)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a261a0d2514d10a9609758c0b0ee85565">morapi_DnnProf_add</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_routine, const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> *i_layer)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a0fbe16115e0817965837317f16838e25">morapi_DnnProf_remove</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_routine, const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> *i_layer)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#abbd7507d2f31244a6fa64466d4f126cb">morapi_DnnProf_reset</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_routine, const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> *i_layer)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a8851ef958a608ec7c5024424b08c1bde">morapi_DnnProf_profile</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__prof.html#gaaab8db3bea71ffbaab472e87d6127abf">morapi_DnnProfProgressedCB</a> i_cbfunc, void *i_cbobj)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a657d29f6eff2d1f9f8ef399c09ed532a">morapi_DnnProf_save</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_filename, <a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> i_is_ascii)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a817322b13132668502ad6db867804c3e">morapi_DnnProf_load</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_filename, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_dnn_filename, const void *i_password, <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_password_len)</td>
+</tr>
+</table>
+
+<hr />
+<h3 id="optional-settings">Optional settings</h3>
+<table>
+<tr>
+<td><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> </td>
+<td><a href="structmorapi__DnnProf.html#af57ff0d564b8a4da6724b15bfc82c15f">morapi_DnnProf_isAscii</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#afad5f0833ad28378577b28e70dac1705">morapi_DnnProf_setThreadNum</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_thread_num)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> </td>
+<td><a href="structmorapi__DnnProf.html#a0bfbb9b759991b23d586f6b32e3b2d74">morapi_DnnProf_getThreadNum</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a8dd1af05f99e1c85d4a421216b488d5d">morapi_DnnProf_setAffinityMask</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_index, const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> *i_text)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> </td>
+<td><a href="structmorapi__DnnProf.html#acd9f69b70b4cee82fbc8377e57834b1a">morapi_DnnProf_getAffinityMaskNum</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td>const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * </td>
+<td><a href="structmorapi__DnnProf.html#aa12d13637adab5904cb960bb151697ba">morapi_DnnProf_getAffinityMask</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_index)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> </td>
+<td><a href="structmorapi__DnnProf.html#a1d791f865c38a5545bb10e3efb83f982">morapi_DnnProf_getSchemaNum</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td>const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * </td>
+<td><a href="structmorapi__DnnProf.html#a486d9e50091b95c72bdd33fe04594b68">morapi_DnnProf_getSchema</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_index)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a5ee9688e99abb8b022f12a4733dbf521">morapi_DnnProf_setEstimateMode</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__prof.html#gaff3e11c3ac6a1bea90f872a68d5eb5b7">morapi_DnnProfEstimateMode</a> i_estimate_mode)</td>
+</tr>
+<tr>
+<td><a href="group__prof.html#gaff3e11c3ac6a1bea90f872a68d5eb5b7">morapi_DnnProfEstimateMode</a> </td>
+<td><a href="structmorapi__DnnProf.html#adec72ad48afeda7abf66e79ea2fbc9fc">morapi_DnnProf_getEstimateMode</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a2a553ed668bfe8c0639554fb3037da2a">morapi_DnnProf_setRunNum</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self, <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_run_num)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> </td>
+<td><a href="structmorapi__DnnProf.html#a20812f26bcf0c5206483d410fe5dcdbe">morapi_DnnProf_getRunNum</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> </td>
+<td><a href="structmorapi__DnnProf.html#a25ea94d244565b1fb2495d3e2309f1be">morapi_DnnProf_cancel</a> (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> </td>
+<td><a href="structmorapi__DnnProf.html#a9fdb6a9b4440a249e65e6a9cda8cee38">morapi_DnnProf_isCanceled</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> </td>
+<td><a href="structmorapi__DnnProf.html#a7b9fd0169542ed4d3f19ff87d0d5c397">morapi_DnnProf_isPreparing</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga84cd376e4cf1bba39350ed73962f967b">morapi_Real</a> </td>
+<td><a href="structmorapi__DnnProf.html#ad8e0b0342c21a85c22c8848f84e8f92a">morapi_DnnProf_getProgress</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+<tr>
+<td><a href="group__core.html#ga84cd376e4cf1bba39350ed73962f967b">morapi_Real</a> </td>
+<td><a href="structmorapi__DnnProf.html#abeee011addb068f7fb9bee8e271c85c5">morapi_DnnProf_getElapsedSec</a> (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> *self)</td>
+</tr>
+
+</table>
+<p><a id="details"></a></p>
+<hr />
+<h2 id="detailed-description">Detailed Description</h2>
+<p>Dnn profiler and profiling data. </p>
+<hr />
+<p><a href="test_prof_api_8c-example.html#_a0">test_prof_api.c</a>.</p>
+<hr />
+<h2 id="member-function-documentation">Member Function Documentation</h2>
+<p><a id="ac3d810177029aff936cf80314fd81458"></a></p>
+<hr />
+<h3 id="morapi_create_dnnprof">morapi_create_DnnProf()</h3>
+<pre><code><a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * morapi_create_DnnProf (<a href="structmorapi__Env.html">morapi_Env</a> * io_env)
+</code></pre>
+
+<p>Creates a profiler. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>io_env</strong> : environment object </li>
+</ul>
+<hr />
+<p><a href="test_prof_api_8c-example.html#a12">test_prof_api.c</a>.</p>
+<p><a id="a951b122b9268027a9f64c45d84d444ae"></a></p>
+<hr />
+<h3 id="morapi_destroy_dnnprof">morapi_destroy_DnnProf()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_destroy_DnnProf (<a href="structmorapi__Env.html">morapi_Env</a> * io_env,
+                                      <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Destroys the profiler. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>io_env</strong> : environment object that used to create the profiler object </li>
+<li><strong>self</strong> : the profiler object to destroy </li>
+</ul>
+<hr />
+<p><a href="test_prof_api_8c-example.html#a29">test_prof_api.c</a>.</p>
+<p><a id="aff0f05d352ef72ecf98a14833f338d74"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_init">morapi_DnnProf_init()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_init (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                   <a href="structmorapi__Dnn.html">morapi_Dnn</a> * i_dnn)
+</code></pre>
+
+<p>Initializes profiling data with a dnn. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_dnn</strong> : the dnn object to be profiled </li>
+</ul>
+<hr />
+<p><a href="test_prof_api_8c-example.html#a16">test_prof_api.c</a>.</p>
+<p><a id="ac773dc7cb635070b2d7cc176093c0918"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getdnn">morapi_DnnProf_getDnn()</h3>
+<pre><code>const <a href="structmorapi__Dnn.html">morapi_Dnn</a> * morapi_DnnProf_getDnn (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the dnn that the DnnProf works on. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the dnn </p>
+<p><a id="aeda826bcab8f508e23b382bbcb17f441"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_canadd">morapi_DnnProf_canAdd()</h3>
+<pre><code><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> morapi_DnnProf_canAdd (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                   const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_routine,
+                                   const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> * i_layer,
+                                   <a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> i_is_for_another_device)
+</code></pre>
+
+<p>Checks whether a profiling routine can be added to a layer. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler. </li>
+<li><strong>i_routine</strong> : the profiling routine. </li>
+<li><strong>i_layer</strong> : the layer to which the profiling routine is added. If NULL is given, checks whether the profiling routine can be added to any of layers in a main net. </li>
+<li><strong>i_is_for_another_device</strong> : whether the profiling routine is for another device or not. </li>
+</ul>
+<p><a id="a261a0d2514d10a9609758c0b0ee85565"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_add">morapi_DnnProf_add()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_add (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                  const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_routine,
+                                  const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> * i_layer)
+</code></pre>
+
+<p>Adds a profiling routine to a layer. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler. </li>
+<li><strong>i_routine</strong> : the profiling routine. </li>
+<li><strong>i_layer</strong> : the layer to which the profiling routine is added. If NULL is given, the profiling routine is added to all layers in a main net. </li>
+</ul>
+<hr />
+<p><a href="test_prof_api_8c-example.html#a17">test_prof_api.c</a>.</p>
+<p><a id="a0fbe16115e0817965837317f16838e25"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_remove">morapi_DnnProf_remove()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_remove (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                     const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_routine,
+                                     const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> * i_layer)
+</code></pre>
+
+<p>Removes a profiling routine from a layer. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler. </li>
+<li><strong>i_routine</strong> : the profiling routine. If NULL or an empty string ("") is given, all profiling routines are removed from the layer. </li>
+<li><strong>i_layer</strong> : the layer from which the profiling routine is removed. If NULL is given, the profiling routine is removed from all layers. </li>
+</ul>
+<p><a id="abbd7507d2f31244a6fa64466d4f126cb"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_reset">morapi_DnnProf_reset()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_reset (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                    const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_routine,
+                                    const <a href="structmorapi__DnnLayer.html">morapi_DnnLayer</a> * i_layer)
+</code></pre>
+
+<p>Resets profiling data. </p>
+<p>It clears measured processing time for a profiling routine in a layer. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler. </li>
+<li><strong>i_routine</strong> : the profiling routine to be reset. If NULL or an empty string ("") is given, all profiling routines are reset. </li>
+<li><strong>i_layer</strong> : the layer to be reset. If NULL is given, the routines in all layers are reset. </li>
+</ul>
+<p><a id="a8851ef958a608ec7c5024424b08c1bde"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_profile">morapi_DnnProf_profile()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_profile (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                      <a href="group__prof.html#gaaab8db3bea71ffbaab472e87d6127abf">morapi_DnnProfProgressedCB</a> i_cbfunc,
+                                      void * i_cbobj)
+</code></pre>
+
+<p>Runs profiling with a callback function for progress. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_cbfunc</strong> : a callback function for reporting progress </li>
+<li><strong>i_cbobj</strong> : an argument for the callback function </li>
+</ul>
+<hr />
+<p><a href="test_prof_api_8c-example.html#a18">test_prof_api.c</a>.</p>
+<p><a id="a657d29f6eff2d1f9f8ef399c09ed532a"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_save">morapi_DnnProf_save()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_save (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                   const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_filename,
+                                   <a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> i_is_ascii)
+</code></pre>
+
+<p>Saves the profiling data to a file. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_filename</strong> : a file name to save the profiling data </li>
+<li><strong>i_is_ascii</strong> : a boolean. Specify true to save the profiling data as ASCII. </li>
+</ul>
+<p><a id="a817322b13132668502ad6db867804c3e"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_load">morapi_DnnProf_load()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_load (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                   const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_filename,
+                                   const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_dnn_filename,
+                                   const void * i_password,
+                                   <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_password_len)
+</code></pre>
+
+<p>Loads a profiling data from a file. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_filename</strong> : a file name for the profiling data </li>
+<li><strong>i_dnn_filename</strong> : a file name for dnn file used for profiling </li>
+<li><strong>i_password</strong> : a password string for the profiling data </li>
+<li><strong>i_password_len</strong> : the length of the i_password string. </li>
+</ul>
+<p><a id="af57ff0d564b8a4da6724b15bfc82c15f"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_isascii">morapi_DnnProf_isAscii()</h3>
+<pre><code><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> morapi_DnnProf_isAscii (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Returns whether self is saved in ascii format or not. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>whether self is saved in ascii format or not </p>
+<p><a id="afad5f0833ad28378577b28e70dac1705"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_setthreadnum">morapi_DnnProf_setThreadNum()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_setThreadNum (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                           <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_thread_num)
+</code></pre>
+
+<p>Sets the number of threads. </p>
+<p>It resets all profiling data and clears all affinity masks. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_thread_num</strong> : the number of threads to use for profiling </li>
+</ul>
+<p><a id="a0bfbb9b759991b23d586f6b32e3b2d74"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getthreadnum">morapi_DnnProf_getThreadNum()</h3>
+<pre><code><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> morapi_DnnProf_getThreadNum (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the number of threads. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the number of threads </p>
+<p><a id="a8dd1af05f99e1c85d4a421216b488d5d"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_setaffinitymask">morapi_DnnProf_setAffinityMask()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_setAffinityMask (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                              <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_index,
+                                              const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * i_text)
+</code></pre>
+
+<p>Sets the i_index-th affinity mask. </p>
+<p>It resets all profiling data. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_index</strong> : the index of the affinity mask </li>
+<li><strong>i_text</strong> : the text-based affinity mask (Hex, Bin, Dec are available) </li>
+</ul>
+<p><a id="acd9f69b70b4cee82fbc8377e57834b1a"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getaffinitymasknum">morapi_DnnProf_getAffinityMaskNum()</h3>
+<pre><code><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> morapi_DnnProf_getAffinityMaskNum (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the number of affinity masks. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the number of affinity masks </p>
+<p><a id="aa12d13637adab5904cb960bb151697ba"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getaffinitymask">morapi_DnnProf_getAffinityMask()</h3>
+<pre><code>const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * morapi_DnnProf_getAffinityMask (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                                    <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_index)
+</code></pre>
+
+<p>Gets the i_idnex-th affinity mask. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_index</strong> : the index for affinity mask of the interest </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the text-based affinity mask </p>
+<p><a id="a1d791f865c38a5545bb10e3efb83f982"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getschemanum">morapi_DnnProf_getSchemaNum()</h3>
+<pre><code><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> morapi_DnnProf_getSchemaNum (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the number of schemas to be profiled. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the number of schemas to be profiled </p>
+<p><a id="a486d9e50091b95c72bdd33fe04594b68"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getschema">morapi_DnnProf_getSchema()</h3>
+<pre><code>const <a href="group__core.html#gae8b4493ec642981ce855e2b047e494bf">morapi_Char</a> * morapi_DnnProf_getSchema (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                              <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_index)
+</code></pre>
+
+<p>Gets the i_index-th schema to be profiled. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_index</strong> : the index of schemas in the profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the i_index-th schema to be profiled </p>
+<p><a id="a5ee9688e99abb8b022f12a4733dbf521"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_setestimatemode">morapi_DnnProf_setEstimateMode()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_setEstimateMode (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                              <a href="group__prof.html#gaff3e11c3ac6a1bea90f872a68d5eb5b7">morapi_DnnProfEstimateMode</a> i_estimate_mode)
+</code></pre>
+
+<p>Sets the estimation mode of profiling data. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_estimate_mode</strong> : the estimation mode by morapi_DnnProfEstimateMode enumeration </li>
+</ul>
+<p><a id="adec72ad48afeda7abf66e79ea2fbc9fc"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getestimatemode">morapi_DnnProf_getEstimateMode()</h3>
+<pre><code><a href="group__prof.html#gaff3e11c3ac6a1bea90f872a68d5eb5b7">morapi_DnnProfEstimateMode</a> morapi_DnnProf_getEstimateMode (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the estimation mode of profiling data. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the estimation mode of profiling data </p>
+<p><a id="a2a553ed668bfe8c0639554fb3037da2a"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_setrunnum">morapi_DnnProf_setRunNum()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_setRunNum (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self,
+                                        <a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> i_run_num)
+</code></pre>
+
+<p>Sets the number of iterations when profiling a routine. </p>
+<p>The default is 10. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+<li><strong>i_run_num</strong> : the number of iterations to profile a single routine </li>
+</ul>
+<p><a id="a20812f26bcf0c5206483d410fe5dcdbe"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getrunnum">morapi_DnnProf_getRunNum()</h3>
+<pre><code><a href="group__core.html#ga65f9554428079f719d3191934f483a75">morapi_Int32</a> morapi_DnnProf_getRunNum (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the number of iterations when profiling a routine. </p>
+<p>The default is 10. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the dnn profiler </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the number of iterations </p>
+<p><a id="a25ea94d244565b1fb2495d3e2309f1be"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_cancel">morapi_DnnProf_cancel()</h3>
+<pre><code><a href="group__core.html#gacd81a5a53ca988d8900e4fe3f84fc61d">morapi_Result</a> morapi_DnnProf_cancel (<a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Cancels profiling. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the profiler object </li>
+</ul>
+<p><a id="a9fdb6a9b4440a249e65e6a9cda8cee38"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_iscanceled">morapi_DnnProf_isCanceled()</h3>
+<pre><code><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> morapi_DnnProf_isCanceled (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Returns whether self is canceled or not. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the profiler object </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>whether profiling is canceled or not </p>
+<p><a id="a7b9fd0169542ed4d3f19ff87d0d5c397"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_ispreparing">morapi_DnnProf_isPreparing()</h3>
+<pre><code><a href="group__core.html#ga3247954deef566f9a355c8d8f5c1b4c6">morapi_Bool</a> morapi_DnnProf_isPreparing (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Returns whether preparing or not. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the profiler object </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>whether profiler is preparing or not </p>
+<p><a id="ad8e0b0342c21a85c22c8848f84e8f92a"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getprogress">morapi_DnnProf_getProgress()</h3>
+<pre><code><a href="group__core.html#ga84cd376e4cf1bba39350ed73962f967b">morapi_Real</a> morapi_DnnProf_getProgress (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the progress of profiling process. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the profiler object </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Progress rate between 0 and 1. </p>
+<hr />
+<p><a href="test_prof_api_8c-example.html#a1">test_prof_api.c</a>.</p>
+<p><a id="abeee011addb068f7fb9bee8e271c85c5"></a></p>
+<hr />
+<h3 id="morapi_dnnprof_getelapsedsec">morapi_DnnProf_getElapsedSec()</h3>
+<pre><code><a href="group__core.html#ga84cd376e4cf1bba39350ed73962f967b">morapi_Real</a> morapi_DnnProf_getElapsedSec (const <a href="structmorapi__DnnProf.html">morapi_DnnProf</a> * self)
+</code></pre>
+
+<p>Gets the elapsed sec. </p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>self</strong> : the profiler object </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>the elapsed time [sec] </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="structmorapi__DnnPlan.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: morapi_DnnPlan" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              morapi_DnnPlan
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="structmorapi__DnnRecipe.html" class="md-footer__link md-footer__link--next" aria-label="Next: morapi_DnnRecipe" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              morapi_DnnRecipe
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> all rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

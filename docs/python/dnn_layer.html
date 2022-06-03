@@ -1,0 +1,1148 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This document describes API usage of SoftNeuro&reg v5.1.0.">
+      
+      
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>DnnLayer - SoftNeuro&reg v5.1.0 Python API Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dnnlayer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="SoftNeuro&amp;reg v5.1.0 Python API Document" class="md-header__button md-logo" aria-label="SoftNeuro&reg v5.1.0 Python API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg v5.1.0 Python API Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DnnLayer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        Python API (English)
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../cli/index.html" class="md-tabs__link">
+      CLI
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SoftNeuro&amp;reg v5.1.0 Python API Document" class="md-nav__button md-logo" aria-label="SoftNeuro&reg v5.1.0 Python API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg v5.1.0 Python API Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Python API (English)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python API (English)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python API (English)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Top
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        SoftNeuro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SoftNeuro" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          SoftNeuro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softneuro_common.html" class="md-nav__link">
+        Common Functions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enums.html" class="md-nav__link">
+        Enums
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Dnn
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Dnn" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Dnn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn.html" class="md-nav__link">
+        Dnn Object & Basic commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_manipulations.html" class="md-nav__link">
+        Dnn Manipulations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_io.html" class="md-nav__link">
+        Dnn Input & Output
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_4" type="checkbox" id="__nav_3_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_3_4">
+        DnnNet
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DnnNet" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          DnnNet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_net.html" class="md-nav__link">
+        DnnNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_net_io.html" class="md-nav__link">
+        DnnNet Input & Output
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_5" type="checkbox" id="__nav_3_3_5" checked>
+      
+      <label class="md-nav__link" for="__nav_3_3_5">
+        DnnLayer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DnnLayer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          DnnLayer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          DnnLayer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="dnn_layer.html" class="md-nav__link md-nav__link--active">
+        DnnLayer
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dnnlayer" class="md-nav__link">
+    DnnLayer
+  </a>
+  
+    <nav class="md-nav" aria-label="DnnLayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect" class="md-nav__link">
+    connect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect" class="md-nav__link">
+    disconnect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect_all" class="md-nav__link">
+    disconnect_all
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_input" class="md-nav__link">
+    get_input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_output" class="md-nav__link">
+    get_output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_weight" class="md-nav__link">
+    set_weight
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_layer_io.html" class="md-nav__link">
+        DnnLayer Input & Output
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_6" type="checkbox" id="__nav_3_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_3_6">
+        Dnn Profiling for Tuning
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Dnn Profiling for Tuning" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dnn Profiling for Tuning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_prof.html" class="md-nav__link">
+        DnnProf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_optimizer.html" class="md-nav__link">
+        DnnOptimizer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_6_3" type="checkbox" id="__nav_3_3_6_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3_6_3">
+        DnnPlan
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DnnPlan" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_3_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          DnnPlan
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_plan.html" class="md-nav__link">
+        DnnPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_layer_plan.html" class="md-nav__link">
+        DnnLayerPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_net_plan.html" class="md-nav__link">
+        DnnNetPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_routine_plan.html" class="md-nav__link">
+        DnnRoutinePlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_schema_plan.html" class="md-nav__link">
+        DnnSchemaPlan
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_recipe.html" class="md-nav__link">
+        DnnRecipe
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_7" type="checkbox" id="__nav_3_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_3_7">
+        Dnn Partitioning for Decomposing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Dnn Partitioning for Decomposing" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Dnn Partitioning for Decomposing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dnn_net_partition.html" class="md-nav__link">
+        DnnNetPartition
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="device.html" class="md-nav__link">
+        Device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tensor.html" class="md-nav__link">
+        Tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="params.html" class="md-nav__link">
+        Parameters
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/index.html" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dnnlayer" class="md-nav__link">
+    DnnLayer
+  </a>
+  
+    <nav class="md-nav" aria-label="DnnLayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect" class="md-nav__link">
+    connect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect" class="md-nav__link">
+    disconnect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect_all" class="md-nav__link">
+    disconnect_all
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_input" class="md-nav__link">
+    get_input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_output" class="md-nav__link">
+    get_output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_weight" class="md-nav__link">
+    set_weight
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>DnnLayer</h1>
+                
+                <h2 id="dnnlayer">DnnLayer</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">softneuro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DnnLayer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+<p>DnnLayer class is the basic element of DnnNet.</p>
+<p>This is a private class of softneuro, instance can not be constructed directly,users can get DnnLayer instance
+               using <a href="dnn_net.html#add_layer">DnnNet.add_layer()</a>, 
+               <a href="dnn_net.html#get_input_layer">DnnNet.get_input_layer()</a>, 
+               <a href="dnn_net.html#get_output_layer">DnnNet.get_output_layer()</a>, etc.</p>
+<p><strong>Attributes</strong></p>
+<ul>
+<li><strong>attrs</strong>: Attribuites of the layer.</li>
+<li><strong>child_net</strong>: child net.</li>
+<li><strong>compiled_routine_desc</strong>: Routine descriptor of the compiled routine.</li>
+<li><strong>compiled_routine_params</strong>: Parameters of the compiled routine.</li>
+<li><strong>index</strong>: index of the layer in the owner DnnNet.</li>
+<li><strong>inputs</strong>: A series of DnnLayerInput objects of the layer.</li>
+<li><strong>is_constant</strong>: whether the layer is constant or not.</li>
+<li><strong>is_failed</strong>: whether the layer is failed to parse, routinize, precompile or compile.</li>
+<li><strong>is_immutable</strong>: whether the layer is immutable or not.</li>
+<li><strong>is_mutable</strong>: whether the layer is immutable or not.</li>
+<li><strong>name</strong>: Name of the layer.</li>
+<li><strong>owner</strong>: DnnNet that the layer belongs to.</li>
+<li><strong>params</strong>: Parameters of the layer.</li>
+<li><strong>parsed_params</strong>: Parsed parameters of the layer .</li>
+<li><strong>routine_desc</strong>: Routine descriptor of the layer such as cpu/naive, cpu/neon.</li>
+<li><strong>routine_params</strong>: Parameters of the routine.</li>
+<li><strong>state</strong>: State of dnn layer.</li>
+<li><strong>type</strong>: Type of the layer.</li>
+<li><strong>outputs</strong>: A series of DnnLayerOutput objects of the layer.</li>
+<li><strong>weights</strong>: A series of weights in the layer.</li>
+</ul>
+<hr />
+<h3 id="connect">connect</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">DnnLayer</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">i_output_index</span><span class="p">,</span> <span class="n">i_next_layer</span><span class="p">,</span> <span class="n">i_input_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Connect an output of the layer to an input of another succeeding layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>i_output_index</strong>: The index of output to connect.</li>
+<li><strong>i_next_layer</strong>: A succeeding DnnLayer object to be connected.</li>
+<li><strong>i_input_index</strong>: The index of input on the succeeding layer.</li>
+</ul>
+<hr />
+<h3 id="disconnect">disconnect</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">DnnLayer</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">i_output_index</span><span class="p">,</span> <span class="n">i_next_layer</span><span class="p">,</span> <span class="n">i_input_index</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Disconnect an output of the layer from an input of another succeeding layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>i_output_index</strong>: The index of output to disconnect.</li>
+<li><strong>i_next_layer</strong>: A succeeding DnnLayer object to be disconnected.</li>
+<li><strong>i_input_index</strong>: The index of input on the succeeding layer.</li>
+</ul>
+<hr />
+<h3 id="disconnect_all">disconnect_all</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">DnnLayer</span><span class="o">.</span><span class="n">disconnect_all</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Disconnects the layer from other layers.</p>
+<hr />
+<h3 id="get_input">get_input</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">DnnLayer</span><span class="o">.</span><span class="n">get_input</span><span class="p">(</span><span class="n">input_index</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Gets input object DnnLayerInput of the layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>input_index</strong>: The input index of the interest.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Type : DnnLayerInput,input of the layer.</p>
+<hr />
+<h3 id="get_output">get_output</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">DnnLayer</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="n">output_index</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Gets output object DnnLayerOutput of the layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>output_index</strong>: The input index of the interest.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Type : DnnLayerOutput,output of the layer.</p>
+<hr />
+<h3 id="set_weight">set_weight</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">DnnLayer</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Sets weight to the layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>key</strong>: A string for the name of the weight.</li>
+<li><strong>val</strong>: An object for the weight values, any of the following data types.</li>
+</ul>
+<p><strong>Data types for <code>val</code></strong></p>
+<ul>
+<li>int</li>
+<li>float</li>
+<li>numpy.float</li>
+<li>numpy.ndarray</li>
+<li>Tensor</li>
+</ul>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="dnn_net_io.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: DnnNet Input &amp; Output" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              DnnNet Input & Output
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="dnn_layer_io.html" class="md-footer__link md-footer__link--next" aria-label="Next: DnnLayer Input &amp; Output" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              DnnLayer Input & Output
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> all rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

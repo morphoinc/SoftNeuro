@@ -1,0 +1,2985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This document describes API usage of SoftNeuro&reg; v5.2.0.">
+      
+      
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>image - SoftNeuro&reg; v5.2.0 C API Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#image" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="SoftNeuro&amp;reg; v5.2.0 C API Document" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.2.0 C API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.2.0 C API Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              image
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        C API (English)
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../cli/index.html" class="md-tabs__link">
+      CLI
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SoftNeuro&amp;reg; v5.2.0 C API Document" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.2.0 C API Document" data-md-component="logo">
+      
+  <img src="headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.2.0 C API Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        C API (English)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="C API (English)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C API (English)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Top
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Layer List
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Layer List" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Layer List
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="abs.html" class="md-nav__link">
+        abs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acos.html" class="md-nav__link">
+        acos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acosh.html" class="md-nav__link">
+        acosh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adapt.html" class="md-nav__link">
+        adapt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adaptive_unit_scale.html" class="md-nav__link">
+        adaptive_unit_scale
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="add.html" class="md-nav__link">
+        add
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="and.html" class="md-nav__link">
+        and
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arg_max.html" class="md-nav__link">
+        arg_max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="asin.html" class="md-nav__link">
+        asin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="asinh.html" class="md-nav__link">
+        asinh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atan.html" class="md-nav__link">
+        atan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atanh.html" class="md-nav__link">
+        atanh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ave_pool2.html" class="md-nav__link">
+        ave_pool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="batch_norm.html" class="md-nav__link">
+        batch_norm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="box_filter.html" class="md-nav__link">
+        box_filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="broadcast.html" class="md-nav__link">
+        broadcast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cast.html" class="md-nav__link">
+        cast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ccc.html" class="md-nav__link">
+        ccc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ceil.html" class="md-nav__link">
+        ceil
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clip.html" class="md-nav__link">
+        clip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="complex.html" class="md-nav__link">
+        complex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concat.html" class="md-nav__link">
+        concat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="const.html" class="md-nav__link">
+        const
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv1.html" class="md-nav__link">
+        conv1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv2.html" class="md-nav__link">
+        conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conv2t.html" class="md-nav__link">
+        conv2t
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cos.html" class="md-nav__link">
+        cos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cosh.html" class="md-nav__link">
+        cosh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crop2.html" class="md-nav__link">
+        crop2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dcf.html" class="md-nav__link">
+        dcf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_centernet.html" class="md-nav__link">
+        decode_centernet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_pelee.html" class="md-nav__link">
+        decode_pelee
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_ssd.html" class="md-nav__link">
+        decode_ssd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_ulffd.html" class="md-nav__link">
+        decode_ulffd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_yolov3.html" class="md-nav__link">
+        decode_yolov3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decode_yolov4.html" class="md-nav__link">
+        decode_yolov4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dense.html" class="md-nav__link">
+        dense
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="depth_to_space.html" class="md-nav__link">
+        depth_to_space
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="depthwise_conv2.html" class="md-nav__link">
+        depthwise_conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="div.html" class="md-nav__link">
+        div
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dropout.html" class="md-nav__link">
+        dropout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="elu.html" class="md-nav__link">
+        elu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="equal.html" class="md-nav__link">
+        equal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="erf.html" class="md-nav__link">
+        erf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exp.html" class="md-nav__link">
+        exp
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fast_guided_filter.html" class="md-nav__link">
+        fast_guided_filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fft2.html" class="md-nav__link">
+        fft2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fill.html" class="md-nav__link">
+        fill
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="floor.html" class="md-nav__link">
+        floor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gather.html" class="md-nav__link">
+        gather
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_average_pool.html" class="md-nav__link">
+        global_average_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_max_pool.html" class="md-nav__link">
+        global_max_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="greater.html" class="md-nav__link">
+        greater
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="greater_or_equal.html" class="md-nav__link">
+        greater_or_equal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instance_norm.html" class="md-nav__link">
+        instance_norm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="leaky_relu.html" class="md-nav__link">
+        leaky_relu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linspace.html" class="md-nav__link">
+        linspace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lrn.html" class="md-nav__link">
+        lrn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstm.html" class="md-nav__link">
+        lstm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="madd.html" class="md-nav__link">
+        madd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="maximum.html" class="md-nav__link">
+        maximum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="max_pool2.html" class="md-nav__link">
+        max_pool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mean.html" class="md-nav__link">
+        mean
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="minimum.html" class="md-nav__link">
+        minimum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mul.html" class="md-nav__link">
+        mul
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="neg.html" class="md-nav__link">
+        neg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="normalize.html" class="md-nav__link">
+        normalize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="not.html" class="md-nav__link">
+        not
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="or.html" class="md-nav__link">
+        or
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="padding2.html" class="md-nav__link">
+        padding2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pass.html" class="md-nav__link">
+        pass
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="permute.html" class="md-nav__link">
+        permute
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pow.html" class="md-nav__link">
+        pow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prelu.html" class="md-nav__link">
+        prelu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="priorbox.html" class="md-nav__link">
+        priorbox
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="proposal.html" class="md-nav__link">
+        proposal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reciprocal.html" class="md-nav__link">
+        reciprocal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="relu.html" class="md-nav__link">
+        relu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reshape.html" class="md-nav__link">
+        reshape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resize.html" class="md-nav__link">
+        resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roi_align.html" class="md-nav__link">
+        roi_align
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roi_pool.html" class="md-nav__link">
+        roi_pool
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rotate.html" class="md-nav__link">
+        rotate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="round.html" class="md-nav__link">
+        round
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rsqrt.html" class="md-nav__link">
+        rsqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="separable_conv2.html" class="md-nav__link">
+        separable_conv2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shape.html" class="md-nav__link">
+        shape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sigmoid.html" class="md-nav__link">
+        sigmoid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sin.html" class="md-nav__link">
+        sin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sinh.html" class="md-nav__link">
+        sinh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sink.html" class="md-nav__link">
+        sink
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="size.html" class="md-nav__link">
+        size
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slice.html" class="md-nav__link">
+        slice
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softmax.html" class="md-nav__link">
+        softmax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softplus.html" class="md-nav__link">
+        softplus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="softsign.html" class="md-nav__link">
+        softsign
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source.html" class="md-nav__link">
+        source
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="space_to_depth.html" class="md-nav__link">
+        space_to_depth
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sync.html" class="md-nav__link">
+        sync
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="split.html" class="md-nav__link">
+        split
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sqrt.html" class="md-nav__link">
+        sqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sub.html" class="md-nav__link">
+        sub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sum.html" class="md-nav__link">
+        sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tan.html" class="md-nav__link">
+        tan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tanh.html" class="md-nav__link">
+        tanh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tensor_to_scalar.html" class="md-nav__link">
+        tensor_to_scalar
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tile.html" class="md-nav__link">
+        tile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transpose.html" class="md-nav__link">
+        transpose
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unpool2.html" class="md-nav__link">
+        unpool2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unsqueeze.html" class="md-nav__link">
+        unsqueeze
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="zero_padding2.html" class="md-nav__link">
+        zero_padding2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Modules
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__core.html" class="md-nav__link">
+        core
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__dll.html" class="md-nav__link">
+        core.dll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__env.html" class="md-nav__link">
+        core.env
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__dnn.html" class="md-nav__link">
+        dnn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__binary.html" class="md-nav__link">
+        dnn.binary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__decomposer.html" class="md-nav__link">
+        dnn.decomposer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__device.html" class="md-nav__link">
+        dnn.device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__param.html" class="md-nav__link">
+        dnn.param
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__prof.html" class="md-nav__link">
+        dnn.prof
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__tensor.html" class="md-nav__link">
+        dnn.tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          image
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="group__image.html" class="md-nav__link md-nav__link--active">
+        image
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures" class="md-nav__link">
+    Data Structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    Enumerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-definition-documentation" class="md-nav__link">
+    Macro Definition Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Definition Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_image_plane_num" class="md-nav__link">
+    MORAPI_IMAGE_PLANE_NUM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-type-documentation" class="md-nav__link">
+    Enumeration Type Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeration Type Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_imageformat" class="md-nav__link">
+    morapi_ImageFormat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="group__image__io.html" class="md-nav__link">
+        image_io
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Data Structures
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data Structures" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Data Structures
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Binary.html" class="md-nav__link">
+        morapi_Binary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__BinaryLib.html" class="md-nav__link">
+        morapi_BinaryLib
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Device.html" class="md-nav__link">
+        morapi_Device
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceBuf.html" class="md-nav__link">
+        morapi_DeviceBuf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceBufCB.html" class="md-nav__link">
+        morapi_DeviceBufCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DeviceCB.html" class="md-nav__link">
+        morapi_DeviceCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Dll.html" class="md-nav__link">
+        morapi_Dll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Dnn.html" class="md-nav__link">
+        morapi_Dnn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnForward.html" class="md-nav__link">
+        morapi_DnnForward
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnForwardArg.html" class="md-nav__link">
+        morapi_DnnForwardArg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayer.html" class="md-nav__link">
+        morapi_DnnLayer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayerCB.html" class="md-nav__link">
+        morapi_DnnLayerCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnLayerPlan.html" class="md-nav__link">
+        morapi_DnnLayerPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNet.html" class="md-nav__link">
+        morapi_DnnNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNetPartition.html" class="md-nav__link">
+        morapi_DnnNetPartition
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnNetPlan.html" class="md-nav__link">
+        morapi_DnnNetPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnOptimizer.html" class="md-nav__link">
+        morapi_DnnOptimizer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnPlan.html" class="md-nav__link">
+        morapi_DnnPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnProf.html" class="md-nav__link">
+        morapi_DnnProf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRecipe.html" class="md-nav__link">
+        morapi_DnnRecipe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutine.html" class="md-nav__link">
+        morapi_DnnRoutine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutineCB.html" class="md-nav__link">
+        morapi_DnnRoutineCB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnRoutinePlan.html" class="md-nav__link">
+        morapi_DnnRoutinePlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__DnnSchemaPlan.html" class="md-nav__link">
+        morapi_DnnSchemaPlan
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Env.html" class="md-nav__link">
+        morapi_Env
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Image.html" class="md-nav__link">
+        morapi_Image
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__ImagePlane.html" class="md-nav__link">
+        morapi_ImagePlane
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Param.html" class="md-nav__link">
+        morapi_Param
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Params.html" class="md-nav__link">
+        morapi_Params
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Quant.html" class="md-nav__link">
+        morapi_Quant
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Tensor.html" class="md-nav__link">
+        morapi_Tensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structmorapi__Tensors.html" class="md-nav__link">
+        morapi_Tensors
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_decompose_api_8c-example.html" class="md-nav__link">
+        test_decompose_api.c
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_dnn_api_8c-example.html" class="md-nav__link">
+        test_dnn_api.c
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test_prof_api_8c-example.html" class="md-nav__link">
+        test_prof_api.c
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/index.html" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures" class="md-nav__link">
+    Data Structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    Enumerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-definition-documentation" class="md-nav__link">
+    Macro Definition Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Definition Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_image_plane_num" class="md-nav__link">
+    MORAPI_IMAGE_PLANE_NUM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-type-documentation" class="md-nav__link">
+    Enumeration Type Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeration Type Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morapi_imageformat" class="md-nav__link">
+    morapi_ImageFormat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="image">image</h1>
+<p>Image module.<br />
+<a href="#details">More...</a></p>
+<hr />
+<h2 id="data-structures">Data Structures</h2>
+<table>
+<tr>
+<td>struct  </td>
+<td><a href="structmorapi__ImagePlane.html">morapi_ImagePlane</a></td>
+</tr>
+<tr>
+<td>struct  </td>
+<td><a href="structmorapi__Image.html">morapi_Image</a></td>
+</tr>
+
+</table>
+
+<hr />
+<h2 id="macros">Macros</h2>
+<table>
+<tr>
+<td>#define </td>
+<td><a href="group__image.html#gabcdab9759555ae909a89be7a484173b9">MORAPI_IMAGE_PLANE_NUM</a>   (4)</td>
+</tr>
+
+</table>
+
+<hr />
+<h2 id="enumerations">Enumerations</h2>
+<table>
+<tr>
+<td>enum  </td>
+<td><a href="group__image.html#ga28d058475eff44f9f3e2e74d52c6e316">morapi_ImageFormat</a> { , <br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ae66a5ad0d323f0679d636c1335b5f864">MORAPI_IMAGE_FORMAT_UINT8</a> = 0x110001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316abb259a722ec5b9720a65273b8fa1be0a">MORAPI_IMAGE_FORMAT_INT8</a> = 0x110001B1, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a5ae55e1919f3d8d49eee791cf75769df">MORAPI_IMAGE_FORMAT_UINT16</a> = 0x120001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ab79cea623fb6a480c298952252ba40e7">MORAPI_IMAGE_FORMAT_INT16</a> = 0x120001B1, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a476cf236713e20505646de90ba87bca7">MORAPI_IMAGE_FORMAT_UINT32</a> = 0x140001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a55a3cadb9575777a8ec9f250a81d3599">MORAPI_IMAGE_FORMAT_INT32</a> = 0x140001B1, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a4bf69c2703db6d0e66192dbc885b64d8">MORAPI_IMAGE_FORMAT_UINT64</a> = 0x180001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a1665177ac3c764329d2eb46b99b6ac4e">MORAPI_IMAGE_FORMAT_INT64</a> = 0x180001B1, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a0f0050e6d5fce9d30a473e4e5e1fdaec">MORAPI_IMAGE_FORMAT_RGB565</a> = 0x220001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a111e3f77222e5d6f0728a00aae32dc47">MORAPI_IMAGE_FORMAT_BGR565</a> = 0x22000930, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ab76d2a61a36c070ca8dc704f64ffb7ea">MORAPI_IMAGE_FORMAT_RGB8</a> = 0x230001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a05adafa29569554ffaaaed79af32b0ec">MORAPI_IMAGE_FORMAT_BGR8</a> = 0x23000930, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ad299b891608974b9bb00ce4bdf431557">MORAPI_IMAGE_FORMAT_RGB16</a> = 0x260001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316aa7a88a158fb44cfae6f89e4191d22924">MORAPI_IMAGE_FORMAT_BGR16</a> = 0x26000930, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a427fa03ec7455734af699c3a5a6f223c">MORAPI_IMAGE_FORMAT_RGBA8</a> = 0x340001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ab5abffe846d34e0909101452da9f16a3">MORAPI_IMAGE_FORMAT_BGRA8</a> = 0x34000930, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ad68118d8843ade231c5e7d2233dcd86b">MORAPI_IMAGE_FORMAT_ARGB8</a> = 0x34000C60, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a19ae768f8c844015c647355f35acdd00">MORAPI_IMAGE_FORMAT_ABGR8</a> = 0x34000E40, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a35d0bd7b343b641d410d3c626c0ee4c2">MORAPI_IMAGE_FORMAT_YUV444_YUV</a> = 0x430001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a27f907e91f528f819af05c308636bfd1">MORAPI_IMAGE_FORMAT_YUV444_YVU</a> = 0x43000270, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a602508997278fb030746fff4e5a0aab5">MORAPI_IMAGE_FORMAT_YUV444_UYV</a> = 0x430004B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a82ba6fd0da8360b614bec42f9558f4f6">MORAPI_IMAGE_FORMAT_YUV444_UVY</a> = 0x43000630, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316aba730dff00935b6a99dc7fed438d75d6">MORAPI_IMAGE_FORMAT_YUV444_VYU</a> = 0x43000870, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a5de04fe7b89ab2ef933fb01f82fcbb34">MORAPI_IMAGE_FORMAT_YUV444_VUY</a> = 0x43000930, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a14c38e90dd2ab1368b1e7b6c2edd5710">MORAPI_IMAGE_FORMAT_YUV422_YYUV</a> = 0x420001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a17578b5953c199c6c98e54e36a5535cb">MORAPI_IMAGE_FORMAT_YUV422_YYVU</a> = 0x420001C0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ab6f183a0ac48d42e99a4937d0e0833f2">MORAPI_IMAGE_FORMAT_YUV422_YUYV</a> = 0x42000270, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a0ce7eec76eab77fa02c3c95ca50f32ad">MORAPI_IMAGE_FORMAT_YUV422_YUVY</a> = 0x420002D0, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a17b30357528b750530765b428241d561">MORAPI_IMAGE_FORMAT_YUV422_YVYU</a> = 0x42000360, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a2274d72e1664502108ec19ce508740da">MORAPI_IMAGE_FORMAT_YUV422_YVUY</a> = 0x42000390, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ae1b0c9d941e4f3b607c67bbf32eaca73">MORAPI_IMAGE_FORMAT_YUV422_UYYV</a> = 0x42000870, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a9ce76f909fb8f5c9f0be8f2f85bc48eb">MORAPI_IMAGE_FORMAT_YUV422_UYVY</a> = 0x420008D0, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a8ec9e0d2b31840d51f01923d448881db">MORAPI_IMAGE_FORMAT_YUV422_UVYY</a> = 0x42000B10, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316af639f8c966cba5e13f933d95867f1153">MORAPI_IMAGE_FORMAT_YUV422_VYYU</a> = 0x42000C60, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a9875480b4bf519e083944a7c7e326cca">MORAPI_IMAGE_FORMAT_YUV422_VYUY</a> = 0x42000C90, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a995eb4ea9bba849dcbd2289d0229d931">MORAPI_IMAGE_FORMAT_YUV422_VUYY</a> = 0x42000E10, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316acd9efa60e8a7c853a78cd4cffd0a5964">MORAPI_IMAGE_FORMAT_YUV444_SEMIPLANAR_UV</a> = 0x412001B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a39826b972ec90756f9f87e5a93646f4f">MORAPI_IMAGE_FORMAT_YUV444_SEMIPLANAR_VU</a> = 0x41200270, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a28402fa8719d82f9f2c7867c16bde9ec">MORAPI_IMAGE_FORMAT_YUV422_SEMIPLANAR_UV</a> = 0x412001B1, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a0ec1aa3772f78159d8f3a62c5581bdc4">MORAPI_IMAGE_FORMAT_YUV422_SEMIPLANAR_VU</a> = 0x41200271, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ae5b01d0a583fca575ac0b9e335b0d67f">MORAPI_IMAGE_FORMAT_YUV420_SEMIPLANAR_UV</a> = 0x412001B2, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a9df172d6a1d83011f5928e3645028fa2">MORAPI_IMAGE_FORMAT_YUV420_SEMIPLANAR_VU</a> = 0x41200272, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a2eb9d9dd499a7d9dbebd19de1a4c3d32">MORAPI_IMAGE_FORMAT_YUV444_PLANAR</a> = 0x411101B0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a9b5001522a1deaf172664af17d1aaaa2">MORAPI_IMAGE_FORMAT_YUV422_PLANAR</a> = 0x411101B1, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a54643fee962880b8c473a82dd1fda53f">MORAPI_IMAGE_FORMAT_YUV420_PLANAR</a> = 0x411101B2, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a3aa13e3d268ef46d1b59bed5312714f6">MORAPI_IMAGE_FORMAT_BAYER8_GRBG</a> = 0x510004D0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316acf8b421ca306adca8ce08d1ea15d9759">MORAPI_IMAGE_FORMAT_BAYER8_GBRG</a> = 0x51000720, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316aa02e089b57eef31ef9d3d3cf61ed6c45">MORAPI_IMAGE_FORMAT_BAYER8_RGGB</a> = 0x510001B0, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316aacc72134def77407016e3ea2c45550f1">MORAPI_IMAGE_FORMAT_BAYER8_BGGR</a> = 0x51000D80, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a7769269063de64c98970d4be8f3cf053">MORAPI_IMAGE_FORMAT_BAYER16_GRBG</a> = 0x520004D0, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a24fadd45ca5423386745e1bea6abec9b">MORAPI_IMAGE_FORMAT_BAYER16_GBRG</a> = 0x52000720, 
+<a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316a63a3c334960531ce584121a3c386763a">MORAPI_IMAGE_FORMAT_BAYER16_RGGB</a> = 0x520001B0, 
+<br/>
+  <a href="group__image.html#gga28d058475eff44f9f3e2e74d52c6e316ae0c55738a298e50c4c65de0f04f2f2bf">MORAPI_IMAGE_FORMAT_BAYER16_BGGR</a> = 0x52000D80
+<br/>
+ }</td>
+</tr>
+
+</table>
+<p><a id="details"></a></p>
+<hr />
+<h2 id="detailed-description">Detailed Description</h2>
+<p>Image module. </p>
+<hr />
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<p><a id="gabcdab9759555ae909a89be7a484173b9"></a></p>
+<hr />
+<h3 id="morapi_image_plane_num">MORAPI_IMAGE_PLANE_NUM</h3>
+<pre><code>#define MORAPI_IMAGE_PLANE_NUM   (4)
+</code></pre>
+
+<p>Max of plane count. </p>
+<hr />
+<h2 id="enumeration-type-documentation">Enumeration Type Documentation</h2>
+<p><a id="ga28d058475eff44f9f3e2e74d52c6e316"></a></p>
+<hr />
+<h3 id="morapi_imageformat">morapi_ImageFormat</h3>
+<pre><code>enum <a href="group__image.html#ga28d058475eff44f9f3e2e74d52c6e316">morapi_ImageFormat</a>
+</code></pre>
+
+<p>Image format. </p>
+<ul>
+<li>MSB &lt;--------------------------—&gt; LSB</li>
+<li>1111 0000 0000 0000 0000 0000 0000 0000 [Color space] 0(None), 1(Gray), 2(RGB), 3(RGBA), 4(YUV), 5(Bayer)</li>
+<li>0000 1111 0000 0000 0000 0000 0000 0000 [Pixel size in Plane 0.]</li>
+<li>0000 0000 1111 0000 0000 0000 0000 0000 [Pixel size in Plane 1.]</li>
+<li>0000 0000 0000 1111 0000 0000 0000 0000 [Pixel size in Plane 2.]</li>
+<li>0000 0000 0000 0000 1111 0000 0000 0000 [Pixel size in Plane 3.]</li>
+<li>0000 0000 0000 0000 0000 1111 1111 0000 [The order of pixel components.]</li>
+<li>0000 0000 0000 0000 0000 0000 0000 1111 [Optional bits] </li>
+</ul>
+<table>
+<tr>
+<th colspan="2">Enumerator</th></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ae66a5ad0d323f0679d636c1335b5f864"></a>MORAPI_IMAGE_FORMAT_UINT8 </td><td><p>Undefined. </p>
+<p>Unsigned 8 bits grayscale. G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316abb259a722ec5b9720a65273b8fa1be0a"></a>MORAPI_IMAGE_FORMAT_INT8 </td><td><p>Signed 8 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a5ae55e1919f3d8d49eee791cf75769df"></a>MORAPI_IMAGE_FORMAT_UINT16 </td><td><p>Unsigned 16 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ab79cea623fb6a480c298952252ba40e7"></a>MORAPI_IMAGE_FORMAT_INT16 </td><td><p>Signed 16 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a476cf236713e20505646de90ba87bca7"></a>MORAPI_IMAGE_FORMAT_UINT32 </td><td><p>Unsigned 32 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a55a3cadb9575777a8ec9f250a81d3599"></a>MORAPI_IMAGE_FORMAT_INT32 </td><td><p>Singed 32 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a4bf69c2703db6d0e66192dbc885b64d8"></a>MORAPI_IMAGE_FORMAT_UINT64 </td><td><p>Unsigned 64 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a1665177ac3c764329d2eb46b99b6ac4e"></a>MORAPI_IMAGE_FORMAT_INT64 </td><td><p>Singed 64 bits grayscale. </p>
+<p>G(00) X(01) X(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a0f0050e6d5fce9d30a473e4e5e1fdaec"></a>MORAPI_IMAGE_FORMAT_RGB565 </td><td><p>RGB565. </p>
+<p>The order is RGB. R(00) G(01) B(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a111e3f77222e5d6f0728a00aae32dc47"></a>MORAPI_IMAGE_FORMAT_BGR565 </td><td><p>RGB565. </p>
+<p>The order is BGR. B(10) G(01) R(00) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ab76d2a61a36c070ca8dc704f64ffb7ea"></a>MORAPI_IMAGE_FORMAT_RGB8 </td><td><p>8 bits RGB. </p>
+<p>The order is RGB. R(00) G(01) B(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a05adafa29569554ffaaaed79af32b0ec"></a>MORAPI_IMAGE_FORMAT_BGR8 </td><td><p>8 bits RGB. </p>
+<p>The order is BGR. B(10) G(01) R(00) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ad299b891608974b9bb00ce4bdf431557"></a>MORAPI_IMAGE_FORMAT_RGB16 </td><td><p>16 bits RGB. </p>
+<p>The order is RGB. R(00) G(01) B(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316aa7a88a158fb44cfae6f89e4191d22924"></a>MORAPI_IMAGE_FORMAT_BGR16 </td><td><p>16 bits RGB. </p>
+<p>The order is BGR. B(10) G(01) R(00) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a427fa03ec7455734af699c3a5a6f223c"></a>MORAPI_IMAGE_FORMAT_RGBA8 </td><td><p>8 bits RGBA. </p>
+<p>The order is RGBA. R(00) G(01) B(10) A(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ab5abffe846d34e0909101452da9f16a3"></a>MORAPI_IMAGE_FORMAT_BGRA8 </td><td><p>8 bits RGBA. </p>
+<p>The order is BGRA. B(10) G(01) R(00) A(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ad68118d8843ade231c5e7d2233dcd86b"></a>MORAPI_IMAGE_FORMAT_ARGB8 </td><td><p>8 bits RGBA. </p>
+<p>The order is ARGB. A(11) R(00) G(01) B(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a19ae768f8c844015c647355f35acdd00"></a>MORAPI_IMAGE_FORMAT_ABGR8 </td><td><p>8 bits RGBA. </p>
+<p>The order is ABGR. A(11) B(10) G(01) R(00). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a35d0bd7b343b641d410d3c626c0ee4c2"></a>MORAPI_IMAGE_FORMAT_YUV444_YUV </td><td><p>8 bits YUV444. </p>
+<p>The order is YUV. Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a27f907e91f528f819af05c308636bfd1"></a>MORAPI_IMAGE_FORMAT_YUV444_YVU </td><td><p>8 bits YUV444. </p>
+<p>The order is YVU. Y(00) V(10) U(01) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a602508997278fb030746fff4e5a0aab5"></a>MORAPI_IMAGE_FORMAT_YUV444_UYV </td><td><p>8 bits YUV444. </p>
+<p>The order is UYV. U(01) Y(00) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a82ba6fd0da8360b614bec42f9558f4f6"></a>MORAPI_IMAGE_FORMAT_YUV444_UVY </td><td><p>8 bits YUV444. </p>
+<p>The order is UVY. U(01) V(10) Y(00) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316aba730dff00935b6a99dc7fed438d75d6"></a>MORAPI_IMAGE_FORMAT_YUV444_VYU </td><td><p>8 bits YUV444. </p>
+<p>The order is VYU. V(10) Y(00) U(01) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a5de04fe7b89ab2ef933fb01f82fcbb34"></a>MORAPI_IMAGE_FORMAT_YUV444_VUY </td><td><p>8 bits YUV444. </p>
+<p>The order is YUV. V(10) U(01) Y(00) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a14c38e90dd2ab1368b1e7b6c2edd5710"></a>MORAPI_IMAGE_FORMAT_YUV422_YYUV </td><td><p>8 bits YUV422. </p>
+<p>The order is YYUV. Y0(00) Y1(01) UU(10) VV(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a17578b5953c199c6c98e54e36a5535cb"></a>MORAPI_IMAGE_FORMAT_YUV422_YYVU </td><td><p>8 bits YUV422. </p>
+<p>The order is YYVU. Y0(00) Y1(01) VV(11) UU(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ab6f183a0ac48d42e99a4937d0e0833f2"></a>MORAPI_IMAGE_FORMAT_YUV422_YUYV </td><td><p>8 bits YUV422. </p>
+<p>The order is YUYV. Y0(00) UU(10) Y1(01) VV(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a0ce7eec76eab77fa02c3c95ca50f32ad"></a>MORAPI_IMAGE_FORMAT_YUV422_YUVY </td><td><p>8 bits YUV422. </p>
+<p>The order is YUVY. Y0(00) UU(10) VV(11) Y1(01). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a17b30357528b750530765b428241d561"></a>MORAPI_IMAGE_FORMAT_YUV422_YVYU </td><td><p>8 bits YUV422. </p>
+<p>The order is YVYU. Y0(00) VV(11) Y1(01) UU(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a2274d72e1664502108ec19ce508740da"></a>MORAPI_IMAGE_FORMAT_YUV422_YVUY </td><td><p>8 bits YUV422. </p>
+<p>The order is YVUY. Y0(00) VV(11) UU(10) Y1(01). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ae1b0c9d941e4f3b607c67bbf32eaca73"></a>MORAPI_IMAGE_FORMAT_YUV422_UYYV </td><td><p>8 bits YUV422. </p>
+<p>The order is UYYV. UU(10) Y0(00) Y1(01) VV(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a9ce76f909fb8f5c9f0be8f2f85bc48eb"></a>MORAPI_IMAGE_FORMAT_YUV422_UYVY </td><td><p>8 bits YUV422. </p>
+<p>The order is UYVY. UU(10) Y0(00) VV(11) Y1(01). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a8ec9e0d2b31840d51f01923d448881db"></a>MORAPI_IMAGE_FORMAT_YUV422_UVYY </td><td><p>8 bits YUV422. </p>
+<p>The order is UVYY. UU(10) VV(11) Y0(00) Y1(01). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316af639f8c966cba5e13f933d95867f1153"></a>MORAPI_IMAGE_FORMAT_YUV422_VYYU </td><td><p>8 bits YUV422. </p>
+<p>The order is VYYU. VV(11) Y0(00) Y1(01) UU(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a9875480b4bf519e083944a7c7e326cca"></a>MORAPI_IMAGE_FORMAT_YUV422_VYUY </td><td><p>8 bits YUV422. </p>
+<p>The order is VYUY. VV(11) Y0(00) UU(10) Y1(01). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a995eb4ea9bba849dcbd2289d0229d931"></a>MORAPI_IMAGE_FORMAT_YUV422_VUYY </td><td><p>8 bits YUV422. </p>
+<p>The order is VUYY. VV(11) UU(10) Y0(00) Y1(01). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316acd9efa60e8a7c853a78cd4cffd0a5964"></a>MORAPI_IMAGE_FORMAT_YUV444_SEMIPLANAR_UV </td><td><p>8 bits YUV444 semiplanar. </p>
+<p>The order is UV. Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a39826b972ec90756f9f87e5a93646f4f"></a>MORAPI_IMAGE_FORMAT_YUV444_SEMIPLANAR_VU </td><td><p>8 bits YUV444 semiplanar. </p>
+<p>The order is VU. Y(00) V(10) U(01) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a28402fa8719d82f9f2c7867c16bde9ec"></a>MORAPI_IMAGE_FORMAT_YUV422_SEMIPLANAR_UV </td><td><p>8 bits YUV422 semiplanar. </p>
+<p>The order is UV. Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a0ec1aa3772f78159d8f3a62c5581bdc4"></a>MORAPI_IMAGE_FORMAT_YUV422_SEMIPLANAR_VU </td><td><p>8 bits YUV422 semiplanar. </p>
+<p>The order is VU. Y(00) V(10) U(01) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ae5b01d0a583fca575ac0b9e335b0d67f"></a>MORAPI_IMAGE_FORMAT_YUV420_SEMIPLANAR_UV </td><td><p>8 bits YUV420 semiplanar. </p>
+<p>The order is UV. Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a9df172d6a1d83011f5928e3645028fa2"></a>MORAPI_IMAGE_FORMAT_YUV420_SEMIPLANAR_VU </td><td><p>8 bits YUV420 semiplanar. </p>
+<p>The order is VU. Y(00) V(10) U(01) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a2eb9d9dd499a7d9dbebd19de1a4c3d32"></a>MORAPI_IMAGE_FORMAT_YUV444_PLANAR </td><td><p>8 bits YUV444 planar. </p>
+<p>Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a9b5001522a1deaf172664af17d1aaaa2"></a>MORAPI_IMAGE_FORMAT_YUV422_PLANAR </td><td><p>8 bits YUV422 planar. </p>
+<p>Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a54643fee962880b8c473a82dd1fda53f"></a>MORAPI_IMAGE_FORMAT_YUV420_PLANAR </td><td><p>8 bits YUV420 planar. </p>
+<p>Y(00) U(01) V(10) X(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a3aa13e3d268ef46d1b59bed5312714f6"></a>MORAPI_IMAGE_FORMAT_BAYER8_GRBG </td><td><p>8 bits Bayer. </p>
+<p>The order is GRBG. G(01) R(00) B(11) G(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316acf8b421ca306adca8ce08d1ea15d9759"></a>MORAPI_IMAGE_FORMAT_BAYER8_GBRG </td><td><p>8 bits Bayer. </p>
+<p>The order is GBRG. G(01) B(11) R(00) G(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316aa02e089b57eef31ef9d3d3cf61ed6c45"></a>MORAPI_IMAGE_FORMAT_BAYER8_RGGB </td><td><p>8 bits Bayer. </p>
+<p>The order is RGGB. R(00) G(01) G(10) B(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316aacc72134def77407016e3ea2c45550f1"></a>MORAPI_IMAGE_FORMAT_BAYER8_BGGR </td><td><p>8 bits Bayer. </p>
+<p>The order is BGGR. B(11) G(01) G(10) R(00). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a7769269063de64c98970d4be8f3cf053"></a>MORAPI_IMAGE_FORMAT_BAYER16_GRBG </td><td><p>16 bits Bayer. </p>
+<p>The order is GRBG. G(01) R(00) B(11) G(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a24fadd45ca5423386745e1bea6abec9b"></a>MORAPI_IMAGE_FORMAT_BAYER16_GBRG </td><td><p>16 bits Bayer. </p>
+<p>The order is GBRG. G(01) B(11) R(00) G(10). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316a63a3c334960531ce584121a3c386763a"></a>MORAPI_IMAGE_FORMAT_BAYER16_RGGB </td><td><p>16 bits Bayer. </p>
+<p>The order is RGGB. R(00) G(01) G(10) B(11). </p>
+</td></tr>
+<tr>
+<td><a id="gga28d058475eff44f9f3e2e74d52c6e316ae0c55738a298e50c4c65de0f04f2f2bf"></a>MORAPI_IMAGE_FORMAT_BAYER16_BGGR </td><td><p>16 bits Bayer. </p>
+<p>The order is BGGR. B(11) G(01) G(10) R(00). </p>
+</td></tr>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="group__tensor.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: dnn.tensor" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              dnn.tensor
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="group__image__io.html" class="md-footer__link md-footer__link--next" aria-label="Next: image_io" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              image_io
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> all rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

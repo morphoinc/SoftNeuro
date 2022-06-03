@@ -1,0 +1,1725 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/cli/commands/dnn/converter.ja.html">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>コンバート系 - SoftNeuro&reg; v5.1.0 CLI Tool Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.1.0 CLI Tool Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              コンバート系
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="converter.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="converter.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.ja.html" class="md-tabs__link md-tabs__link--active">
+        CLI
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.1.0 CLI Tool Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.ja.html" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        softneuroコマンド
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="softneuroコマンド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          softneuroコマンド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-list.ja.html" class="md-nav__link">
+        softneuroコマンド一覧
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/general.ja.html" class="md-nav__link">
+        一般操作コマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        DNNファイル操作コマンド
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DNNファイル操作コマンド" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          DNNファイル操作コマンド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="referer.ja.html" class="md-nav__link">
+        情報参照系
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="editor.ja.html" class="md-nav__link">
+        DNNファイル編集系
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          コンバート系
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="converter.ja.html" class="md-nav__link md-nav__link--active">
+        コンバート系
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preprocess-postprocess" class="md-nav__link">
+    preprocess, postprocessについて
+  </a>
+  
+    <nav class="md-nav" aria-label="preprocess, postprocessについて">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preprocess" class="md-nav__link">
+    preprocess記述仕様
+  </a>
+  
+    <nav class="md-nav" aria-label="preprocess記述仕様">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    layers
+  </a>
+  
+    <nav class="md-nav" aria-label="layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-layer" class="md-nav__link">
+    Source Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sink-layer" class="md-nav__link">
+    Sink Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permute-layer" class="md-nav__link">
+    Permute Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#madd-layer" class="md-nav__link">
+    Madd Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocess-example" class="md-nav__link">
+    preprocess example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postprocess" class="md-nav__link">
+    postprocess記述仕様
+  </a>
+  
+    <nav class="md-nav" aria-label="postprocess記述仕様">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layers_1" class="md-nav__link">
+    layers
+  </a>
+  
+    <nav class="md-nav" aria-label="layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-layer_1" class="md-nav__link">
+    Source Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sink-layer_1" class="md-nav__link">
+    Sink Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decode-layer" class="md-nav__link">
+    Decode Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postprocess-example" class="md-nav__link">
+    postprocess example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-onnx" class="md-nav__link">
+    import-onnx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-tensorflow" class="md-nav__link">
+    import-tensorflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-ver3" class="md-nav__link">
+    import-ver3
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prof-tune/prof-tune.ja.html" class="md-nav__link">
+        推論実行・プロファイルコマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer-routine/layer-routine.ja.html" class="md-nav__link">
+        レイヤ・ルーチン操作コマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy.ja.html" class="md-nav__link">
+        numpyテンソル操作コマンド
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routine-descriptor.ja.html" class="md-nav__link">
+        ルーチンディスクリプタ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial.ja.html" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preprocess-postprocess" class="md-nav__link">
+    preprocess, postprocessについて
+  </a>
+  
+    <nav class="md-nav" aria-label="preprocess, postprocessについて">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preprocess" class="md-nav__link">
+    preprocess記述仕様
+  </a>
+  
+    <nav class="md-nav" aria-label="preprocess記述仕様">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    layers
+  </a>
+  
+    <nav class="md-nav" aria-label="layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-layer" class="md-nav__link">
+    Source Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sink-layer" class="md-nav__link">
+    Sink Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permute-layer" class="md-nav__link">
+    Permute Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#madd-layer" class="md-nav__link">
+    Madd Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocess-example" class="md-nav__link">
+    preprocess example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postprocess" class="md-nav__link">
+    postprocess記述仕様
+  </a>
+  
+    <nav class="md-nav" aria-label="postprocess記述仕様">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layers_1" class="md-nav__link">
+    layers
+  </a>
+  
+    <nav class="md-nav" aria-label="layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-layer_1" class="md-nav__link">
+    Source Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sink-layer_1" class="md-nav__link">
+    Sink Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decode-layer" class="md-nav__link">
+    Decode Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postprocess-example" class="md-nav__link">
+    postprocess example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-onnx" class="md-nav__link">
+    import-onnx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-tensorflow" class="md-nav__link">
+    import-tensorflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-ver3" class="md-nav__link">
+    import-ver3
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">コンバート系<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>各種フレームワークからモデルファイルをSoftNeuroで扱えるDNN形式にコンバートするコマンドです。</p>
+<h2 id="preprocess-postprocess"><strong>preprocess, postprocessについて</strong><a class="headerlink" href="#preprocess-postprocess" title="Permanent link">&para;</a></h2>
+<p>SoftNeuroV4から、preprocess, postprocessは<code>main</code>ネットワークの前後に接続されている
+<code>preprocess</code>, <code>postprocess</code>のネットワークで行われるようになりました。<br />
+これらのネットワークの情報はDNNファイルに保存されるので、<code>io_params</code>のファイルは不要となりました。<br />
+モデルファイルに含まれないpreprocess, postprocessを追加する場合はプリセットのjsonファイルを
+converterに与える必要があります。<br />
+プリセットに存在しない順序・設定のpreprocess, postprocessを追加する場合はプリセットのjsonファイルを
+書き換えて利用する必要があります。</p>
+<p>現時点で preprocess, postprocess を追加するオプションは <code>import-onnx</code>, <code>import-tensorflow</code> でのみ利用可能で、 <code>import-ver3</code> では未対応です。</p>
+<h3 id="preprocess"><u><strong>preprocess記述仕様</strong></u><a class="headerlink" href="#preprocess" title="Permanent link">&para;</a></h3>
+<p>preprocessでは画像のリサイズ、リサイズ方式の指定、色空間の指定、データの正規化などを行います。
+preprocess内の各要素に関する説明を下記に記載します。</p>
+<h4 id="layers"><u><strong>layers</strong></u><a class="headerlink" href="#layers" title="Permanent link">&para;</a></h4>
+<p>各レイヤは、レイヤのタイプ、パラメータ、ウェイト、アトリビュートの4つの要素から構成されます。  </p>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>必須</td>
+<td>レイヤの種類を指定する文字列。source, sink, madd, permute 等が指定可能。</td>
+<td>String</td>
+<td>"madd"</td>
+</tr>
+<tr>
+<td>params</td>
+<td>オプション</td>
+<td>レイヤのパラメータを指定する JSON オブジェクト。</td>
+<td>Object</td>
+<td><a href="#preprocess-example">記述例</a></td>
+</tr>
+<tr>
+<td>weights</td>
+<td>オプション</td>
+<td>レイヤのウェイトを指定する JSON オブジェクト。</td>
+<td>Object</td>
+<td><a href="#preprocess-example">記述例</a></td>
+</tr>
+<tr>
+<td>attrs</td>
+<td>オプション</td>
+<td>レイヤの付加情報を指定する JSON オブジェクト。</td>
+<td>Object</td>
+<td><a href="#preprocess-example">記述例</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="source-layer"><u><strong>Source Layer</strong></u><a class="headerlink" href="#source-layer" title="Permanent link">&para;</a></h5>
+<p>ネットワークの入力レイヤ。</p>
+<ul>
+<li>params</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shape</td>
+<td>必須</td>
+<td>入力データの次元数を指定する整数配列。</td>
+<td>Array of Integer</td>
+<td>[224, 224, 3]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>weights: None</li>
+<li>attrs</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format</td>
+<td>オプション</td>
+<td>入力画像の色フォーマットを指定する文字列。"rgb" のみ指定可能。</td>
+<td>String</td>
+<td>"rgb"</td>
+</tr>
+<tr>
+<td>resize_mode</td>
+<td>オプション</td>
+<td>リサイズ方式を指定する文字列。"bilinear" (デフォルト) と "nearest" を指定可。</td>
+<td>String</td>
+<td>"bilinear"</td>
+</tr>
+<tr>
+<td>keep_ar</td>
+<td>オプション</td>
+<td>画像縮小の際アスペクト比を維持するかを指定する真偽値。（デフォルト false）</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>padding_color</td>
+<td>オプション</td>
+<td>アスペクト比を維持した縮小の際に生じる空間を埋めるパディングの色を指定する数値配列。</td>
+<td>Array of Numbers</td>
+<td>[255, 255, 255]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="sink-layer"><strong><u>Sink Layer</u></strong><a class="headerlink" href="#sink-layer" title="Permanent link">&para;</a></h5>
+<p>ネットワークの出力レイヤ。</p>
+<ul>
+<li>params: None</li>
+<li>weights: None</li>
+<li>attrs: None</li>
+</ul>
+<h5 id="permute-layer"><strong><u>Permute Layer</u></strong><a class="headerlink" href="#permute-layer" title="Permanent link">&para;</a></h5>
+<p>axis を指定して axis 内のデータの順序を入れ替えるレイヤ。チャンネルスワップで利用。</p>
+<ul>
+<li>params</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>axis</td>
+<td>必須</td>
+<td>入れ替えを行う軸を指定する整数。</td>
+<td>Integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>order</td>
+<td>必須</td>
+<td>入れ替え前の順序を入れ替え後の順序で並べた整数配列。</td>
+<td>Array of Integer</td>
+<td>[2, 1, 0]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>weights: None</li>
+<li>attrs: None</li>
+</ul>
+<h5 id="madd-layer"><strong><u>Madd Layer</u></strong><a class="headerlink" href="#madd-layer" title="Permanent link">&para;</a></h5>
+<p>Multiply add (scale * x + bias) を行うレイヤ。入力データの正規化、平均値の減算などを一括で行う。</p>
+<ul>
+<li>params</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>has_relu</td>
+<td>オプション</td>
+<td>出力に対して Relu activation を行うかを指定する真偽値。デフォルト False。</td>
+<td>Boolean</td>
+<td>False</td>
+</tr>
+<tr>
+<td>relu_max_value</td>
+<td>オプション</td>
+<td>Relu activation を行う際の出力の最大値。 has_relu が True のときのみ有効。</td>
+<td>Number</td>
+<td>6.0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>weights</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scale</td>
+<td>必須</td>
+<td>入力に対して乗算される数値、または数値配列。チャンネルごとに異なる値を指定する場合は配列とする。bias と同じ要素数でなければならない。</td>
+<td>Number or Array of Number</td>
+<td>[0.01712475383, 0.0175070028, 0.01742919389]</td>
+</tr>
+<tr>
+<td>bias</td>
+<td>必須</td>
+<td>入力に対して加算される数値、または数値配列。チャンネルごとに異なる値を指定する場合は配列とする。scale と同じ要素数でなければならない。</td>
+<td>Number or Array of Number</td>
+<td>[2.11790393013, 2.03571428571, 1.80444444444]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>attrs: None</li>
+</ul>
+<h4 id="preprocess-example"><u><strong>preprocess example</strong></u><a class="headerlink" href="#preprocess-example" title="Permanent link">&para;</a></h4>
+<pre><code>[
+    {
+        &quot;name&quot;: &quot;preprocess&quot;,
+        &quot;layers&quot;: [
+            {
+                &quot;type&quot;: &quot;source&quot;,
+                &quot;params&quot;: {
+                    &quot;shape&quot;: [
+                        1,
+                        320,
+                        320,
+                        3
+                    ]
+                },
+                &quot;attrs&quot;: {
+                    &quot;format&quot;: &quot;rgb&quot;,
+                    &quot;attrs&quot;: {
+                        &quot;format&quot;: &quot;rgb&quot;,
+                        &quot;resize_mode&quot;: &quot;bilinear&quot;,
+                        &quot;keep_ar&quot;: true,
+                        &quot;padding_clor&quot;: [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                &quot;type&quot;: &quot;permute&quot;,
+                &quot;params&quot;: {
+                    &quot;axis&quot;: 3,
+                    &quot;dims&quot;: [
+                        2,
+                        1,
+                        0
+                    ]
+                }
+            },
+            {
+                &quot;type&quot;: &quot;madd&quot;,
+                &quot;weights&quot;: {
+                    &quot;scale&quot;: [
+                        0.0135694,
+                        0.0143123,
+                        0.0141064
+                    ],
+                    &quot;bias&quot;: [
+                        -1.41176,
+                        -1.63139,
+                        -1.69065
+                    ]
+                }
+            },
+            {
+                &quot;type&quot;: &quot;sink&quot;
+            }
+        ]
+    }
+]
+</code></pre>
+<h3 id="postprocess"><u><strong>postprocess記述仕様</strong></u><a class="headerlink" href="#postprocess" title="Permanent link">&para;</a></h3>
+<p>postprocessでは出力にラベル名（文字列）を付与したり、主にObject Detectionタスクで最終段のデコード処理の方式を指定したりします。
+postprocess内の各要素に関する説明を下記に記載します。</p>
+<h4 id="layers_1"><u><strong>layers</strong></u><a class="headerlink" href="#layers_1" title="Permanent link">&para;</a></h4>
+<p>各レイヤは、レイヤのタイプ、パラメータ、ウェイト、アトリビュートの4つの要素から構成されます。  </p>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>必須</td>
+<td>レイヤの種類を指定する文字列。source, sink, decode_centernet, decode_pelee, decode_ssd, decode_yolov3, decode_yolov4 等が指定可能。</td>
+<td>String</td>
+<td>"decode_ssd"</td>
+</tr>
+<tr>
+<td>params</td>
+<td>オプション</td>
+<td>レイヤのパラメータを指定する JSON オブジェクト。</td>
+<td>Object</td>
+<td><a href="#postprocess-example">記述例</a></td>
+</tr>
+<tr>
+<td>weights</td>
+<td>オプション</td>
+<td>レイヤのウェイトを指定する JSON オブジェクト。</td>
+<td>Object</td>
+<td><a href="#postprocess-example">記述例</a></td>
+</tr>
+<tr>
+<td>attrs</td>
+<td>オプション</td>
+<td>レイヤの付加情報を指定する JSON オブジェクト。</td>
+<td>Object</td>
+<td><a href="#postprocess-example">記述例</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="source-layer_1"><u><strong>Source Layer</strong></u><a class="headerlink" href="#source-layer_1" title="Permanent link">&para;</a></h5>
+<p>ネットワークの入力レイヤ。</p>
+<ul>
+<li>params</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shape</td>
+<td>必須</td>
+<td>入力データの次元数を指定する整数配列。</td>
+<td>Array of Integer</td>
+<td>[224, 224, 3]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>weights: None</li>
+<li>attrs: None</li>
+</ul>
+<h5 id="sink-layer_1"><strong><u>Sink Layer</u></strong><a class="headerlink" href="#sink-layer_1" title="Permanent link">&para;</a></h5>
+<p>ネットワークの出力レイヤ。</p>
+<ul>
+<li>params: None</li>
+<li>weights: None</li>
+<li>attrs</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>label_list</td>
+<td>オプション</td>
+<td>学習したラベルの文字列配列</td>
+<td>Array of String</td>
+<td>["cat", "dog", "bird"]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="decode-layer"><strong><u>Decode Layer</u></strong><a class="headerlink" href="#decode-layer" title="Permanent link">&para;</a></h5>
+<p>Object Detectionタスクで最終段のデコード処理を行います。typeは decode_centernet, decode_pelee, decode_ssd, decode_yolov3, decode_yolov4 が指定可能です。</p>
+<ul>
+<li>params</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Required</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keep_top_k</td>
+<td>centernet, pelee, ssd, yolov3, yolov4</td>
+<td>出力するバウンディングボックスの個数を指定する。（バウンディングボックスはスコアの高い順に選ばれる）デフォルト: 300</td>
+<td>Integer</td>
+<td>300</td>
+</tr>
+<tr>
+<td>do_nms</td>
+<td>centernet, pelee, ssd, yolov3, yolov4</td>
+<td>出力バウンディングボックスにNMS (Non-Maximum Suppression) 処理をするか否かを指定する。デフォルト: true</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>nms_thresh</td>
+<td>centernet, pelee, ssd, yolov3, yolov4</td>
+<td>NMS処理をする際のIoU閾値を指定する。</td>
+<td>Float</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>conf_thresh</td>
+<td>centernet, pelee, ssd, yolov3, yolov4</td>
+<td>バウンディングボックス検出のコンフィデンス閾値を指定する。</td>
+<td>Float</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>background_label_id</td>
+<td>pelee, ssd</td>
+<td>背景ラベルに対するラベル番号。デフォルト: 0</td>
+<td>Integer</td>
+<td>0</td>
+</tr>
+<tr>
+<td>img_width</td>
+<td>yolov3</td>
+<td>入力画像の幅</td>
+<td>Integer</td>
+<td>416</td>
+</tr>
+<tr>
+<td>img_height</td>
+<td>yolov3</td>
+<td>入力画像の高さ</td>
+<td>Integer</td>
+<td>416</td>
+</tr>
+<tr>
+<td>num_anchors_per_out</td>
+<td>yolov3</td>
+<td>1つのグリッドセルに対するアンカーボックスの数。</td>
+<td>Integer</td>
+<td>3</td>
+</tr>
+<tr>
+<td>anchors</td>
+<td>yolov3</td>
+<td>アンカーボックスのサイズを表す配列。[w1, h1, w2, w3, ...]</td>
+<td>Float array</td>
+<td>[10,13,  16,30]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>weights: None</li>
+<li>attrs: None</li>
+</ul>
+<h4 id="postprocess-example"><u><strong>postprocess example</strong></u><a class="headerlink" href="#postprocess-example" title="Permanent link">&para;</a></h4>
+<pre><code>[
+  {
+      &quot;name&quot;: &quot;postprocess&quot;,
+      &quot;layers&quot;: [
+        {
+            &quot;name&quot;: &quot;input&quot;,
+            &quot;type&quot;: &quot;source&quot;,
+        &quot;params&quot;: {
+            &quot;shape&quot;:[1, 300, 15]
+        }
+        },
+        {
+            &quot;name&quot;: &quot;decode&quot;,
+            &quot;type&quot;: &quot;decode_ssd&quot;,
+            &quot;params&quot;: {
+          &quot;keep_top_k&quot; : 300,
+          &quot;background_label_id&quot; : 0,
+          &quot;nms_thresh&quot; : 0.45,
+          &quot;conf_thresh&quot; : 0.01
+        }
+        },
+        {
+              &quot;name&quot;: &quot;output&quot;,
+              &quot;type&quot;: &quot;sink&quot;
+        }
+      ]
+  }
+]
+</code></pre>
+<h2 id="import-onnx"><strong>import-onnx</strong><a class="headerlink" href="#import-onnx" title="Permanent link">&para;</a></h2>
+<p>ONNXモデルからDNNモデルファイルへの変換を実行します。</p>
+<p><u><strong>使い方</strong></u>  </p>
+<pre><code>usage: softneuro import-onnx [--naive] [--extract]
+                             [--preprocess_json PREPROCESS_JSON]
+                             [--postprocess_json POSTPROCESS_JSON] [--help]
+                             INPUT OUTPUT
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>ONNX形式のモデルファイルです。</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>コンバートの結果生成されるDNNファイルのファイル名です。<br>extractオプション利用時はextractで生成されるJSON等の保存先ディレクトリ名になります。</td>
+</tr>
+<tr>
+<td>--preprocess_json PREPROCESS_JSON</td>
+<td>preprocessをモデルに追加する際に指定するjsonファイルです。</td>
+</tr>
+<tr>
+<td>--postprocess_json POSTPROCESS_JSON</td>
+<td>postprocessをモデルに追加する際に指定するjsonファイルです。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>    </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--naive</td>
+<td>FuseRelu等の最適化を行わずにDNNファイルを保存する場合に指定します。</td>
+</tr>
+<tr>
+<td>--extract</td>
+<td>モデルファイルからモデル情報を抽出してJSONファイル等に保存します。</td>
+</tr>
+<tr>
+<td>--help  　</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+コンバート処理完了後に実行ディレクトリにmobilenet_v2.dnnが生成されます。</p>
+<pre><code>$ softneuro import-onnx mobilenet_v2.onnx mobilenet_v2.dnn
+import model
+converting initializers: done
+converting nodes: done
+rectify model
+optimize model
+save model
+</code></pre>
+<h2 id="import-tensorflow"><strong>import-tensorflow</strong><a class="headerlink" href="#import-tensorflow" title="Permanent link">&para;</a></h2>
+<p>TensorFlowモデルからDNNモデルファイルへの変換を実行します。</p>
+<p><u><strong>使い方</strong></u>  </p>
+<pre><code>softneuro import-tensorflow [-h] [--keras] [--list-keras] [--naive] [--extract] [--preprocess_json PREPROCESS_JSON] [--postprocess_json POSTPROCESS_JSON] [--output_attrs OUTPUT_ATTRS]
+                           [--input_node [INPUT_NODE_NAME]] [--input_shape [INPUT_SHAPE]] [--output_node [OUTPUT_NODE_NAME]] [--fix_shape_inf]
+                           INPUT OUTPUT
+
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>protocol buffer(.pb)形式またはhdf5形式のモデルファイルです。<br>hdf5形式の場合は重みだけではなくモデル構造の情報も含んだものをご用意ください。</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>コンバートの結果生成されるDNNファイルのファイル名です。<br>extractオプション利用時はextractで生成されるJSON等の保存先ディレクトリ名になります。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u></p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--keras</td>
+<td>tf.keras.applicationsのモデル名で指定することで主要なモデルをDNNファイルとして出力できます。<br>対象のモデルに関するの詳細な情報は<a href="https://keras.io/ja/applications/#_1" target="_blank_">kerasのドキュメント</a>をご参照ください。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>--list-keras</td>
+<td><code>--keras</code>オプションで利用可能なモデル名の一覧を表示します。</td>
+</tr>
+<tr>
+<td>--naive</td>
+<td>FuseRelu等の最適化を行わずにDNNファイルを保存する場合に指定します。</td>
+</tr>
+<tr>
+<td>--extract  　</td>
+<td>モデルファイルからモデル情報を抽出してJSONファイル等に保存します。</td>
+</tr>
+<tr>
+<td>--preprocess_json PREPROCESS_JSON</td>
+<td>preprocessをモデルに追加する際に指定するjsonファイルです。</td>
+</tr>
+<tr>
+<td>--postprocess_json POSTPROCESS_JSON</td>
+<td>postprocessをモデルに追加する際に指定するjsonファイルです。</td>
+</tr>
+<tr>
+<td>--output_attrs OUTPUT_ATTRS</td>
+<td>出力アトリビュート（出力ラベル）情報を含む JSON ファイルまたはプリセット名を指定します。</td>
+</tr>
+<tr>
+<td>--input_node [INPUT_NODE]</td>
+<td>ネットワークの入力ノード名です。</td>
+</tr>
+<tr>
+<td>--input_shape [SHAPE]</td>
+<td>ネットワークの入力シェイプです。</td>
+</tr>
+<tr>
+<td>--output_node [OUTPUT_NODE]</td>
+<td>ネットワークの出力ノード名です。</td>
+</tr>
+<tr>
+<td>--fix_shape_inf</td>
+<td>インポート時にシェイプを固定します。</td>
+</tr>
+<tr>
+<td>-h, --help                  　</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+コンバート処理完了後に実行ディレクトリにvgg16.dnnが生成されます。</p>
+<pre><code>softneuro import-tensorflow vgg16.pb vgg16.dnn
+</code></pre>
+<h2 id="import-ver3"><strong>import-ver3</strong><a class="headerlink" href="#import-ver3" title="Permanent link">&para;</a></h2>
+<p>Ver3のDNNモデルファイルからVer5のDNNモデルファイルへの変換を実行します。</p>
+<p><u><strong>使い方</strong></u><br />
+<code>softneuro import-ver3 [--naive] [--extract] [--help] INPUT OUTPUT</code></p>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>ver3形式のDNNファイルです。</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>コンバートの結果生成されるver5形式のDNNファイルのファイル名です。<br>extractオプション利用時はextractで生成されるJSON等の保存先ディレクトリ名になります。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u></p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--naive</td>
+<td>FuseRelu等の最適化を行わずにDNNファイルを保存する場合に指定します。</td>
+</tr>
+<tr>
+<td>--extract  　</td>
+<td>モデルファイルからモデル情報を抽出してJSONファイル等に保存します。</td>
+</tr>
+<tr>
+<td>-h, --help                  　</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+コンバート処理完了後に実行ディレクトリにvgg16_v5.dnnが生成されます。</p>
+<pre><code>softneuro import-ver3 vgg16_v3.dnn vgg16_v5.dnn
+import model
+rectify model
+optimize model
+save model
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="editor.ja.html" class="md-footer__link md-footer__link--prev" aria-label="前: DNNファイル編集系" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              DNNファイル編集系
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../prof-tune/prof-tune.ja.html" class="md-footer__link md-footer__link--next" aria-label="次: 推論実行・プロファイルコマンド" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              推論実行・プロファイルコマンド
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> All Rights Reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

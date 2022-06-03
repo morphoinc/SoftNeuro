@@ -1,0 +1,1636 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/cli/commands/prof-tune/prof-tune.ja.html">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>推論実行・プロファイルコマンド - SoftNeuro&reg; v5.1.0 CLI Tool Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.1.0 CLI Tool Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              推論実行・プロファイルコマンド
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="prof-tune.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="prof-tune.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.ja.html" class="md-tabs__link md-tabs__link--active">
+        CLI
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.1.0 CLI Tool Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.ja.html" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        softneuroコマンド
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="softneuroコマンド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          softneuroコマンド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-list.ja.html" class="md-nav__link">
+        softneuroコマンド一覧
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/general.ja.html" class="md-nav__link">
+        一般操作コマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        DNNファイル操作コマンド
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DNNファイル操作コマンド" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          DNNファイル操作コマンド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/referer.ja.html" class="md-nav__link">
+        情報参照系
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/editor.ja.html" class="md-nav__link">
+        DNNファイル編集系
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/converter.ja.html" class="md-nav__link">
+        コンバート系
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          推論実行・プロファイルコマンド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="prof-tune.ja.html" class="md-nav__link md-nav__link--active">
+        推論実行・プロファイルコマンド
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    add
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tune" class="md-nav__link">
+    tune
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer-routine/layer-routine.ja.html" class="md-nav__link">
+        レイヤ・ルーチン操作コマンド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy.ja.html" class="md-nav__link">
+        numpyテンソル操作コマンド
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routine-descriptor.ja.html" class="md-nav__link">
+        ルーチンディスクリプタ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial.ja.html" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    add
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tune" class="md-nav__link">
+    tune
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">推論実行・プロファイルコマンド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="run"><strong>run</strong><a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
+<p>DNNファイルを利用して推論を実行するコマンドです。
+推論の結果や処理時間を参照することもできます。</p>
+<p><u><strong>使い方</strong></u></p>
+<pre><code>usage: softneuro run [-o ONPY]... [-p PASSWORD] [--recipe RECIPE][--batch BATCH]
+                     [--ishape SHAPE] [--keep_img_ar PADDINGCOLOR]
+                     [--img_resize_mode RESIZEMODE] [--thread NTHREADS] [--noboost]
+                     [--affinity MASK[@THREAD_INDICES]]
+                     [-r ROUTINE[@LAYER_INDICES]] [-R RPARAMS[@LAYER_INDICES]] [-nobufopt DEVICE]
+                     [--lib LIB] [-l LNUM] [--detail] [--detail2] [--bylayer]
+                     [-dump DUMPDIR] [-dump2 DUMPRID] [-t NTOPS] [-h]
+                     DNN [INPUT [INPUT ...]]
+</code></pre>
+<p><u><strong>引数</strong></u></p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN</td>
+<td>推論を実行するDNNファイルです。</td>
+</tr>
+<tr>
+<td>INPUT</td>
+<td>推論実行の入力となる画像ファイルまたはnumpyファイルです。 未指定時は[-1, 1]の乱数が入力となります。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u></p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p PASSWORD --pass PASSWORD</td>
+<td>パスワードを設定して暗号化したDNNファイルを利用する際に入力するパスワードです。</td>
+</tr>
+<tr>
+<td>-o ONPY</td>
+<td>結果をnumpyファイルとして出力する際に指定するファイル名です。</td>
+</tr>
+<tr>
+<td>--recipe RECIPE</td>
+<td>利用するrecipeを指定します。　</td>
+</tr>
+<tr>
+<td>--batch BATCH</td>
+<td>入力を指定したサイズのバッチにして推論処理を実行します。</td>
+</tr>
+<tr>
+<td>--ishape SHAPE</td>
+<td>入力シェイプを指定したものに変更します。(例：<code>1x224x224x3</code>).</td>
+</tr>
+<tr>
+<td>--keep_img_ar PADDINGCOLOR</td>
+<td>入力画像をリサイズする際にアスペクト比を維持させます。デフォルトではアスペクト比を維持しません。リサイズ前後でアスペクト比の違いによって生じるスペースを、PADDINGCOLORで指定した色で埋めます。PADDINGCOLORは例えば '0, 0, 0' のようにRGBで指定します。</td>
+</tr>
+<tr>
+<td>--img_resize_mode RESIZEMODE</td>
+<td>入力画像をリサイズする際の方式を指定します。 'bilinear' または　'nearest' を指定可能です。デフォルトは 'bilinear' です。</td>
+</tr>
+<tr>
+<td>--thread NTHREADS</td>
+<td>処理を実行するスレッド数を設定できます。 設定しない場合はCPUのコア数となります。</td>
+</tr>
+<tr>
+<td>--noboost</td>
+<td>ワーカースレッドがタスク待ちをするときに cond wait を用いるようになります。デフォルトでは busy wait を用います。 <code>--noboost</code> が有効の場合、SoftNeuroのCPU占有率が下がり他プロセスが影響されにくくなりますが、推論速度が低下する可能性があります。</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td><code>MASK</code>で指定したアフィニティマスクを<code>THREAD_INDICES</code>で指定したスレッドに適用します。<br><code>MASK</code> はリトルエンディアンの16進数 (0x..), 2進数 (0b..), または10進数で指定できます。<br><code>THREAD_INDICES</code>が指定されていない場合は全スレッドにアフィニティマスクが適用されます。<br><code>THREAD_INDICES</code>の書式については<code>softneuro help thread_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+<tr>
+<td>-r ROUTINE[@LAYER_INDICES], --routine ROUTINE[@LAYER_INDICES]</td>
+<td>ルーチンを設定できます。 設定しない場合はその環境で利用可能なルーチンの中で最も高速なものが選ばれます。ディフォルトはcpuです。<br><a href="prof-tune.ja.html#tune">tune</a>後のモデルについては、ルーチンの指定は無視されます。<br><code>LAYER_INDICES</code>を設定しない場合、メインネットのすべてのレイヤーに適用されます。<br><code>LAYER_INDICES</code>の書式については<code>softneuro help layer_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+<tr>
+<td>-R RPARAMS[@LAYER_INDICES], --rparams RPARAMS[@LAYER_INDICES]</td>
+<td>ルーチンパラメータを設定できます。<br><a href="prof-tune.ja.html#tune">tune</a>後のモデルについては、ルーチンパラメータの指定は無視されます。<br><code>LAYER_INDICES</code>を設定しない場合、メインネットのすべてのレイヤーに適用されます。<br><code>LAYER_INDICES</code>の書式については<code>softneuro help layer_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+<tr>
+<td>--nobufopt DEVICE</td>
+<td>指定したデバイスのルーチンにおける使用メモリの最適化をオフにする際に指定します。</td>
+</tr>
+<tr>
+<td>--lib LIB</td>
+<td>オフラインコンパイルしたOpenCLのバイナリファイルを利用する際に指定します。</td>
+</tr>
+<tr>
+<td>-l LNUM, --loop LNUM</td>
+<td>指定した回数だけ推論を繰り返し実行します。</td>
+</tr>
+<tr>
+<td>--detail</td>
+<td>詳細な処理時間の統計情報を表示します。</td>
+</tr>
+<tr>
+<td>--detail2</td>
+<td>より詳細な処理時間の統計情報を表示します。<br>1レイヤの処理が複数レイヤの処理で構成されている場合に個別の処理時間を表示します。</td>
+</tr>
+<tr>
+<td>--bylayer</td>
+<td>レイヤーごとに処理時間の統計情報を表示します。</td>
+</tr>
+<tr>
+<td>--dump DUMPDIR</td>
+<td>各レイヤの出力をnumpyファイルで出力する際に指定する出力先ディレクトリです。</td>
+</tr>
+<tr>
+<td>--dump2 DUMPDIR</td>
+<td>各レイヤのより詳細な出力をnumpyファイルで出力する際に指定する出力先ディレクトリです。<br>1レイヤの処理が複数レイヤの処理で構成されている場合に個別の処理結果をnpyファイル出力します。</td>
+</tr>
+<tr>
+<td>-t NTOPS, --top NTOPS</td>
+<td>推論(画像分類)結果のスコアが高いラベルを指定した数だけ表示します。</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u></p>
+<pre><code>$ softneuro run densenet121.dnn --thread 8 --affinity 0xf0@0..3 --affinity 0x0f@4..7 --top 5 --loop 10 shovel.jpg
+
+---------------------------------
+Top 5 Labels
+---------------------------------
+#   SCORE  LABEL
+1  0.9999  shovel
+2  0.0001  hatchet
+3  0.0000  broom
+4  0.0000  swab
+5  0.0000  spatula
+
+---------------------------------
+Statistics
+---------------------------------
+FUNCTION       AVE(us)  MIN(us)  MAX(us)  #RUN
+Dnn_load()      43,070   43,070   43,070     1
+Dnn_compile()   28,567   28,567   28,567     1
+Dnn_forward()   39,877   39,751   39,983    10
+
+Used memory: 88,403,968 Bytes
+
+---------------------------------
+Benchmark
+---------------------------------
+preprocess: 81 68 68 69 70 64 71 69 70 68
+main: 39872 39698 39710 39679 39896 39884 39770 39801 39908 39824
+TOTAL: 39955 39767 39778 39749 39968 39949 39842 39873 39981 39894
+</code></pre>
+<p>処理速度は<code>Dnn_forward</code>部分をご覧ください。
+AVE、MIN、MAXがそれぞれ<code>-loop</code>オプションで指定したCALL回数分の平均、最小値、最大値で、<code>#RUN</code>が処理を実行した回数です。</p>
+<h2 id="init"><strong>init</strong><a class="headerlink" href="#init" title="Permanent link">&para;</a></h2>
+<p>プロファイルデータの生成を行います。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro init [--thread NTHREADS] [--affinity MASK[@THREAD_INDICES]]
+                      [--pass PASSWORD] [--help]
+                      PROF DNN
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>出力するプロファイルデータのディレクトリ名です。</td>
+</tr>
+<tr>
+<td>DNN</td>
+<td>プロファイルデータ作成に利用するDNNファイルです。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--thread NTHREADS</td>
+<td>プロファイルを実行する際のスレッド数を指定します。デフォルトではコア数と同じ数になります。</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td><code>MASK</code>で指定したアフィニティマスクを<code>THREAD_INDICES</code>で指定したスレッドに適用します。<br><code>MASK</code> はリトルエンディアンの16進数 (0x..), 2進数 (0b..), または10進数で指定できます。<br><code>THREAD_INDICES</code>が指定されていない場合は全スレッドにアフィニティマスクが適用されます。<br><code>THREAD_INDICES</code>の書式については<code>softneuro help thread_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+<tr>
+<td>--pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているDNNファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+実行ディレクトリにmobilenet_profが生成されます。<br />
+<em>※コマンドライン上への出力はありません</em></p>
+<pre><code>$ softneuro init mobilenet_prof mobilenet.dnn
+</code></pre>
+<h2 id="add"><strong>add</strong><a class="headerlink" href="#add" title="Permanent link">&para;</a></h2>
+<p>プロファイルデータにあるネットワークの各レイヤーに指定のルーチンを設定します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro add [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--help]
+                     PROF [ROUTINE[@LAYER_INDICES]]...
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>設定の追加を行うプロファイルデータのディレクトリ名です。</td>
+</tr>
+<tr>
+<td>ROUTINE[@LAYER_INDICES]</td>
+<td><code>ROUTINE</code>で指定したルーチンを<code>LAYER_INDICES</code>で指定したレイヤーに設定します。<br><code>LAYER_INDICES</code>が指定されていない場合はmainネットワークの全レイヤーに指定したルーチンが設定されます。<code>ROUTINE</code>の書式については<code>softneuro help routine_desc</code>, <code>LAYER_INDICES</code>の書式については<code>softneuro help layer_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>プロファイルデータ作成に利用するDNNファイルです。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているPROFファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>　通常secretモードで暗号化したDNNファイルに対しては、<code>LAYER_INDICES</code>を指定した操作を行うことができません。しかしsecretモードで暗号化されていないDNNファイルが存在すれば、<code>--ref</code>オプションでそのDNNファイルを参照することで、<code>LAYER_INDICES</code>を指定した操作を行うことが可能となります。</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD 　</td>
+<td>　<code>--ref</code>オプションで指定した参考用のDNNファイルに対するパスワードです。参考用のDNNファイルが通常の(secretモードでない)暗号化を施されていた場合に必要となります。</td>
+</tr>
+<tr>
+<td>-help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+mobilenet_profの持つモデルに対して、mainネットワークの各レイヤーに<code>cpu:qint8</code>のルーチンが設定されます。(cpuのqint8ルーチンがあるレイヤーのみ)  </p>
+<pre><code>$ softneuro add mobilenet_prof cpu:qint8
+adding routines...done.
+
+$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC  PARAMS
+0  ? (source)
+1  ? (madd)
+2  ? (sink)
+                             ?
+
+    [main]
+ #  NAME                                              ROUTINE        TIME  DESC  PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)                                     cpu:qint8 (9)
+ 2  conv_dw_1 (depthwise_conv2)                       cpu:qint8 (3)
+ 3  conv_pw_1 (conv2)                                 cpu:qint8 (9)
+ 4  conv_dw_2 (depthwise_conv2)                       cpu:qint8 (3)
+ 5  conv_pw_2 (conv2)                                 cpu:qint8 (9)
+ 6  conv_dw_3 (depthwise_conv2)                       cpu:qint8 (3)
+ 7  conv_pw_3 (conv2)                                 cpu:qint8 (9)
+ 8  conv_dw_4 (depthwise_conv2)                       cpu:qint8 (3)
+ 9  conv_pw_4 (conv2)                                 cpu:qint8 (9)
+10  conv_dw_5 (depthwise_conv2)                       cpu:qint8 (3)
+11  conv_pw_5 (conv2)                                 cpu:qint8 (9)
+12  conv_dw_6 (depthwise_conv2)                       cpu:qint8 (3)
+13  conv_pw_6 (conv2)                                 cpu:qint8 (9)
+14  conv_dw_7 (depthwise_conv2)                       cpu:qint8 (3)
+15  conv_pw_7 (conv2)                                 cpu:qint8 (9)
+16  conv_dw_8 (depthwise_conv2)                       cpu:qint8 (3)
+17  conv_pw_8 (conv2)                                 cpu:qint8 (9)
+18  conv_dw_9 (depthwise_conv2)                       cpu:qint8 (3)
+19  conv_pw_9 (conv2)                                 cpu:qint8 (9)
+20  conv_dw_10 (depthwise_conv2)                      cpu:qint8 (3)
+21  conv_pw_10 (conv2)                                cpu:qint8 (9)
+22  conv_dw_11 (depthwise_conv2)                      cpu:qint8 (3)
+23  conv_pw_11 (conv2)                                cpu:qint8 (9)
+24  conv_dw_12 (depthwise_conv2)                      cpu:qint8 (3)
+25  conv_pw_12 (conv2)                                cpu:qint8 (9)
+26  conv_dw_13 (depthwise_conv2)                      cpu:qint8 (3)
+27  conv_pw_13 (conv2)                                cpu:qint8 (9)
+28  global_average_pooling2d_1 (global_average_pool)
+29  reshape_1 (reshape)                               cpu:qint8 (1)
+30  conv_preds (conv2)                                cpu:qint8 (9)
+31  act_softmax (softmax)
+32  reshape_2 (reshape)                               cpu:qint8 (1)
+33  sink_0 (sink)
+                                                                        ?
+
+ROUTINES  cpu:qint8
+TOTAL     ?
+</code></pre>
+<h2 id="rm"><strong>rm</strong><a class="headerlink" href="#rm" title="Permanent link">&para;</a></h2>
+<p>プロファイルデータにある各レイヤーから計測結果を含むルーチン設定情報を削除します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro rm [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--help] PROF [ROUTINE@IDS]...
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>設定を削除するプロファイルデータのディレクトリ名です。</td>
+</tr>
+<tr>
+<td>ROUTINE[@LAYER_INDICES]</td>
+<td><code>ROUTINE</code>で指定したルーチン設定を<code>LAYER_INDICES</code>で指定したレイヤーから削除します。<br><code>ROUTINE</code>が指定されていない場合はmainネットワークの全レイヤーからルーチン設定を削除します。<br><code>LAYER_INDICES</code>のみが指定されていない場合はmainネットワークの全レイヤーから指定したルーチン設定が削除されます。<br><code>ROUTINE</code>の書式については<code>softneuro help routine_desc</code>, <code>LAYER_INDICES</code>の書式については<code>softneuro help layer_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>プロファイルデータ作成に利用するDNNファイルです。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているPROFファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>　通常secretモードで暗号化したDNNファイルに対しては、<code>LAYER_INDICES</code>を指定した操作を行うことができません。しかしsecretモードで暗号化されていないDNNファイルが存在すれば、<code>--ref</code>オプションでそのDNNファイルを参照することで、<code>LAYER_INDICES</code>を指定した操作を行うことが可能となります。</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD 　</td>
+<td>　<code>--ref</code>オプションで指定した参考用のDNNファイルに対するパスワードです。参考用のDNNファイルが通常の(secretモードでない)暗号化を施されていた場合に必要となります。</td>
+</tr>
+<tr>
+<td>--help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+mobilenet_profのモデルから、mainネットワークの各レイヤーが持つルーチン設定(<code>ROUTINE</code>列)を削除します。</p>
+<pre><code>$ softneuro rm mobilenet_prof
+removing routines...done.
+
+$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC  PARAMS
+0  ? (source)
+1  ? (madd)
+2  ? (sink)
+                             ?
+
+    [main]
+ #  NAME                                              ROUTINE  TIME  DESC  PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)
+ 2  conv_dw_1 (depthwise_conv2)
+ 3  conv_pw_1 (conv2)
+ 4  conv_dw_2 (depthwise_conv2)
+ 5  conv_pw_2 (conv2)
+ 6  conv_dw_3 (depthwise_conv2)
+ 7  conv_pw_3 (conv2)
+ 8  conv_dw_4 (depthwise_conv2)
+ 9  conv_pw_4 (conv2)
+10  conv_dw_5 (depthwise_conv2)
+11  conv_pw_5 (conv2)
+12  conv_dw_6 (depthwise_conv2)
+13  conv_pw_6 (conv2)
+14  conv_dw_7 (depthwise_conv2)
+15  conv_pw_7 (conv2)
+16  conv_dw_8 (depthwise_conv2)
+17  conv_pw_8 (conv2)
+18  conv_dw_9 (depthwise_conv2)
+19  conv_pw_9 (conv2)
+20  conv_dw_10 (depthwise_conv2)
+21  conv_pw_10 (conv2)
+22  conv_dw_11 (depthwise_conv2)
+23  conv_pw_11 (conv2)
+24  conv_dw_12 (depthwise_conv2)
+25  conv_pw_12 (conv2)
+26  conv_dw_13 (depthwise_conv2)
+27  conv_pw_13 (conv2)
+28  global_average_pooling2d_1 (global_average_pool)
+29  reshape_1 (reshape)
+30  conv_preds (conv2)
+31  act_softmax (softmax)
+32  reshape_2 (reshape)
+33  sink_0 (sink)
+                                                                  ?
+
+TOTAL  ?
+                             ?
+
+</code></pre>
+<h2 id="reset"><strong>reset</strong><a class="headerlink" href="#reset" title="Permanent link">&para;</a></h2>
+<p>プロファイルデータにある各レイヤーの計測結果を初期化します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro reset [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--help]
+                       PROF [ROUTINE@IDS]...
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>測定結果を削除するプロファイルデータのディレクトリ名です。</td>
+</tr>
+<tr>
+<td>ROUTINE[@LAYER_INDICES]</td>
+<td><code>ROUTINE</code>で指定したルーチンの測定結果を<code>LAYER_INDICES</code>で指定したレイヤーから削除します。<br><code>ROUTINE</code>が指定されていない場合はmainネットワークの全レイヤーから測定結果を削除します。<br><code>LAYER_INDICES</code>のみが指定されていない場合はmainネットワークの全レイヤーから指定したルーチンの測定結果が削除されます。<br><code>ROUTINE</code>の書式については<code>softneuro help routine_desc</code>, <code>LAYER_INDICES</code>の書式については<code>softneuro help layer_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>プロファイルデータ作成に利用するDNNファイルです。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているPROFファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>　通常secretモードで暗号化したDNNファイルに対しては、<code>LAYER_INDICES</code>を指定した操作を行うことができません。しかしsecretモードで暗号化されていないDNNファイルが存在すれば、<code>--ref</code>オプションでそのDNNファイルを参照することで、<code>LAYER_INDICES</code>を指定した操作を行うことが可能となります。</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD 　</td>
+<td>　<code>--ref</code>オプションで指定した参考用のDNNファイルに対するパスワードです。参考用のDNNファイルが通常の(secretモードでない)暗号化を施されていた場合に必要となります。</td>
+</tr>
+<tr>
+<td>--help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+mobilenet_profのモデルから、mainネットワークの各レイヤーの計測結果(<code>TIME</code>列以降)を削除します。</p>
+<pre><code>$ softneuro reset mobilenet_prof
+resetting routines...done.
+$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC  PARAMS
+0  ? (source)
+1  ? (madd)      cpu (3)
+2  ? (sink)
+                             ?
+
+    [main]
+ #  NAME                                              ROUTINE   TIME  DESC  PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)                                     cpu (15)
+ 2  conv_dw_1 (depthwise_conv2)                       cpu (3)
+ 3  conv_pw_1 (conv2)                                 cpu (47)
+ 4  conv_dw_2 (depthwise_conv2)                       cpu (3)
+ 5  conv_pw_2 (conv2)                                 cpu (47)
+ 6  conv_dw_3 (depthwise_conv2)                       cpu (3)
+ 7  conv_pw_3 (conv2)                                 cpu (47)
+ 8  conv_dw_4 (depthwise_conv2)                       cpu (3)
+ 9  conv_pw_4 (conv2)                                 cpu (47)
+10  conv_dw_5 (depthwise_conv2)                       cpu (3)
+11  conv_pw_5 (conv2)                                 cpu (47)
+12  conv_dw_6 (depthwise_conv2)                       cpu (3)
+13  conv_pw_6 (conv2)                                 cpu (47)
+14  conv_dw_7 (depthwise_conv2)                       cpu (3)
+15  conv_pw_7 (conv2)                                 cpu (47)
+16  conv_dw_8 (depthwise_conv2)                       cpu (3)
+17  conv_pw_8 (conv2)                                 cpu (47)
+18  conv_dw_9 (depthwise_conv2)                       cpu (3)
+19  conv_pw_9 (conv2)                                 cpu (47)
+20  conv_dw_10 (depthwise_conv2)                      cpu (3)
+21  conv_pw_10 (conv2)                                cpu (47)
+22  conv_dw_11 (depthwise_conv2)                      cpu (3)
+23  conv_pw_11 (conv2)                                cpu (47)
+24  conv_dw_12 (depthwise_conv2)                      cpu (3)
+25  conv_pw_12 (conv2)                                cpu (47)
+26  conv_dw_13 (depthwise_conv2)                      cpu (3)
+27  conv_pw_13 (conv2)                                cpu (47)
+28  global_average_pooling2d_1 (global_average_pool)  cpu (1)
+29  reshape_1 (reshape)                               cpu (1)
+30  conv_preds (conv2)                                cpu (47)
+31  act_softmax (softmax)                             cpu (1)
+32  reshape_2 (reshape)                               cpu (1)
+33  sink_0 (sink)
+                                                                   ?
+
+ROUTINES  cpu
+TOTAL     ?
+</code></pre>
+<h2 id="status"><strong>status</strong><a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
+<p>プロファイルデータにある各レイヤーのルーチン設定・計測結果の情報を表示します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro status [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--at INDEX]
+                        [--estimate MODE] [--csv] [--help]
+                        PROF
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>情報を表示するプロファイルデータのディレクトリ名です。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>プロファイルデータ作成に利用するDNNファイルです。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているPROFファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>　通常secretモードで暗号化したDNNファイルに対しては、<code>LAYER_INDICES</code>を指定した操作を行うことができません。しかしsecretモードで暗号化されていないDNNファイルが存在すれば、<code>--ref</code>オプションでそのDNNファイルを参照することで、<code>LAYER_INDICES</code>を指定した操作を行うことが可能となります。</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD 　</td>
+<td>　<code>--ref</code>オプションで指定した参考用のDNNファイルに対するパスワードです。参考用のDNNファイルが通常の(secretモードでない)暗号化を施されていた場合に必要となります。</td>
+</tr>
+<tr>
+<td>-@, --at INDEX</td>
+<td>指定した位置のレイヤーに関する情報のみを表示する際に指定します。</td>
+</tr>
+<tr>
+<td>--estimate MODE</td>
+<td>表示する<code>profile</code>結果の処理時間(TIME)の推定モードを指定できます。<code>robust</code> (外れ値を除いた平均), <code>min</code>(最小値), <code>ave</code>(全体の平均)から選択できます。デフォルトは<code>robust</code>です。</td>
+</tr>
+<tr>
+<td>--csv</td>
+<td>CSV形式で情報を表示する際に指定します。</td>
+</tr>
+<tr>
+<td>--help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+<code>profile</code>コマンドで計測を行った後のプロファイルデータを指定すると、以下のような計測結果が表示されます。</p>
+<pre><code>$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC     PARAMS
+0  ? (source)
+1  ? (madd)      cpu (3)    28  cpu/avx  {&quot;ops_in_task&quot;:16384}
+2  ? (sink)
+                            28
+
+    [main]
+ #  NAME                                              ROUTINE    TIME  DESC            PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)                                     cpu (15)    213  cpu/owc64_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:131072}
+ 2  conv_dw_1 (depthwise_conv2)                       cpu (3)     110  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+ 3  conv_pw_1 (conv2)                                 cpu (47)    195  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:144}
+ 4  conv_dw_2 (depthwise_conv2)                       cpu (3)      60  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+ 5  conv_pw_2 (conv2)                                 cpu (47)    177  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:72}
+ 6  conv_dw_3 (depthwise_conv2)                       cpu (3)     113  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+ 7  conv_pw_3 (conv2)                                 cpu (47)    328  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:36}
+ 8  conv_dw_4 (depthwise_conv2)                       cpu (3)      40  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+ 9  conv_pw_4 (conv2)                                 cpu (47)    167  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:96}
+10  conv_dw_5 (depthwise_conv2)                       cpu (3)      68  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:131072}
+11  conv_pw_5 (conv2)                                 cpu (47)    320  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:96}
+12  conv_dw_6 (depthwise_conv2)                       cpu (3)      23  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+13  conv_pw_6 (conv2)                                 cpu (47)    164  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+14  conv_dw_7 (depthwise_conv2)                       cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+15  conv_pw_7 (conv2)                                 cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+16  conv_dw_8 (depthwise_conv2)                       cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+17  conv_pw_8 (conv2)                                 cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+18  conv_dw_9 (depthwise_conv2)                       cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+19  conv_pw_9 (conv2)                                 cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+20  conv_dw_10 (depthwise_conv2)                      cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+21  conv_pw_10 (conv2)                                cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+22  conv_dw_11 (depthwise_conv2)                      cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+23  conv_pw_11 (conv2)                                cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+24  conv_dw_12 (depthwise_conv2)                      cpu (3)      14  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+25  conv_pw_12 (conv2)                                cpu (47)    169  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+26  conv_dw_13 (depthwise_conv2)                      cpu (3)      19  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+27  conv_pw_13 (conv2)                                cpu (47)    336  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:8}
+28  global_average_pooling2d_1 (global_average_pool)  cpu (1)      13  cpu/naive       {}
+29  reshape_1 (reshape)                               cpu (1)       0  cpu             {}
+30  conv_preds (conv2)                                cpu (47)     23  cpu/owc64_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+31  act_softmax (softmax)                             cpu (1)      21  cpu/naive       {}
+32  reshape_2 (reshape)                               cpu (1)       0  cpu             {}
+33  sink_0 (sink)
+                                                                4,308
+
+ROUTINES  cpu
+TOTAL     4,336
+
+</code></pre>
+<h2 id="profile"><strong>profile</strong><a class="headerlink" href="#profile" title="Permanent link">&para;</a></h2>
+<p>プロファイルデータを利用したプロファイルを実行します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro profile [--dnn DNN] [--pass PASSWORD] [--help] PROF
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>プロファイル実行に利用するプロファイルデータのディレクトリ名です。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>プロファイルデータ作成に利用するDNNファイルです。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているPROFファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>--help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+<code>init</code>コマンドで生成したプロファイルデータを指定して実行することで、各レイヤーで利用可能なルーチンの処理時間を測定してプロファイルデータに保存します。</p>
+<pre><code>$ softneuro prof mobilenet_prof
+profiling...100.0% [00:01]
+</code></pre>
+<h2 id="tune"><strong>tune</strong><a class="headerlink" href="#tune" title="Permanent link">&para;</a></h2>
+<p>DNNファイルのチューニングを実行します。<br />
+プロファイル実行済みのプロファイルデータを指定しない場合はプロファイルの実行から処理を開始します。</p>
+<p><u><strong>使い方</strong></u>    </p>
+<pre><code>usage: softneuro tune [--prof PROF] [--recipe RECIPE] [--thread NTHREADS]
+                      [--affinity MASK[@THREAD_INDICES]] [--pass PASSWORD]
+                      [--routine ROUTINE[@IDS]]... [--estimate MODE] [--help]
+                      INPUT OUTPUT
+</code></pre>
+<p><u><strong>引数</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>引数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>入力となるチューニング前のDNNファイルです。</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>出力されるチューニング後のDNNファイル名です。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>オプション</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--prof PROF</td>
+<td>チューニングに利用するプロファイルデータのディレクトリ名です。</td>
+</tr>
+<tr>
+<td>--recipe RECIPE</td>
+<td>チューニングに利用するレシピデータのディレクトリ名です。</td>
+</tr>
+<tr>
+<td>--thread NTHREADS</td>
+<td>プロファイル実行時のスレッド数を指定します。プロファイルデータが指定されている場合は無視されます。</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td><code>MASK</code>で指定したアフィニティマスクを<code>THREAD_INDICES</code>で指定したスレッドに適用します。<br><code>MASK</code> はリトルエンディアンの16進数 (0x..), 2進数 (0b..), または10進数で指定できます。<br><code>THREAD_INDICES</code>が指定されていない場合は全スレッドにアフィニティマスクが適用されます。<br><code>THREAD_INDICES</code>の書式については<code>softneuro help thread_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>パスワードを設定して暗号化されているDNNファイルを利用する際に入力します。</td>
+</tr>
+<tr>
+<td>-r, --routine ROUTINE[@LAYER_INDICES]</td>
+<td>チューニングの前に<code>ROUTINE</code>で指定したルーチンを利用して<code>LAYER_INDICES</code>で指定したレイヤーのプロファイルを実行します。<br><code>LAYER_INDICES</code>が指定されていない場合はmainネットワークの全レイヤーに指定したルーチンが設定されます。<code>ROUTINE</code>の書式については<code>softneuro help routine_desc</code>, <code>LAYER_INDICES</code>の書式については<code>softneuro help layer_indices</code>で表示されるヘルプを参照してください。</td>
+</tr>
+<tr>
+<td>--estimate MODE</td>
+<td>処理時間の推定モードを設定します。<code>robust</code> (デフォルト), <code>min</code>, <code>ave</code>から選択できます。</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>本コマンドのヘルプを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>使用例</strong></u><br />
+実行ディレクトリにvgg16_tuned.dnnが生成されます。</p>
+<pre><code>$ softneuro tune vgg16.dnn vgg16_tuned.dnn
+adding cpu routines...done.
+profiling...100.0% [00:56] ETA[00:00]
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC       PARAMS
+0  ? (source)
+1  ? (permute)   cpu (1)   155  cpu/naive  {}
+2  ? (madd)      cpu (3)    29  cpu/avx    {&quot;ops_in_task&quot;:16384}
+3  ? (sink)
+                           184
+
+    [main]
+ #  NAME                           ROUTINE     TIME  DESC           PARAMS
+ 0  input_1 (source)
+ 1  block1_conv1 (conv2)           cpu (67)   1,239  cpu/owc64_avx  {&quot;cache&quot;:8192,&quot;task_ops&quot;:131072}
+  :
+
+TOTAL  59,463
+
+</code></pre>
+<p>OpenCLを利用したGPUでのtune</p>
+<pre><code>$ softneuro tune --routine opencl/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>OpenCL(float16)を利用したGPUでのtune</p>
+<pre><code>$ softneuro tune --routine opencl:float16/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>CUDAを利用したGPUでのtune</p>
+<pre><code>$ softneuro tune --routine cuda/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>CUDA(float16)を利用したGPUでのtune</p>
+<pre><code>$ softneuro tune --routine cuda:float16/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>量子化8bit整数を利用したCPUでのtune</p>
+<pre><code>$ softneuro tune --routine cpu:qint8/fast vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../dnn/converter.ja.html" class="md-footer__link md-footer__link--prev" aria-label="前: コンバート系" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              コンバート系
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../layer-routine/layer-routine.ja.html" class="md-footer__link md-footer__link--next" aria-label="次: レイヤ・ルーチン操作コマンド" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              レイヤ・ルーチン操作コマンド
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> All Rights Reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

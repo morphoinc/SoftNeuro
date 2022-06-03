@@ -1,0 +1,1098 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/cli/commands/layer-routine/layer-routine.html">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>Layer/Routine Operation Commands - SoftNeuro&reg; v5.1.0 CLI Tool Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#layerroutine-operation-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.1.0 CLI Tool Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Layer/Routine Operation Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="layer-routine.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="layer-routine.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link md-tabs__link--active">
+        CLI
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.1.0 CLI Tool Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CLI Command Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI Command Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-list.html" class="md-nav__link">
+        SoftNeuro command list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/general.html" class="md-nav__link">
+        General Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        DNN Operation Commands
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DNN Operation Commands" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          DNN Operation Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/referer.html" class="md-nav__link">
+        Model Information
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/editor.html" class="md-nav__link">
+        Model Editing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/converter.html" class="md-nav__link">
+        Model Conversion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prof-tune/prof-tune.html" class="md-nav__link">
+        Run and Profiling Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Layer/Routine Operation Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="layer-routine.html" class="md-nav__link md-nav__link--active">
+        Layer/Routine Operation Commands
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    layers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lparams" class="md-nav__link">
+    lparams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routines" class="md-nav__link">
+    routines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rparams" class="md-nav__link">
+    rparams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    test
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy.html" class="md-nav__link">
+        numpy Tensor Operation Commands
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routine-descriptor.html" class="md-nav__link">
+        Routine Descriptor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    layers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lparams" class="md-nav__link">
+    lparams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routines" class="md-nav__link">
+    routines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rparams" class="md-nav__link">
+    rparams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    test
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="layerroutine-operation-commands">Layer/Routine Operation Commands<a class="headerlink" href="#layerroutine-operation-commands" title="Permanent link">&para;</a></h1>
+<p>Layer and routine related SoftNeuro commands.
+It is possible to verify routine information per layer, such as available devices and parameters.</p>
+<h2 id="plugins"><strong>plugins</strong><a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
+<p>Manages plugins for additional routines.
+User can view the list of installed plugins, install/uninstall plugins, and view the list of all avalable plugins with their status.</p>
+<p><u><strong>Usage</strong></u>  <br />
+<code>softneuro plugins [--help] [-i PLUGIN|auto] [-u PLUGIN|all] [-s]</code></p>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+<tr>
+<td>-i, --install PLUGIN</td>
+<td>Installs a plugin <code>PLUGIN</code>. If <code>auto</code> is provieded, it installs all appropriate plugins automatically.</td>
+</tr>
+<tr>
+<td>-u, --uninstall PLUGIN</td>
+<td>Uninstall a plugin <code>PLUGIN</code>. If <code>all</code> is provided, it uninstalls all plugins.</td>
+</tr>
+<tr>
+<td>-s, --status</td>
+<td>Lists available plugins and their status. The meaning of staus symbols is shown below.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>I</code></td>
+<td>Installed successfully</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Installed but conflicted with other plugins</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>Installed but may not be loaded on run time</td>
+</tr>
+<tr>
+<td><code></code> (space)</td>
+<td>Not installed</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+Running without any options, you can view the installed plugins.</p>
+<pre><code>$ softneuro plugins
+plugin_avx2    AVX routines.
+plugin_opencl  OpenCL routines.
+</code></pre>
+<p>You may check if other plugins are available. The following result shows <code>plugin_cuda</code> is avalable.</p>
+<pre><code>$ softneuro plugins -s
+I plugin_avx2
+I plugin_opencl
+  plugin_cuda
+</code></pre>
+<p>Then you can install <code>plugin_cuda</code> by the following command.</p>
+<pre><code>$ softneuro plugin -i plugin_cuda
+`plugin_cuda` is installed.
+</code></pre>
+<h2 id="layers"><strong>layers</strong><a class="headerlink" href="#layers" title="Permanent link">&para;</a></h2>
+<p>List all available layers.</p>
+<p><u><strong>Usage</strong></u><br />
+<code>usage: softneuro layers [--help]</code>    </p>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u>  </p>
+<pre><code>$ softneuro layers
+adaptive_unit_scale
+add
+ave_pool2
+batch_norm
+box_filter
+ :
+</code></pre>
+<h2 id="lparams"><strong>lparams</strong><a class="headerlink" href="#lparams" title="Permanent link">&para;</a></h2>
+<p>Shows the available paramters and their default values for a given layer.</p>
+<p><u><strong>Usage</strong></u>  <br />
+<code>usage: softneuro lparams [--help] LAYER</code>    </p>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAYER</td>
+<td>Layer to have its parameters shown.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u>  </p>
+<pre><code>$ softneuro lparams conv2
+{'padding': 'valid', 'pads': 0, 'dilations': 1, 'strides': 1, 'has_relu': false, 'relu_max_value': -1.0}
+</code></pre>
+<h2 id="routines"><strong>routines</strong><a class="headerlink" href="#routines" title="Permanent link">&para;</a></h2>
+<p>Shows the available execution routines in the current environment.
+Shows the available execution schemas in the current environment.</p>
+<p><u><strong>Usage</strong></u>  <br />
+<code>usage: softneuro routines [--help] LAYER</code>    </p>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAYER</td>
+<td>Layer to have its routines shown. Shows schemas when no layer was set.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u>  </p>
+<pre><code>$ softneuro routines conv2
+cpu/naive
+cpu/naive/wg2
+cpu:chf/naive
+cpu:qint8:pt_sym/naive
+cpu:qint8:pt_asym/naive
+cpu:qint8:pc_sym/naive
+cpu:qint8:pc_asym/naive
+cpu:qint8/naive
+cpu/wg2
+ :
+</code></pre>
+<h2 id="rparams"><strong>rparams</strong><a class="headerlink" href="#rparams" title="Permanent link">&para;</a></h2>
+<p>Show a recipe for routine parameters. </p>
+<p><u><strong>Usage</strong></u>  <br />
+<code>usage: softneuro rparams [--help] LAYER</code>    </p>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAYER</td>
+<td>Layer that has the routine for which parameters will be shown.</td>
+</tr>
+<tr>
+<td>ROUTINE</td>
+<td>Routine to have its parameters shown.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u>  </p>
+<pre><code>$ softneuro rparams conv2 cpu/wg3x3_nxn_avx
+{'cache': [8192, 16384, 32768], 'task_unit': [4, 8, 16], 'tile_size': [2, 4, 6, 8]}
+</code></pre>
+<h2 id="test"><strong>test</strong><a class="headerlink" href="#test" title="Permanent link">&para;</a></h2>
+<p>Does a test run of the given layer.</p>
+<p><u><strong>Usage</strong></u>  </p>
+<pre><code>usage: softneuro test [-o OUTPUT]... [--weight WNAME TENSOR]...[--thread NTHREADS]
+                      [--affinity MASK[@IDS]]
+                      [--params PARAMS][--routine ROUTINE] [--rparams RPARAMS]
+                      [--loop NLOOPS] [--help]
+                      LAYER [INPUT]...
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAYER</td>
+<td>Layer to be tested.</td>
+</tr>
+<tr>
+<td>INPUT</td>
+<td>Input numpy file or <a href="../numpy/numpy.html#tensor-specification">tensor specification</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-o OUTPUT, --output OUTPUT</td>
+<td>Filename for the output numpy file. Must be set.</td>
+</tr>
+<tr>
+<td>--weight WNAME TENSOR</td>
+<td>Insert <code>TENSOR</code> data into the <code>WNAME</code> weight tensor. <code>TENSOR</code> can be a numpy file or <a href="../numpy/numpy.html#tensor-specification">tensor specification</a>. If weights aren't set they are initialized to random numbers in [-1, 1].</td>
+</tr>
+<tr>
+<td>--thread NTHREADS</td>
+<td>How many threads to be used on execution. Defaults to the amount of CPU cores.</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td>Use the affinity mask given by <code>MASK</code> on the threads given by<code>THREAD_INDICES</code>. <br><code>MASK</code> should be a little endian hexadecimal (0x..), binary (0b..), or decimal number. <br>If <code>THREAD_INDICES</code> isn't set all threads will use the given mask. <br>For more information on <code>THREAD_INDICES</code> use the <code>softneuro help thread_indices</code> command.</td>
+</tr>
+<tr>
+<td>--params PARAMS</td>
+<td>Layer parameters in JSON format. Parameters can be checked with the <code>lparams</code> command.</td>
+</tr>
+<tr>
+<td>-r ROUTINE, --routine ROUTINE</td>
+<td>Set the routine to be executed. Available routines can be checked with the <code>routines</code> command. Defaults to the best available.</td>
+</tr>
+<tr>
+<td>--rparams RPARAMS</td>
+<td>Routine parameters in JSON format. Parameters can be cheked with the <code>rparams</code> command.</td>
+</tr>
+<tr>
+<td>-l NLOOPS, --loop NLOOPS</td>
+<td>Amount of times to run the test. Useful for benchmarking.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u>  </p>
+<pre><code>$ softneuro test -o out.npy --weight kernel &quot;shape=3x3x128x128&quot; --weight bias &quot;shape=128&quot; --params '{&quot;padding&quot;: &quot;valid&quot;, &quot;stride&quot;: 2}' --routine &quot;cpu/fast&quot;  conv2 &quot;shape=1x64x64x128&quot;
+
+---------------------------------
+Statistics
+---------------------------------
+FUNCTION       AVE(usec)  MIN(usec)  MAX(usec)  #CALL
+Dnn_forward()      2,348      2,348      2,348      1
+
+Used memory: 9,924,608 Bytes
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../prof-tune/prof-tune.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Run and Profiling Commands" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Run and Profiling Commands
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../numpy/numpy.html" class="md-footer__link md-footer__link--next" aria-label="Next: numpy Tensor Operation Commands" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              numpy Tensor Operation Commands
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> All Rights Reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>

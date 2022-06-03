@@ -1,0 +1,1636 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://softneuro.morphoinc.com/cli/commands/prof-tune/prof-tune.html">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>Run and Profiling Commands - SoftNeuro&reg; v5.1.0 CLI Tool Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NWCL6GG');</script>
+  <!-- End Google Tag Manager -->
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#run-and-profiling-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+  
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-header__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SoftNeuro&reg; v5.1.0 CLI Tool Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Run and Profiling Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="prof-tune.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="prof-tune.ja.html" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWCL6GG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../c/index.html" class="md-tabs__link">
+      C API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../python/index.html" class="md-tabs__link">
+      Python API (English)
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link md-tabs__link--active">
+        CLI
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="SoftNeuro&amp;reg; v5.1.0 CLI Tool Manual" class="md-nav__button md-logo" aria-label="SoftNeuro&reg; v5.1.0 CLI Tool Manual" data-md-component="logo">
+      
+  <img src="../../images/headicon.svg" alt="logo">
+
+    </a>
+    SoftNeuro&reg; v5.1.0 CLI Tool Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/index.html" class="md-nav__link">
+        C API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/index.html" class="md-nav__link">
+        Python API (English)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CLI Command Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI Command Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-list.html" class="md-nav__link">
+        SoftNeuro command list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/general.html" class="md-nav__link">
+        General Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      <label class="md-nav__link" for="__nav_4_2_3">
+        DNN Operation Commands
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DNN Operation Commands" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          DNN Operation Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/referer.html" class="md-nav__link">
+        Model Information
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/editor.html" class="md-nav__link">
+        Model Editing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn/converter.html" class="md-nav__link">
+        Model Conversion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Run and Profiling Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="prof-tune.html" class="md-nav__link md-nav__link--active">
+        Run and Profiling Commands
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    add
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tune" class="md-nav__link">
+    tune
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer-routine/layer-routine.html" class="md-nav__link">
+        Layer/Routine Operation Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy.html" class="md-nav__link">
+        numpy Tensor Operation Commands
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routine-descriptor.html" class="md-nav__link">
+        Routine Descriptor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    add
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tune" class="md-nav__link">
+    tune
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="run-and-profiling-commands">Run and Profiling Commands<a class="headerlink" href="#run-and-profiling-commands" title="Permanent link">&para;</a></h1>
+<h2 id="run"><strong>run</strong><a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
+<p>Runs inference using the DNN file model.
+It's possible to get inference results and execution times.</p>
+<p><u><strong>Usage</strong></u>  </p>
+<pre><code>usage: softneuro run [-o ONPY]... [-p PASSWORD] [--recipe RECIPE][--batch BATCH]
+                     [--ishape SHAPE] [--keep_img_ar PADDINGCOLOR]
+                     [--img_resize_mode RESIZEMODE] [--thread NTHREADS] [--noboost]
+                     [--affinity MASK[@THREAD_INDICES]]
+                     [-r ROUTINE[@LAYER_INDICES]] [-R RPARAMS[@LAYER_INDICES]] [-nobufopt DEVICE]
+                     [--lib LIB] [-l LNUM] [--detail] [--detail2] [--bylayer]
+                     [-dump DUMPDIR] [-dump2 DUMPRID] [-t NTOPS] [-h]
+                     DNN [INPUT [INPUT ...]]
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN</td>
+<td>DNN file for inference execution.</td>
+</tr>
+<tr>
+<td>INPUT</td>
+<td>Input for inference execution. Can be a numpy file or an image file. If not provided, input will be uniform random numbers from [-1, 1].</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p PASSWORD --pass PASSWORD</td>
+<td>Password to run an encrypted DNN file.</td>
+</tr>
+<tr>
+<td>-o ONPY</td>
+<td>File name to output the inference results as a numpy file.</td>
+</tr>
+<tr>
+<td>--recipe RECIPE</td>
+<td>Set dnn recipe file.　</td>
+</tr>
+<tr>
+<td>--batch BATCH</td>
+<td>Input batch size.</td>
+</tr>
+<tr>
+<td>--ishape SHAPE</td>
+<td>Input shape. (Example: <code>1x224x224x3</code>).</td>
+</tr>
+<tr>
+<td>--keep_img_ar PADDINGCOLOR</td>
+<td>Keeps aspect ratio when resizing input image. The aspect ratio is not kept by default. Margin space is filled with the color specified by PADDINGCOLOR. PADDINGCOLOR can be specified by RGB value, for example, '0, 0, 0'.</td>
+</tr>
+<tr>
+<td>--img_resize_mode RESIZEMODE</td>
+<td>Specifies the resizing mode. 'bilinear' or 'nearest' can be specified. Default is 'bilinear'.</td>
+</tr>
+<tr>
+<td>--thread NTHREADS</td>
+<td>How many threads should be used for execution. Defaults to the number of CPU cores.</td>
+</tr>
+<tr>
+<td>--noboost</td>
+<td>Set threads as cond wait when they're waiting for a task. If this isn't set, threads will be set to busy wait.</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td>Use the affinity mask given by <code>MASK</code> on the threads given by<code>THREAD_INDICES</code>. <br><code>MASK</code> should be a little endian hexadecimal (0x..), binary (0b..), or decimal number. <br>If <code>THREAD_INDICES</code> isn't set all threads will use the given mask. <br>For more information on <code>THREAD_INDICES</code> use the <code>softneuro help thread_indices</code> command.</td>
+</tr>
+<tr>
+<td>-r, --routine ROUTINE[@LAYER_INDICES]</td>
+<td>Set routines to be used. If not set, the usually best available routines will be chosen (e.g. CUDA if there's CUDA support). The default is cpu. <br>If the model is <a href="prof-tune.html#tune">tuned</a> this setting is ignored.    <br>If <code>LAYER_INDICES</code> isn't set all layers in main net will be applied. <br>For more information on <code>LAYER_INDICES</code> use the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+<tr>
+<td>-R RPARAMS[@LAYER_INDICES], --rparams RPARAMS[@LAYER_INDICES]</td>
+<td>Set routine parameters to be used. <br>If the model is <a href="prof-tune.html#tune">tuned</a> this setting is ignored. <br>If <code>LAYER_INDICES</code> isn't set all layers in main net will be applied. <br>For more information on <code>LAYER_INDICES</code> use the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+<tr>
+<td>--nobufopt DEVICE</td>
+<td>Disable the buffer optimizer for routines that run on the given device.</td>
+</tr>
+<tr>
+<td>--lib LIB</td>
+<td>Set an OpenCL binary file when using online compilation.</td>
+</tr>
+<tr>
+<td>-l, --loop LNUM</td>
+<td>Run inference LNUM times for benchmarking.</td>
+</tr>
+<tr>
+<td>--detail</td>
+<td>Show detailed inference statistics.</td>
+</tr>
+<tr>
+<td>--detail2</td>
+<td>Show even more detailed inference statistics. <br>If a layer is made up of other layers this shows the processing times of the internal layers as well.</td>
+</tr>
+<tr>
+<td>--bylayer</td>
+<td>Show detailed inference statistics by layer.</td>
+</tr>
+<tr>
+<td>--dump DUMPDIR</td>
+<td>Dump each layer output as a numpy file in the given folder.</td>
+</tr>
+<tr>
+<td>--dump2 DUMPDIR</td>
+<td>Dump each layer output and internal layer outputs if they exist in the given folder.</td>
+</tr>
+<tr>
+<td>-t, --top NTOPS</td>
+<td>Shows the top TOP scores and labels for image classification models.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u>  </p>
+<pre><code>$ softneuro run densenet121.dnn --thread 8 --affinity 0xf0@0..3 --affinity 0x0f@4..7 --top 5 --loop 10 shovel.jpg
+
+---------------------------------
+Top 5 Labels
+---------------------------------
+#   SCORE  LABEL
+1  0.9999  shovel
+2  0.0001  hatchet
+3  0.0000  broom
+4  0.0000  swab
+5  0.0000  spatula
+
+---------------------------------
+Statistics
+---------------------------------
+FUNCTION       AVE(us)  MIN(us)  MAX(us)  #RUN
+Dnn_load()      43,070   43,070   43,070     1
+Dnn_compile()   28,567   28,567   28,567     1
+Dnn_forward()   39,877   39,751   39,983    10
+
+Used memory: 88,403,968 Bytes
+
+---------------------------------
+Benchmark
+---------------------------------
+preprocess: 81 68 68 69 70 64 71 69 70 68
+main: 39872 39698 39710 39679 39896 39884 39770 39801 39908 39824
+TOTAL: 39955 39767 39778 39749 39968 39949 39842 39873 39981 39894
+</code></pre>
+<p>The inference time is given by <code>Dnn_forward</code>.
+AVE, MIN and MAX are, respectively, the average, minimum and maximum execution times for the number of runs shown under #RUN.</p>
+<h2 id="init"><strong>init</strong><a class="headerlink" href="#init" title="Permanent link">&para;</a></h2>
+<p>Initializes profiling data.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro init [--thread NTHREADS] [--affinity MASK[@THREAD_INDICES]]
+                      [--pass PASSWORD] [--help]
+                      PROF DNN
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>Directory where the profiling data will be initialized.</td>
+</tr>
+<tr>
+<td>DNN</td>
+<td>DNN file to be profiled.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--thread TNUM</td>
+<td>How many threads should be used for execution. Defaults to the number of CPU cores.</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td>Use the affinity mask given by <code>MASK</code> on the threads given by<code>THREAD_INDICES</code>. <br><code>MASK</code> should be a little endian hexadecimal (0x..), binary (0b..), or decimal number. <br>If <code>THREAD_INDICES</code> isn't set all threads will use the given mask. <br>For more information on <code>THREAD_INDICES</code> use the <code>softneuro help thread_indices</code> command.</td>
+</tr>
+<tr>
+<td>--pass PASSWORD</td>
+<td>Password to profile an encrypted DNN file.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+The command creates the mobilnet_prof directory with profiling data.<br />
+<em>※There's no terminal output</em></p>
+<pre><code>$ softneuro init mobilenet_prof mobilenet.dnn
+</code></pre>
+<h2 id="add"><strong>add</strong><a class="headerlink" href="#add" title="Permanent link">&para;</a></h2>
+<p>Configure routines to layers present in the profiling data.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro add [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--help]
+                     PROF [ROUTINE[@LAYER_INDICES]]...
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>Directory containing profiling data.</td>
+</tr>
+<tr>
+<td>ROUTINE[@LAYER_INDICES]</td>
+<td>Set the routine given by <code>ROUTINE</code> to the layers given by <code>LAYER_INDICES</code>. <br>If <code>LAYER_INDICES</code> isn't set, the routine will be set to all layers in the main network. The <code>ROUTINE</code> format can be checked with the <code>softneuro help routine_desc</code> command, and the <code>LAYER_INDICES</code> format can be checked with the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>A DNN file used to create profiling data.</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>The password required to use the prof file.</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>the reference dnn file when profiling a secret dnn.</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD</td>
+<td>the password for REF.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+Set all main network layers to use the <code>cpu:qint8</code> routine, if supported.</p>
+<pre><code>$ softneuro add mobilenet_prof cpu:qint8
+adding routines...done.
+
+$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC  PARAMS
+0  ? (source)
+1  ? (madd)
+2  ? (sink)
+                             ?
+
+    [main]
+ #  NAME                                              ROUTINE        TIME  DESC  PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)                                     cpu:qint8 (9)
+ 2  conv_dw_1 (depthwise_conv2)                       cpu:qint8 (3)
+ 3  conv_pw_1 (conv2)                                 cpu:qint8 (9)
+ 4  conv_dw_2 (depthwise_conv2)                       cpu:qint8 (3)
+ 5  conv_pw_2 (conv2)                                 cpu:qint8 (9)
+ 6  conv_dw_3 (depthwise_conv2)                       cpu:qint8 (3)
+ 7  conv_pw_3 (conv2)                                 cpu:qint8 (9)
+ 8  conv_dw_4 (depthwise_conv2)                       cpu:qint8 (3)
+ 9  conv_pw_4 (conv2)                                 cpu:qint8 (9)
+10  conv_dw_5 (depthwise_conv2)                       cpu:qint8 (3)
+11  conv_pw_5 (conv2)                                 cpu:qint8 (9)
+12  conv_dw_6 (depthwise_conv2)                       cpu:qint8 (3)
+13  conv_pw_6 (conv2)                                 cpu:qint8 (9)
+14  conv_dw_7 (depthwise_conv2)                       cpu:qint8 (3)
+15  conv_pw_7 (conv2)                                 cpu:qint8 (9)
+16  conv_dw_8 (depthwise_conv2)                       cpu:qint8 (3)
+17  conv_pw_8 (conv2)                                 cpu:qint8 (9)
+18  conv_dw_9 (depthwise_conv2)                       cpu:qint8 (3)
+19  conv_pw_9 (conv2)                                 cpu:qint8 (9)
+20  conv_dw_10 (depthwise_conv2)                      cpu:qint8 (3)
+21  conv_pw_10 (conv2)                                cpu:qint8 (9)
+22  conv_dw_11 (depthwise_conv2)                      cpu:qint8 (3)
+23  conv_pw_11 (conv2)                                cpu:qint8 (9)
+24  conv_dw_12 (depthwise_conv2)                      cpu:qint8 (3)
+25  conv_pw_12 (conv2)                                cpu:qint8 (9)
+26  conv_dw_13 (depthwise_conv2)                      cpu:qint8 (3)
+27  conv_pw_13 (conv2)                                cpu:qint8 (9)
+28  global_average_pooling2d_1 (global_average_pool)
+29  reshape_1 (reshape)                               cpu:qint8 (1)
+30  conv_preds (conv2)                                cpu:qint8 (9)
+31  act_softmax (softmax)
+32  reshape_2 (reshape)                               cpu:qint8 (1)
+33  sink_0 (sink)
+                                                                        ?
+
+ROUTINES  cpu:qint8
+TOTAL     ?
+</code></pre>
+<h2 id="rm"><strong>rm</strong><a class="headerlink" href="#rm" title="Permanent link">&para;</a></h2>
+<p>Remove profiling information for the given routine.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro rm [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--help] PROF [ROUTINE@IDS]...
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>Directory containing profiling data.</td>
+</tr>
+<tr>
+<td>ROUTINE[@LAYER_INDICES]</td>
+<td>Set the routine given by <code>ROUTINE</code> to the layers given by <code>LAYER_INDICES</code>. <br>If <code>LAYER_INDICES</code> isn't set, the routine will be set to all layers in the main network. The <code>ROUTINE</code> format can be checked with the <code>softneuro help routine_desc</code> command, and the <code>LAYER_INDICES</code> format can be checked with the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>A DNN file used to create profiling data.</td>
+</tr>
+<tr>
+<td>-p PASSWORD, --pass PASSWORD</td>
+<td>The password required to use the prof file.</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>the reference dnn file when profiling a secret dnn.</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD</td>
+<td>the password for REF.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+Remove all routine settings from mobilenet_prof.</p>
+<pre><code>$ softneuro rm mobilenet_prof
+removing routines...done.
+
+$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC  PARAMS
+0  ? (source)
+1  ? (madd)
+2  ? (sink)
+                             ?
+
+    [main]
+ #  NAME                                              ROUTINE  TIME  DESC  PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)
+ 2  conv_dw_1 (depthwise_conv2)
+ 3  conv_pw_1 (conv2)
+ 4  conv_dw_2 (depthwise_conv2)
+ 5  conv_pw_2 (conv2)
+ 6  conv_dw_3 (depthwise_conv2)
+ 7  conv_pw_3 (conv2)
+ 8  conv_dw_4 (depthwise_conv2)
+ 9  conv_pw_4 (conv2)
+10  conv_dw_5 (depthwise_conv2)
+11  conv_pw_5 (conv2)
+12  conv_dw_6 (depthwise_conv2)
+13  conv_pw_6 (conv2)
+14  conv_dw_7 (depthwise_conv2)
+15  conv_pw_7 (conv2)
+16  conv_dw_8 (depthwise_conv2)
+17  conv_pw_8 (conv2)
+18  conv_dw_9 (depthwise_conv2)
+19  conv_pw_9 (conv2)
+20  conv_dw_10 (depthwise_conv2)
+21  conv_pw_10 (conv2)
+22  conv_dw_11 (depthwise_conv2)
+23  conv_pw_11 (conv2)
+24  conv_dw_12 (depthwise_conv2)
+25  conv_pw_12 (conv2)
+26  conv_dw_13 (depthwise_conv2)
+27  conv_pw_13 (conv2)
+28  global_average_pooling2d_1 (global_average_pool)
+29  reshape_1 (reshape)
+30  conv_preds (conv2)
+31  act_softmax (softmax)
+32  reshape_2 (reshape)
+33  sink_0 (sink)
+                                                                  ?
+
+TOTAL  ?
+                             ?
+
+</code></pre>
+<h2 id="reset"><strong>reset</strong><a class="headerlink" href="#reset" title="Permanent link">&para;</a></h2>
+<p>Resets profiling data to defaults.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro reset [--dnn DNN] [--pass PASSWORD]  [--ref REF] [--ref-pass REF_PASSWORD] [--help]
+                       PROF [ROUTINE@IDS]...
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>Directory containing profiling data.</td>
+</tr>
+<tr>
+<td>ROUTINE[@LAYER_INDICES]</td>
+<td>Set the routine given by <code>ROUTINE</code> to the layers given by <code>LAYER_INDICES</code>. <br>If <code>LAYER_INDICES</code> isn't set, the routine will be set to all layers in the main network. The <code>ROUTINE</code> format can be checked with the <code>softneuro help routine_desc</code> command, and the <code>LAYER_INDICES</code> format can be checked with the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>A DNN file used to create profiling data.</td>
+</tr>
+<tr>
+<td>-p PASSWORD, --pass PASSWORD</td>
+<td>The password required to use the prof file.</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>the reference dnn file when profiling a secret dnn.</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD</td>
+<td>the password for REF.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+Reset the mobilenet_prof profiling data.</p>
+<pre><code>$ softneuro reset mobilenet_prof
+resetting routines...done.
+$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC  PARAMS
+0  ? (source)
+1  ? (madd)      cpu (3)
+2  ? (sink)
+                             ?
+
+    [main]
+ #  NAME                                              ROUTINE   TIME  DESC  PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)                                     cpu (15)
+ 2  conv_dw_1 (depthwise_conv2)                       cpu (3)
+ 3  conv_pw_1 (conv2)                                 cpu (47)
+ 4  conv_dw_2 (depthwise_conv2)                       cpu (3)
+ 5  conv_pw_2 (conv2)                                 cpu (47)
+ 6  conv_dw_3 (depthwise_conv2)                       cpu (3)
+ 7  conv_pw_3 (conv2)                                 cpu (47)
+ 8  conv_dw_4 (depthwise_conv2)                       cpu (3)
+ 9  conv_pw_4 (conv2)                                 cpu (47)
+10  conv_dw_5 (depthwise_conv2)                       cpu (3)
+11  conv_pw_5 (conv2)                                 cpu (47)
+12  conv_dw_6 (depthwise_conv2)                       cpu (3)
+13  conv_pw_6 (conv2)                                 cpu (47)
+14  conv_dw_7 (depthwise_conv2)                       cpu (3)
+15  conv_pw_7 (conv2)                                 cpu (47)
+16  conv_dw_8 (depthwise_conv2)                       cpu (3)
+17  conv_pw_8 (conv2)                                 cpu (47)
+18  conv_dw_9 (depthwise_conv2)                       cpu (3)
+19  conv_pw_9 (conv2)                                 cpu (47)
+20  conv_dw_10 (depthwise_conv2)                      cpu (3)
+21  conv_pw_10 (conv2)                                cpu (47)
+22  conv_dw_11 (depthwise_conv2)                      cpu (3)
+23  conv_pw_11 (conv2)                                cpu (47)
+24  conv_dw_12 (depthwise_conv2)                      cpu (3)
+25  conv_pw_12 (conv2)                                cpu (47)
+26  conv_dw_13 (depthwise_conv2)                      cpu (3)
+27  conv_pw_13 (conv2)                                cpu (47)
+28  global_average_pooling2d_1 (global_average_pool)  cpu (1)
+29  reshape_1 (reshape)                               cpu (1)
+30  conv_preds (conv2)                                cpu (47)
+31  act_softmax (softmax)                             cpu (1)
+32  reshape_2 (reshape)                               cpu (1)
+33  sink_0 (sink)
+                                                                   ?
+
+ROUTINES  cpu
+TOTAL     ?
+</code></pre>
+<h2 id="status"><strong>status</strong><a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
+<p>Show the routines, parameters and measured profiling times for each layer.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro status [--dnn DNN] [--pass PASSWORD] [--ref REF] [--ref-pass REF_PASSWORD] [--at INDEX]
+                        [--estimate MODE] [--csv] [--help]
+                        PROF
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>Directory containing profiling data.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>A DNN file used to create profiling data.</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>The password required to use the encrypted prof file.</td>
+</tr>
+<tr>
+<td>--ref REF</td>
+<td>the reference dnn file when profiling a secret dnn.</td>
+</tr>
+<tr>
+<td>--ref-pass REF_PASSWORD</td>
+<td>the password for REF.</td>
+</tr>
+<tr>
+<td>-@, --at INDEX</td>
+<td>Show only the information for the layer at the given index.</td>
+</tr>
+<tr>
+<td>--estimate MODE</td>
+<td>Execution time estimation mode. Can be <code>robust</code> (default), <code>min</code> or <code>ave</code>.</td>
+</tr>
+<tr>
+<td>--csv</td>
+<td>Output information in CSV format.</td>
+</tr>
+<tr>
+<td>--help</td>
+<td>Show the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+The example information is for after running the <code>profile</code> command to measure execution times.</p>
+<pre><code>$ softneuro status mobilenet_prof
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC     PARAMS
+0  ? (source)
+1  ? (madd)      cpu (3)    28  cpu/avx  {&quot;ops_in_task&quot;:16384}
+2  ? (sink)
+                            28
+
+    [main]
+ #  NAME                                              ROUTINE    TIME  DESC            PARAMS
+ 0  input_1 (source)
+ 1  conv1 (conv2)                                     cpu (15)    213  cpu/owc64_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:131072}
+ 2  conv_dw_1 (depthwise_conv2)                       cpu (3)     110  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+ 3  conv_pw_1 (conv2)                                 cpu (47)    195  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:144}
+ 4  conv_dw_2 (depthwise_conv2)                       cpu (3)      60  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+ 5  conv_pw_2 (conv2)                                 cpu (47)    177  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:72}
+ 6  conv_dw_3 (depthwise_conv2)                       cpu (3)     113  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+ 7  conv_pw_3 (conv2)                                 cpu (47)    328  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:36}
+ 8  conv_dw_4 (depthwise_conv2)                       cpu (3)      40  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+ 9  conv_pw_4 (conv2)                                 cpu (47)    167  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:96}
+10  conv_dw_5 (depthwise_conv2)                       cpu (3)      68  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:131072}
+11  conv_pw_5 (conv2)                                 cpu (47)    320  cpu/m1x1l_avx   {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:96}
+12  conv_dw_6 (depthwise_conv2)                       cpu (3)      23  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+13  conv_pw_6 (conv2)                                 cpu (47)    164  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+14  conv_dw_7 (depthwise_conv2)                       cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+15  conv_pw_7 (conv2)                                 cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+16  conv_dw_8 (depthwise_conv2)                       cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+17  conv_pw_8 (conv2)                                 cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+18  conv_dw_9 (depthwise_conv2)                       cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+19  conv_pw_9 (conv2)                                 cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+20  conv_dw_10 (depthwise_conv2)                      cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+21  conv_pw_10 (conv2)                                cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+22  conv_dw_11 (depthwise_conv2)                      cpu (3)      34  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+23  conv_pw_11 (conv2)                                cpu (47)    313  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+24  conv_dw_12 (depthwise_conv2)                      cpu (3)      14  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:65536}
+25  conv_pw_12 (conv2)                                cpu (47)    169  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:16}
+26  conv_dw_13 (depthwise_conv2)                      cpu (3)      19  cpu/owc32_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+27  conv_pw_13 (conv2)                                cpu (47)    336  cpu/m1x1l2_avx  {&quot;cache&quot;:1048576,&quot;oxynum_in_task&quot;:8}
+28  global_average_pooling2d_1 (global_average_pool)  cpu (1)      13  cpu/naive       {}
+29  reshape_1 (reshape)                               cpu (1)       0  cpu             {}
+30  conv_preds (conv2)                                cpu (47)     23  cpu/owc64_avx   {&quot;cache&quot;:8192,&quot;task_ops&quot;:32768}
+31  act_softmax (softmax)                             cpu (1)      21  cpu/naive       {}
+32  reshape_2 (reshape)                               cpu (1)       0  cpu             {}
+33  sink_0 (sink)
+                                                                4,308
+
+ROUTINES  cpu
+TOTAL     4,336
+
+</code></pre>
+<h2 id="profile"><strong>profile</strong><a class="headerlink" href="#profile" title="Permanent link">&para;</a></h2>
+<p>Run profiling based on profiling data.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro profile [--dnn DNN] [--pass PASSWORD] [--help] PROF
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROF</td>
+<td>Directory containing profiling data.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--dnn DNN</td>
+<td>A DNN file used to create profiling data.</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>The password required to use the encrypted prof file.</td>
+</tr>
+<tr>
+<td>--help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+After using the <code>init</code> command to generate profiling data, the <code>profile</code> command measures execution times and saves the profiling information into the profiling data directory.</p>
+<pre><code>$ softneuro prof mobilenet_prof
+profiling...100.0% [00:01]
+</code></pre>
+<h2 id="tune"><strong>tune</strong><a class="headerlink" href="#tune" title="Permanent link">&para;</a></h2>
+<p>Tune a DNN file for faster inference times.
+If profiling data isn't provided, the command automatically runs profiling.</p>
+<p><u><strong>Usage</strong></u>    </p>
+<pre><code>usage: softneuro tune [--prof PROF] [--recipe RECIPE] [--thread NTHREADS]
+                      [--affinity MASK[@THREAD_INDICES]] [--pass PASSWORD]
+                      [--routine ROUTINE[@IDS]]... [--estimate MODE] [--help]
+                      INPUT OUTPUT
+</code></pre>
+<p><u><strong>Arguments</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INPUT</td>
+<td>DNN file to be tuned.</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td>Output tuned DNN file.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Flags</strong></u>  </p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--prof PROF</td>
+<td>Directory containing profiling data.</td>
+</tr>
+<tr>
+<td>--recipe RECIPE</td>
+<td>Directory containing recipe data.</td>
+</tr>
+<tr>
+<td>--thread NTHREADS</td>
+<td>How many threads to be used on execution. Defaults to the amount of CPU cores.</td>
+</tr>
+<tr>
+<td>--affinity MASK[@THREAD_INDICES]</td>
+<td>Use the affinity mask given by <code>MASK</code> on the threads given by<code>THREAD_INDICES</code>. <br><code>MASK</code> should be a little endian hexadecimal (0x..), binary (0b..), or decimal number. <br>If <code>THREAD_INDICES</code> isn't set all threads will use the given mask. <br>For more information on <code>THREAD_INDICES</code> use the <code>softneuro help thread_indices</code> command.</td>
+</tr>
+<tr>
+<td>-p, --pass PASSWORD</td>
+<td>Password if the DNN file is encrypted.</td>
+</tr>
+<tr>
+<td>-r, --routine ROUTINE[@LAYER_INDICES]</td>
+<td>Set the routine given by <code>ROUTINE</code> to the layers given by <code>LAYER_INDICES</code>. <br>If <code>LAYER_INDICES</code> isn't set, the routine will be set to all layers in the main network. The <code>ROUTINE</code> format can be checked with the <code>softneuro help routine_desc</code> command, and the <code>LAYER_INDICES</code> format can be checked with the <code>softneuro help layer_indices</code> command.</td>
+</tr>
+<tr>
+<td>--estimate MODE</td>
+<td>Execution time estimation mode. Can be <code>robust</code> (default), <code>min</code> or <code>ave</code>.</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td>Shows the command help.</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>Example</strong></u><br />
+After tuning the vgg16_tuned.dnn file will be created.</p>
+<pre><code>$ softneuro tune vgg16.dnn vgg16_tuned.dnn
+adding cpu routines...done.
+profiling...100.0% [00:56] ETA[00:00]
+   [preprocess]
+#  NAME          ROUTINE  TIME  DESC       PARAMS
+0  ? (source)
+1  ? (permute)   cpu (1)   155  cpu/naive  {}
+2  ? (madd)      cpu (3)    29  cpu/avx    {&quot;ops_in_task&quot;:16384}
+3  ? (sink)
+                           184
+
+    [main]
+ #  NAME                           ROUTINE     TIME  DESC           PARAMS
+ 0  input_1 (source)
+ 1  block1_conv1 (conv2)           cpu (67)   1,239  cpu/owc64_avx  {&quot;cache&quot;:8192,&quot;task_ops&quot;:131072}
+  :
+
+TOTAL  59,463
+
+</code></pre>
+<p>Tuning for OpenCL usage:</p>
+<pre><code>$ softneuro tune --routine opencl/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>Tuning for OpenCL(float16) usage:</p>
+<pre><code>$ softneuro tune --routine opencl:float16/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>Tuning for CUDA usage:</p>
+<pre><code>$ softneuro tune --routine cuda/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>Tuning for CUDA(float16) usage:</p>
+<pre><code>$ softneuro tune --routine cuda:float16/fast@2..23 --routine cpu@1,24 vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+<p>Tuning for 8bit quantization mode:</p>
+<pre><code>$ softneuro tune --routine cpu:qint8/fast vgg16.dnn vgg16_tuned.dnn
+profiling..100.0% [01:23] ETR[00:00]
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../dnn/converter.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Conversion" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Model Conversion
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../layer-routine/layer-routine.html" class="md-footer__link md-footer__link--next" aria-label="Next: Layer/Routine Operation Commands" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Layer/Routine Operation Commands
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 <a href=https://www.morphoinc.com/ target="_blank"> Morpho, Inc.</a> All Rights Reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>
